@@ -1,81 +1,119 @@
 /**
  * Halima Fitness Club - Design System Tokens
- * Luxury Dark Emerald & Gold Palette for Premium Wellness & Lifestyle Coaching
+ * Calm, Premium Online Wellness Aesthetic
+ * 
+ * Palette:
+ * - Primary: Deep Wellness Green (#0D4A38)
+ * - Secondary: Soft Sage/Green (#E8F5EE / #D1FAE5)
+ * - Accent: Warm Orange / Terracotta (#E06A3B / #F97316)
+ * - Backgrounds: Clean Off-White / Alabaster (#FBFDFB / #F3F7F4 / #FFFFFF)
+ * - Typography: Dark Charcoal (#111827 / #1E293B)
  */
 
 :root {
-  /* Color Palette - Backgrounds */
-  --color-bg-main: #061611;
-  --color-bg-surface: #0A221B;
-  --color-bg-surface-elevated: #0F2E25;
-  --color-bg-surface-glass: rgba(10, 34, 27, 0.82);
-  --color-bg-surface-hover: #13392E;
+  /* ==========================================================================
+     Color Palette - Brand Primaries & Accents
+     ========================================================================== */
+  
+  /* Primary: Deep Wellness Green */
+  --color-primary-950: #041F16;
+  --color-primary-900: #072F22;
+  --color-primary-800: #0A3C2D;
+  --color-primary-700: #0D4A38;  /* Canonical Deep Wellness Green */
+  --color-primary-600: #125E48;
+  --color-primary-500: #17785D;
+  --color-primary-400: #22A07D;
+  --color-primary-300: #48C5A2;
+  --color-primary-200: #88DEC6;
+  --color-primary-100: #C2F0E2;
+  --color-primary-50:  #E8F7F2;
 
-  /* Color Palette - Emerald / Brand Primary */
-  --color-primary-900: #04140E;
-  --color-primary-800: #062217;
-  --color-primary-700: #0A3525;
-  --color-primary-600: #0E4833;
-  --color-primary-500: #10B981;
-  --color-primary-400: #34D399;
-  --color-primary-300: #6EE7B7;
-  --color-primary-100: #D1FAE5;
-  --color-primary-gradient: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  /* Secondary: Soft Sage & Mint */
+  --color-secondary-soft: #E8F5EE;
+  --color-secondary-bg: #F0FDF4;
+  --color-secondary-border: #C8E6D6;
+  --color-secondary-text: #0D4A38;
 
-  /* Color Palette - Warm Gold / Luxury Accents */
-  --color-gold-600: #B89225;
-  --color-gold-500: #D4AF37;
-  --color-gold-400: #E5C358;
-  --color-gold-300: #F3DC87;
-  --color-gold-100: #FEF9E7;
-  --color-gold-gradient: linear-gradient(135deg, #F3DC87 0%, #D4AF37 50%, #B89225 100%);
-  --color-gold-glow: rgba(212, 175, 55, 0.25);
+  /* Accent: Warm Orange / Terracotta (Conversion & Highlights) */
+  --color-accent-900: #7C2D12;
+  --color-accent-800: #9A3412;
+  --color-accent-700: #C2410C;
+  --color-accent-600: #D9531E;
+  --color-accent-500: #E06A3B;  /* Canonical Warm Orange */
+  --color-accent-400: #FB923C;
+  --color-accent-300: #FDBA74;
+  --color-accent-200: #FED7AA;
+  --color-accent-100: #FFEDD5;
+  --color-accent-50:  #FFF7ED;
 
-  /* Color Palette - Typography */
-  --color-text-main: #F8FAFC;
-  --color-text-secondary: #E2E8F0;
-  --color-text-muted: #94A3B8;
-  --color-text-subtle: #64748B;
-  --color-text-inverse: #061611;
+  /* Background Colors - Clean, Bright, Calming */
+  --color-bg-main: #FBFDFB;
+  --color-bg-subtle: #F3F7F4;
+  --color-bg-surface: #FFFFFF;
+  --color-bg-card: #FFFFFF;
+  --color-bg-surface-elevated: #FFFFFF;
+  --color-bg-dark-wellness: #0A2F24; /* Used for footer & premium dark contrast blocks */
 
-  /* Color Palette - Borders & Lines */
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-subtle: rgba(255, 255, 255, 0.04);
-  --color-border-hover: rgba(212, 175, 55, 0.35);
-  --color-border-focus: #10B981;
+  /* Text Hierarchy - Accessible High Contrast */
+  --color-text-main: #111827;       /* Dark Charcoal - Primary Headings & Body */
+  --color-text-secondary: #374151;  /* Slate Charcoal - Body & Descriptions */
+  --color-text-muted: #6B7280;      /* Muted Slate - Captions & Subtitles */
+  --color-text-subtle: #9CA3AF;     /* Subtle Text - Footnotes & Dates */
+  --color-text-inverse: #FFFFFF;    /* White text for dark surfaces */
+  --color-text-inverse-muted: #D1FAE5;
 
-  /* Color Palette - Status & Placeholder Indicators */
-  --color-placeholder-bg: rgba(245, 158, 11, 0.12);
-  --color-placeholder-text: #FBBF24;
-  --color-placeholder-border: rgba(245, 158, 11, 0.35);
+  /* Borders & Dividers */
+  --color-border: #E5EAE7;
+  --color-border-subtle: #F0F4F1;
+  --color-border-hover: #C5D8CF;
+  --color-border-focus: #0D4A38;
+  --color-border-accent: rgba(224, 106, 59, 0.4);
 
-  --color-success-bg: rgba(16, 185, 129, 0.15);
-  --color-success-text: #34D399;
-  --color-success-border: rgba(16, 185, 129, 0.3);
+  /* Status Indicators */
+  --color-success-bg: #ECFDF5;
+  --color-success-text: #065F46;
+  --color-success-border: #A7F3D0;
 
-  /* Typography System */
+  --color-warning-bg: #FFFBEB;
+  --color-warning-text: #92400E;
+  --color-warning-border: #FDE68A;
+
+  --color-error-bg: #FEF2F2;
+  --color-error-text: #991B1B;
+  --color-error-border: #FECACA;
+
+  /* Placeholder System */
+  --color-placeholder-bg: #FFF7ED;
+  --color-placeholder-text: #C2410C;
+  --color-placeholder-border: #FDBA74;
+
+  /* ==========================================================================
+     Typography System
+     ========================================================================== */
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-heading: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  --font-hindi: 'Rozha One', 'Noto Sans Devanagari', serif;
+  --font-hindi: 'Noto Sans Devanagari', 'Rozha One', serif;
 
-  /* Fluid Typography Scale */
-  --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.8125rem);
-  --text-sm: clamp(0.875rem, 0.825rem + 0.25vw, 0.9375rem);
-  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.0625rem);
-  --text-lg: clamp(1.125rem, 1.05rem + 0.35vw, 1.25rem);
+  /* Fluid Typography Scale (Mobile to Desktop) */
+  --text-xs: clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);
+  --text-sm: clamp(0.875rem, 0.84rem + 0.2vw, 0.9375rem);
+  --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  --text-lg: clamp(1.125rem, 1.06rem + 0.3vw, 1.25rem);
   --text-xl: clamp(1.25rem, 1.15rem + 0.5vw, 1.45rem);
-  --text-2xl: clamp(1.5rem, 1.35rem + 0.75vw, 1.85rem);
-  --text-3xl: clamp(1.875rem, 1.65rem + 1.1vw, 2.35rem);
-  --text-4xl: clamp(2.25rem, 1.95rem + 1.5vw, 3rem);
-  --text-5xl: clamp(2.75rem, 2.35rem + 2vw, 3.85rem);
+  --text-2xl: clamp(1.5rem, 1.35rem + 0.75vw, 1.75rem);
+  --text-3xl: clamp(1.85rem, 1.65rem + 1vw, 2.25rem);
+  --text-4xl: clamp(2.25rem, 1.95rem + 1.5vw, 2.85rem);
+  --text-5xl: clamp(2.65rem, 2.25rem + 2vw, 3.5rem);
 
   /* Line Heights */
-  --leading-tight: 1.15;
-  --leading-snug: 1.3;
-  --leading-normal: 1.5;
-  --leading-relaxed: 1.65;
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: 1.55;
+  --leading-relaxed: 1.7;
 
-  /* Spacing Scale */
+  /* ==========================================================================
+     Layout & Spacing
+     ========================================================================== */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -90,42 +128,36 @@
   --space-24: 6rem;
   --space-32: 8rem;
 
-  /* Container Widths */
-  --container-narrow: 768px;
-  --container-max: 1200px;
-  --container-wide: 1360px;
+  /* Containers */
+  --container-narrow: 760px;
+  --container-max: 1180px;
+  --container-wide: 1280px;
   --container-padding: clamp(1.25rem, 4vw, 2.5rem);
 
-  /* Border Radii */
+  /* Controlled Card & Element Radii (Clean, not excessively pillowy) */
   --radius-xs: 4px;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 18px;
-  --radius-xl: 24px;
-  --radius-2xl: 32px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-2xl: 24px;
   --radius-full: 9999px;
 
-  /* Shadows & Depth */
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35);
-  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.45);
-  --shadow-glow-emerald: 0 0 30px rgba(16, 185, 129, 0.18);
-  --shadow-glow-gold: 0 0 25px rgba(212, 175, 55, 0.2);
+  /* Natural Soft Shadows */
+  --shadow-xs: 0 1px 2px rgba(13, 74, 56, 0.04);
+  --shadow-sm: 0 2px 4px rgba(13, 74, 56, 0.06), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 4px 12px rgba(13, 74, 56, 0.08), 0 2px 4px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 12px 28px rgba(13, 74, 56, 0.1), 0 4px 10px rgba(0, 0, 0, 0.03);
+  --shadow-wellness: 0 10px 30px rgba(13, 74, 56, 0.07);
 
   /* Transitions & Motion */
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-smooth: 350ms cubic-bezier(0.16, 1, 0.3, 1);
-
-  /* Backdrop Filters */
-  --backdrop-blur-sm: blur(8px);
-  --backdrop-blur-md: blur(16px);
-  --backdrop-blur-lg: blur(24px);
+  --transition-base: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 320ms cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Z-Index Layers */
   --z-base: 1;
-  --z-dropdown: 50;
   --z-sticky: 100;
+  --z-dropdown: 200;
   --z-modal: 500;
-  --z-toast: 1000;
 }

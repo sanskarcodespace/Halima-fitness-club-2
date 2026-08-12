@@ -1,7 +1,7 @@
 import React from 'react';
 import { cn } from '../../../utils/cn';
 
-export type BadgeVariant = 'emerald' | 'gold' | 'neutral' | 'placeholder';
+export type BadgeVariant = 'primary' | 'secondary' | 'accent' | 'orange' | 'emerald' | 'gold' | 'neutral' | 'placeholder';
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   variant?: BadgeVariant;

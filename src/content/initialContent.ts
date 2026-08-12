@@ -10,15 +10,16 @@ import type { SiteContent } from './types';
 export const INITIAL_CONTENT: SiteContent = {
   hero: {
     badgeText: 'Online Health & Wellness Coaching',
-    headline: 'Transform Your Health, Nutrition & Lifestyle with Dedicated Coaching',
+    headline: 'Transform Your Health. Transform Your Life.',
     subheadline:
-      'Personalized nutrition guidance, sustainable workout support, and consistent follow-up directly with Coach Halima Sadiya.',
-    primaryCtaText: 'Start Your Consultation',
-    secondaryCtaText: 'Explore Coaching Programs',
+      'Personalized online fitness, nutrition and wellness guidance designed to support healthier habits and a stronger lifestyle.',
+    primaryCtaText: 'Book Free Consultation',
+    secondaryCtaText: 'Explore Programs',
+    tertiaryCtaText: 'WhatsApp Us',
     keyHighlights: [
       { label: '6+ Years', sublabel: 'Coaching Experience' },
-      { label: '100% Online', sublabel: 'Personalized Guidance' },
-      { label: 'Regular Follow-up', sublabel: 'Accountability & Support' }
+      { label: 'Certified', sublabel: 'Health & Wellness Coach' },
+      { label: '100% Online', sublabel: 'Personalized Guidance' }
     ]
   },
 
@@ -53,6 +54,103 @@ export const INITIAL_CONTENT: SiteContent = {
     scopeNotice:
       'Note: Halima Fitness Club is a 100% online wellness and lifestyle coaching service. It does not operate a physical gym or gym membership facility.'
   },
+
+  services: [
+    {
+      id: 'srv-weight-loss',
+      anchorId: 'service-weight-loss',
+      name: 'Weight Loss Coaching',
+      targetAudience: 'Individuals seeking safe, sustainable weight reduction',
+      description: 'Personalized caloric and nutritional guidance combined with structured home workouts to foster steady, sustainable fat loss without extreme starvation diets.',
+      supportIncludes: ['Custom daily meal structures', 'Low-impact home workout plan', 'Weekly virtual progress reviews'],
+      icon: 'lifestyle',
+      badge: 'Popular'
+    },
+    {
+      id: 'srv-weight-gain',
+      anchorId: 'service-weight-gain',
+      name: 'Weight Gain Coaching',
+      targetAudience: 'Individuals looking to build healthy body mass',
+      description: 'Structured high-nutrient meal plans and progressive strength guidance focused on lean muscle development and healthy caloric surplus management.',
+      supportIncludes: ['Nutrient-dense meal blueprints', 'Progressive home strength routines', 'Body composition tracking'],
+      icon: 'fitness'
+    },
+    {
+      id: 'srv-nutrition',
+      anchorId: 'service-nutrition',
+      name: 'Online Nutrition Coaching',
+      targetAudience: 'Busy professionals & homemakers needing dietary balance',
+      description: 'Comprehensive nutritional coaching focusing on balanced macronutrients, portion control, grocery selection, and mindful eating habits suited to your lifestyle.',
+      supportIncludes: ['Personalized macronutrient guidance', 'Family-friendly meal planning', 'Daily nutrition logging review'],
+      icon: 'nutrition',
+      badge: 'Essential'
+    },
+    {
+      id: 'srv-fitness',
+      anchorId: 'service-fitness',
+      name: 'Online Fitness Coaching',
+      targetAudience: 'Anyone seeking guided, effective home workouts',
+      description: 'Custom exercise routines tailored to your baseline fitness level, space, and schedule. Includes video form guidance and low-impact movement modifications.',
+      supportIncludes: ['Tailored home workout calendar', 'Movement form check via video', 'Mobility & stretching protocols'],
+      icon: 'fitness'
+    },
+    {
+      id: 'srv-diet-guidance',
+      anchorId: 'service-diet-guidance',
+      name: 'Personalized Diet Guidance',
+      targetAudience: 'Individuals with specific dietary preferences',
+      description: 'Custom meal recommendations designed around your preferred cuisine, daily schedule, and metabolic goals without restrictive culinary extremes.',
+      supportIncludes: ['Tailored meal options & recipes', 'Hydration & digestion optimization', 'Schedule-aligned eating timing'],
+      icon: 'nutrition'
+    },
+    {
+      id: 'srv-21-day-challenge',
+      anchorId: 'service-21-day-challenge',
+      name: '21 Days Weight Loss Challenge',
+      targetAudience: 'Anyone needing a structured kickstart sprint',
+      description: 'A focused 21-day structured kickstart program designed to build strong morning routines, daily hydration habits, consistent movement, and clean eating momentum.',
+      supportIncludes: ['21-day structured habit checklist', 'Daily accountability prompts', 'Kickstart meal & workout blueprint'],
+      icon: 'sparkles',
+      badge: 'Featured'
+    },
+    {
+      id: 'srv-lifestyle-wellness',
+      anchorId: 'service-lifestyle-wellness',
+      name: 'Lifestyle & Wellness Coaching',
+      targetAudience: 'Those managing stress, low energy, or irregular sleep',
+      description: 'Holistic lifestyle coaching addressing sleep quality, daily stress reduction, circadian hydration routines, and mindful vitality practices for balanced living.',
+      supportIncludes: ['Sleep hygiene protocol', 'Stress & energy management tools', 'Daily wellness routine design'],
+      icon: 'lifestyle'
+    },
+    {
+      id: 'srv-online-classes',
+      anchorId: 'service-online-classes',
+      name: 'Online Diet & Fitness Classes',
+      targetAudience: 'Group learners wanting interactive guidance',
+      description: 'Live interactive virtual group sessions and workshops covering mindful nutrition concepts, meal preparation strategies, guided stretching, and group workouts.',
+      supportIncludes: ['Live virtual group sessions', 'Interactive Q&A with Coach Halima', 'Session summaries & takeaways'],
+      icon: 'user'
+    },
+    {
+      id: 'srv-weight-mgmt',
+      anchorId: 'service-weight-mgmt',
+      name: 'Weight Management Program',
+      targetAudience: 'Clients seeking long-term weight maintenance',
+      description: 'Long-term nutritional balance and lifestyle stabilization coaching designed to lock in healthy habits and prevent weight rebound over years.',
+      supportIncludes: ['Sustainable maintenance macros', 'Long-term lifestyle habits checklist', 'Bi-weekly virtual follow-up'],
+      icon: 'award'
+    },
+    {
+      id: 'srv-personal-health',
+      anchorId: 'service-personal-health',
+      name: 'Personal Health Coaching',
+      targetAudience: 'Individuals wanting comprehensive 1-on-1 support',
+      description: 'All-inclusive personalized virtual wellness coaching combining custom nutrition, progressive exercise support, daily habit tracking, and direct 1-on-1 check-ins.',
+      supportIncludes: ['Dedicated 1-on-1 virtual sessions', 'Complete nutrition & fitness roadmap', 'Priority message support & follow-up'],
+      icon: 'sparkles',
+      badge: 'Comprehensive'
+    }
+  ],
 
   programs: [
     {

@@ -23,28 +23,34 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({
 }) => {
   return (
     <Card
-      variant="glass"
       className={className}
       style={{
-        padding: 'clamp(2rem, 5vw, 3.5rem)',
+        padding: 'clamp(2.5rem, 5vw, 3.5rem)',
         textAlign: 'center',
         position: 'relative',
-        border: '1px solid rgba(212, 175, 55, 0.3)',
-        boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(16, 185, 129, 0.15)'
+        backgroundColor: '#0D4A38',
+        borderColor: '#125E48',
+        boxShadow: 'var(--shadow-wellness)',
+        color: '#FFFFFF'
       }}
     >
-      <div style={{ maxWidth: '760px', marginInline: 'auto' }} className="stack stack-lg">
+      <div style={{ maxWidth: '720px', marginInline: 'auto' }} className="stack stack-lg">
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <Badge variant="gold" icon={<Icon name="sparkles" size={14} />}>
-            100% Online Coaching • Direct Access
+          <Badge
+            variant="accent"
+            icon={<Icon name="sparkles" size={14} />}
+            style={{ backgroundColor: 'rgba(255, 247, 237, 0.95)' }}
+          >
+            100% Online Coaching • Direct Guidance
           </Badge>
         </div>
 
         <h3
           style={{
             fontSize: 'var(--text-3xl)',
-            fontWeight: 800,
-            lineHeight: 'var(--leading-tight)'
+            fontWeight: 700,
+            lineHeight: 'var(--leading-tight)',
+            color: '#FFFFFF'
           }}
         >
           {title}
@@ -53,7 +59,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({
         <p
           style={{
             fontSize: 'var(--text-base)',
-            color: 'var(--color-text-secondary)',
+            color: '#E8F5EE',
             lineHeight: 'var(--leading-relaxed)'
           }}
         >
@@ -65,7 +71,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({
           style={{ justifyContent: 'center', gap: '1rem', marginTop: '0.5rem' }}
         >
           <Button
-            variant="gold"
+            variant="accent"
             size="lg"
             href={CTA_CONFIG.primary.href}
             rightIcon={<Icon name="arrow-right" size={18} />}
@@ -73,7 +79,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({
             {primaryCtaText}
           </Button>
           <Button
-            variant="outline"
+            variant="secondary"
             size="lg"
             href={BUSINESS_CONFIG.instagram.url}
             isExternal
@@ -86,7 +92,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({
         <div
           style={{
             fontSize: 'var(--text-xs)',
-            color: 'var(--color-text-subtle)',
+            color: '#A7F3D0',
             marginTop: '0.5rem'
           }}
         >

@@ -13,11 +13,11 @@ export const Footer: React.FC = () => {
   return (
     <footer
       style={{
-        backgroundColor: '#04120D',
+        backgroundColor: '#072F22',
         borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-        paddingTop: 'clamp(3.5rem, 6vw, 5rem)',
+        paddingTop: 'clamp(3.5rem, 6vw, 4.5rem)',
         paddingBottom: '2.5rem',
-        color: 'var(--color-text-secondary)',
+        color: '#E2E8F0',
         position: 'relative'
       }}
     >
@@ -27,33 +27,33 @@ export const Footer: React.FC = () => {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: 'clamp(2rem, 4vw, 3.5rem)',
-            marginBottom: '3.5rem'
+            gap: 'clamp(2rem, 4vw, 3rem)',
+            marginBottom: '3rem'
           }}
         >
           {/* Column 1: Brand & Positioning */}
           <div style={{ gridColumn: 'span 1', maxWidth: '380px' }} className="stack stack-md">
-            <BrandLogo size="md" showTagline />
+            <BrandLogo size="md" theme="dark" showTagline />
 
             <p
               style={{
                 fontSize: 'var(--text-sm)',
-                color: 'var(--color-text-muted)',
+                color: '#CBD5E1',
                 lineHeight: 'var(--leading-relaxed)',
-                marginTop: '0.75rem'
+                marginTop: '0.5rem'
               }}
             >
               {BUSINESS_CONFIG.positioning}
             </p>
 
-            <div style={{ marginTop: '0.5rem' }}>
-              <Badge variant="emerald" icon={<Icon name="shield" size={14} />}>
+            <div>
+              <Badge variant="primary" icon={<Icon name="shield" size={14} />}>
                 {BUSINESS_CONFIG.scopeNotice}
               </Badge>
             </div>
 
             {/* Social & Contact Direct Links */}
-            <div className="cluster cluster-sm" style={{ marginTop: '1rem' }}>
+            <div className="cluster cluster-sm" style={{ marginTop: '0.5rem' }}>
               <a
                 href={BUSINESS_CONFIG.instagram.url}
                 target="_blank"
@@ -62,13 +62,14 @@ export const Footer: React.FC = () => {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.5rem',
+                  gap: '0.45rem',
                   padding: '0.45rem 0.85rem',
                   borderRadius: 'var(--radius-full)',
-                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid var(--color-border)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
                   fontSize: 'var(--text-xs)',
-                  color: 'var(--color-text-main)'
+                  color: '#FFFFFF',
+                  fontWeight: 500
                 }}
               >
                 <Icon name="instagram" size={16} />
@@ -81,13 +82,14 @@ export const Footer: React.FC = () => {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.5rem',
+                  gap: '0.45rem',
                   padding: '0.45rem 0.85rem',
                   borderRadius: 'var(--radius-full)',
-                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid var(--color-border)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
                   fontSize: 'var(--text-xs)',
-                  color: 'var(--color-text-main)'
+                  color: '#FFFFFF',
+                  fontWeight: 500
                 }}
               >
                 <Icon name="mail" size={16} />
@@ -105,13 +107,13 @@ export const Footer: React.FC = () => {
                   fontWeight: 700,
                   color: '#FFFFFF',
                   textTransform: 'uppercase',
-                  letterSpacing: '0.05em',
-                  marginBottom: '0.5rem'
+                  letterSpacing: '0.04em',
+                  marginBottom: '0.35rem'
                 }}
               >
                 {group.title}
               </h4>
-              <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+              <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
                 {group.links.map((link) => (
                   <li key={link.label}>
                     {link.isPlaceholder ? (
@@ -123,11 +125,11 @@ export const Footer: React.FC = () => {
                         rel={link.isExternal ? 'noopener noreferrer' : undefined}
                         style={{
                           fontSize: 'var(--text-sm)',
-                          color: 'var(--color-text-muted)',
+                          color: '#CBD5E1',
                           transition: 'color var(--transition-fast)'
                         }}
-                        onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-primary-400)')}
-                        onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-text-muted)')}
+                        onMouseEnter={(e) => (e.currentTarget.style.color = '#6EE7B7')}
+                        onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
                       >
                         {link.label}
                       </a>
@@ -142,28 +144,28 @@ export const Footer: React.FC = () => {
         {/* Disclaimer Box */}
         <div
           style={{
-            padding: '1.25rem 1.5rem',
-            borderRadius: 'var(--radius-lg)',
-            backgroundColor: 'rgba(6, 22, 17, 0.6)',
-            border: '1px solid var(--color-border)',
-            marginBottom: '2.5rem'
+            padding: '1.15rem 1.35rem',
+            borderRadius: 'var(--radius-md)',
+            backgroundColor: 'rgba(4, 31, 22, 0.7)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            marginBottom: '2rem'
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem' }}>
             <Icon
               name="alert"
               size={18}
-              style={{ color: 'var(--color-gold-400)', flexShrink: 0, marginTop: '2px' }}
+              style={{ color: 'var(--color-accent-400)', flexShrink: 0, marginTop: '2px' }}
             />
             <p
               style={{
                 fontSize: 'var(--text-xs)',
-                color: 'var(--color-text-muted)',
+                color: '#CBD5E1',
                 lineHeight: 'var(--leading-normal)',
                 margin: 0
               }}
             >
-              <strong>Health & Wellness Notice: </strong>
+              <strong style={{ color: '#FFFFFF' }}>Health & Wellness Notice: </strong>
               {BUSINESS_CONFIG.disclaimers.coachingDisclaimer}
             </p>
           </div>
@@ -177,10 +179,10 @@ export const Footer: React.FC = () => {
             alignItems: 'center',
             justifyContent: 'space-between',
             gap: '1rem',
-            paddingTop: '1.5rem',
-            borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+            paddingTop: '1.25rem',
+            borderTop: '1px solid rgba(255, 255, 255, 0.08)',
             fontSize: 'var(--text-xs)',
-            color: 'var(--color-text-subtle)'
+            color: '#94A3B8'
           }}
         >
           <div>

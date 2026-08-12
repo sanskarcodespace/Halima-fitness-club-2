@@ -9,6 +9,7 @@ export interface HeroSectionContent {
   subheadline: string;
   primaryCtaText: string;
   secondaryCtaText: string;
+  tertiaryCtaText?: string;
   keyHighlights: {
     label: string;
     sublabel: string;
@@ -26,6 +27,17 @@ export interface AboutSectionContent {
     description: string;
   }[];
   scopeNotice: string;
+}
+
+export interface ServiceItem {
+  id: string;
+  anchorId: string;
+  name: string;
+  targetAudience: string;
+  description: string;
+  supportIncludes: string[];
+  icon: 'nutrition' | 'fitness' | 'lifestyle' | 'sparkles' | 'user' | 'award' | 'clock';
+  badge?: string;
 }
 
 export interface ProgramItem {
@@ -82,6 +94,7 @@ export interface ContactSectionContent {
 export interface SiteContent {
   hero: HeroSectionContent;
   about: AboutSectionContent;
+  services: ServiceItem[];
   programs: ProgramItem[];
   methodology: MethodologyStep[];
   faq: FaqItem[];

@@ -6,6 +6,7 @@ export interface BrandLogoProps {
   showHindi?: boolean;
   showTagline?: boolean;
   size?: 'sm' | 'md' | 'lg';
+  theme?: 'light' | 'dark';
   className?: string;
 }
 
@@ -13,8 +14,11 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
   showHindi = true,
   showTagline = false,
   size = 'md',
+  theme = 'light',
   className
 }) => {
+  const isDark = theme === 'dark';
+
   return (
     <a
       href="#home"
@@ -31,12 +35,12 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
       <div
         className="brand-emblem"
         style={{
-          width: size === 'sm' ? '36px' : size === 'lg' ? '52px' : '44px',
-          height: size === 'sm' ? '36px' : size === 'lg' ? '52px' : '44px',
-          borderRadius: '12px',
-          background: 'linear-gradient(135deg, #10B981 0%, #064E3B 100%)',
-          border: '1px solid rgba(212, 175, 55, 0.4)',
-          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.35), 0 0 15px rgba(16, 185, 129, 0.25)',
+          width: size === 'sm' ? '36px' : size === 'lg' ? '50px' : '42px',
+          height: size === 'sm' ? '36px' : size === 'lg' ? '50px' : '42px',
+          borderRadius: 'var(--radius-md)',
+          backgroundColor: '#0D4A38',
+          border: '1px solid rgba(224, 106, 59, 0.3)',
+          boxShadow: '0 2px 8px rgba(13, 74, 56, 0.2)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -47,10 +51,8 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
           style={{
             fontFamily: 'var(--font-heading)',
             fontWeight: 800,
-            fontSize: size === 'sm' ? '1rem' : size === 'lg' ? '1.45rem' : '1.2rem',
-            background: 'var(--color-gold-gradient)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
+            fontSize: size === 'sm' ? '1.05rem' : size === 'lg' ? '1.45rem' : '1.25rem',
+            color: '#FFFFFF',
             lineHeight: 1
           }}
         >
@@ -60,14 +62,14 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
 
       {/* Brand Typography */}
       <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.15 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
           <span
             style={{
               fontFamily: 'var(--font-heading)',
               fontWeight: 800,
-              fontSize: size === 'sm' ? '1rem' : size === 'lg' ? '1.35rem' : '1.15rem',
+              fontSize: size === 'sm' ? '1rem' : size === 'lg' ? '1.3rem' : '1.15rem',
               letterSpacing: '-0.02em',
-              color: '#FFFFFF'
+              color: isDark ? '#FFFFFF' : 'var(--color-primary-800)'
             }}
           >
             HALIMA
@@ -75,10 +77,10 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
           <span
             style={{
               fontFamily: 'var(--font-heading)',
-              fontWeight: 600,
-              fontSize: size === 'sm' ? '0.85rem' : size === 'lg' ? '1.15rem' : '0.95rem',
-              color: 'var(--color-gold-400)',
-              letterSpacing: '0.04em'
+              fontWeight: 700,
+              fontSize: size === 'sm' ? '0.85rem' : size === 'lg' ? '1.1rem' : '0.95rem',
+              color: isDark ? 'var(--color-accent-400)' : 'var(--color-accent-600)',
+              letterSpacing: '0.03em'
             }}
           >
             FITNESS CLUB
@@ -89,10 +91,10 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
           <span
             className="font-hindi"
             style={{
-              fontSize: size === 'sm' ? '0.7rem' : size === 'lg' ? '0.85rem' : '0.75rem',
-              color: 'var(--color-text-muted)',
+              fontSize: size === 'sm' ? '0.72rem' : size === 'lg' ? '0.85rem' : '0.78rem',
+              color: isDark ? 'rgba(255, 255, 255, 0.7)' : 'var(--color-text-muted)',
               marginTop: '2px',
-              letterSpacing: '0.02em'
+              fontWeight: 500
             }}
           >
             {BUSINESS_CONFIG.hindiName}
@@ -103,8 +105,8 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
           <span
             style={{
               fontSize: '0.75rem',
-              color: 'var(--color-text-subtle)',
-              marginTop: '4px'
+              color: isDark ? 'rgba(255, 255, 255, 0.6)' : 'var(--color-text-subtle)',
+              marginTop: '3px'
             }}
           >
             {BUSINESS_CONFIG.coach.title} • {BUSINESS_CONFIG.coach.experience} Exp.

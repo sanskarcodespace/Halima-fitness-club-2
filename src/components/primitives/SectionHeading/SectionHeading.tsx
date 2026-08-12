@@ -1,10 +1,10 @@
 import React from 'react';
 import { cn } from '../../../utils/cn';
-import { Badge } from '../Badge/Badge';
+import { Badge, type BadgeVariant } from '../Badge/Badge';
 
 export interface SectionHeadingProps {
   eyebrow?: string;
-  eyebrowVariant?: 'emerald' | 'gold' | 'neutral';
+  eyebrowVariant?: BadgeVariant;
   title: React.ReactNode;
   subtitle?: React.ReactNode;
   align?: 'center' | 'left';
@@ -13,7 +13,7 @@ export interface SectionHeadingProps {
 
 export const SectionHeading: React.FC<SectionHeadingProps> = ({
   eyebrow,
-  eyebrowVariant = 'emerald',
+  eyebrowVariant = 'primary',
   title,
   subtitle,
   align = 'center',

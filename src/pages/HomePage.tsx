@@ -3,7 +3,6 @@ import { SectionWrapper } from '../components/layout/SectionWrapper/SectionWrapp
 import { SectionHeading } from '../components/primitives/SectionHeading/SectionHeading';
 import { Button } from '../components/primitives/Button/Button';
 import { Card } from '../components/primitives/Card/Card';
-import { Badge } from '../components/primitives/Badge/Badge';
 import { Accordion } from '../components/primitives/Accordion/Accordion';
 import { Input, Textarea } from '../components/primitives/FormControl/FormControl';
 import { Icon } from '../components/primitives/Icon/Icon';
@@ -12,6 +11,21 @@ import { CtaBanner } from '../components/shared/CtaBanner/CtaBanner';
 import { BUSINESS_CONFIG } from '../config/business.config';
 import { SECTION_IDS, CTA_CONFIG } from '../config/navigation.config';
 import { INITIAL_CONTENT } from '../content/initialContent';
+
+import { HeroSection } from '../components/sections/HeroSection/HeroSection';
+import { TrustSection } from '../components/sections/TrustSection/TrustSection';
+import { AboutSection } from '../components/sections/AboutSection/AboutSection';
+import { ServicesSection } from '../components/sections/ServicesSection/ServicesSection';
+import { ProgramFinderSection } from '../components/sections/ProgramFinderSection/ProgramFinderSection';
+import { DetailedProgramsSection } from '../components/sections/DetailedProgramsSection/DetailedProgramsSection';
+import { OnlineClassesSection } from '../components/sections/OnlineClassesSection/OnlineClassesSection';
+import { ClassScheduleSection } from '../components/sections/ClassScheduleSection/ClassScheduleSection';
+import { ChallengeSection } from '../components/sections/ChallengeSection/ChallengeSection';
+import { HowItWorksSection } from '../components/sections/HowItWorksSection/HowItWorksSection';
+import { WhyChooseUsSection } from '../components/sections/WhyChooseUsSection/WhyChooseUsSection';
+import { SuccessStoriesSection } from '../components/sections/SuccessStoriesSection/SuccessStoriesSection';
+import { TestimonialsSection } from '../components/sections/TestimonialsSection/TestimonialsSection';
+import { ConsultationCtaSection } from '../components/sections/ConsultationCtaSection/ConsultationCtaSection';
 
 export const HomePage: React.FC = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -32,397 +46,90 @@ export const HomePage: React.FC = () => {
   return (
     <main id="main-content" style={{ display: 'flex', flexDirection: 'column' }}>
       {/* =========================================================================
-          SECTION 1: HERO SECTION
+          SECTION 1: HOME / HERO SECTION
           ========================================================================= */}
-      <SectionWrapper
-        id={SECTION_IDS.HOME}
-        background="subtle"
-        padding="hero"
-        containerSize="wide"
-      >
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr',
-            gap: '3rem',
-            alignItems: 'center',
-            minHeight: 'calc(80vh - 80px)'
-          }}
-          className="hero-grid"
-        >
-          <div className="stack stack-lg" style={{ maxWidth: '780px' }}>
-            {/* Positioning Eyebrow */}
-            <div className="cluster cluster-sm">
-              <Badge variant="emerald" icon={<Icon name="sparkles" size={14} />}>
-                {INITIAL_CONTENT.hero.badgeText}
-              </Badge>
-              <Badge variant="gold" icon={<Icon name="shield" size={14} />}>
-                {BUSINESS_CONFIG.coach.experience} Experience
-              </Badge>
-            </div>
+      <HeroSection />
 
-            {/* Main Headline */}
-            <h1
-              style={{
-                fontSize: 'var(--text-5xl)',
-                fontWeight: 800,
-                letterSpacing: '-0.03em',
-                lineHeight: 1.12
-              }}
-            >
-              Transform Your Health, <span className="text-gradient-gold">Nutrition</span> &amp; Lifestyle with{' '}
-              <span className="text-gradient-emerald">Dedicated Coaching</span>
-            </h1>
-
-            {/* Subheadline & Coach Attribution */}
-            <p
-              style={{
-                fontSize: 'var(--text-xl)',
-                color: 'var(--color-text-secondary)',
-                lineHeight: 'var(--leading-relaxed)',
-                maxWidth: '680px'
-              }}
-            >
-              {INITIAL_CONTENT.hero.subheadline}
-            </p>
-
-            {/* CTA Triggers */}
-            <div className="cluster" style={{ gap: '1rem', marginTop: '0.5rem' }}>
-              <Button
-                variant="gold"
-                size="lg"
-                href={CTA_CONFIG.primary.href}
-                rightIcon={<Icon name="arrow-right" size={18} />}
-              >
-                {INITIAL_CONTENT.hero.primaryCtaText}
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                href={CTA_CONFIG.secondary.href}
-                rightIcon={<Icon name="chevron-down" size={18} />}
-              >
-                {INITIAL_CONTENT.hero.secondaryCtaText}
-              </Button>
-            </div>
-
-            {/* Key Highlight Metrics / Badges */}
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-                gap: '1rem',
-                marginTop: '1.5rem',
-                paddingTop: '1.5rem',
-                borderTop: '1px solid rgba(255, 255, 255, 0.08)'
-              }}
-            >
-              {INITIAL_CONTENT.hero.keyHighlights.map((stat) => (
-                <div key={stat.label} className="stack stack-sm">
-                  <span
-                    style={{
-                      fontFamily: 'var(--font-heading)',
-                      fontSize: 'var(--text-2xl)',
-                      fontWeight: 800,
-                      color: 'var(--color-primary-400)'
-                    }}
-                  >
-                    {stat.label}
-                  </span>
-                  <span
-                    style={{
-                      fontSize: 'var(--text-xs)',
-                      color: 'var(--color-text-muted)',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.04em'
-                    }}
-                  >
-                    {stat.sublabel}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </SectionWrapper>
+      {/* =========================================================================
+          EVIDENCE-BASED TRUST / STATISTICS SECTION
+          ========================================================================= */}
+      <TrustSection />
 
       {/* =========================================================================
           SECTION 2: ABOUT COACH SECTION
           ========================================================================= */}
-      <SectionWrapper
-        id={SECTION_IDS.ABOUT}
-        background="surface"
-        padding="standard"
-        containerSize="wide"
-      >
-        <SectionHeading
-          eyebrow={INITIAL_CONTENT.about.eyebrow}
-          title={
-            <>
-              Guidance Led By{' '}
-              <span className="text-gradient-gold">{BUSINESS_CONFIG.coach.name}</span>
-            </>
-          }
-          subtitle={`${BUSINESS_CONFIG.coach.title} • ${BUSINESS_CONFIG.coach.experience} Experience`}
-          align="center"
-        />
-
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '2rem',
-            marginBottom: '3rem'
-          }}
-        >
-          {/* Coach Bio Card */}
-          <Card variant="glass" className="stack stack-md">
-            <div className="cluster cluster-sm">
-              <Badge variant="gold" icon={<Icon name="award" size={14} />}>
-                {BUSINESS_CONFIG.coach.title}
-              </Badge>
-              <Badge variant="neutral">{BUSINESS_CONFIG.coach.experience} Experience</Badge>
-            </div>
-
-            <div className="stack stack-sm">
-              {INITIAL_CONTENT.about.bioParagraphs.map((para, idx) => (
-                <p key={idx} style={{ fontSize: 'var(--text-base)', lineHeight: 'var(--leading-relaxed)' }}>
-                  {para}
-                </p>
-              ))}
-            </div>
-
-            <div
-              style={{
-                padding: '1rem',
-                borderRadius: 'var(--radius-md)',
-                backgroundColor: 'rgba(16, 185, 129, 0.08)',
-                border: '1px solid rgba(16, 185, 129, 0.2)',
-                fontSize: 'var(--text-xs)',
-                color: 'var(--color-primary-300)'
-              }}
-            >
-              <strong>Online Focus:</strong> {INITIAL_CONTENT.about.scopeNotice}
-            </div>
-          </Card>
-
-          {/* 4 Coaching Pillars Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem' }}>
-            {INITIAL_CONTENT.about.pillars.map((pillar, idx) => (
-              <Card key={idx} variant="elevated" interactive className="stack stack-sm">
-                <div
-                  style={{
-                    width: '38px',
-                    height: '38px',
-                    borderRadius: '10px',
-                    backgroundColor: 'rgba(16, 185, 129, 0.12)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'var(--color-primary-400)'
-                  }}
-                >
-                  <Icon
-                    name={
-                      idx === 0
-                        ? 'nutrition'
-                        : idx === 1
-                        ? 'fitness'
-                        : idx === 2
-                        ? 'clock'
-                        : 'lifestyle'
-                    }
-                    size={20}
-                  />
-                </div>
-                <h4 style={{ fontSize: 'var(--text-lg)', fontWeight: 700 }}>{pillar.title}</h4>
-                <p style={{ fontSize: 'var(--text-sm)', color: 'var(--color-text-muted)', margin: 0 }}>
-                  {pillar.description}
-                </p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </SectionWrapper>
+      <AboutSection />
 
       {/* =========================================================================
-          SECTION 3: PROGRAMS & SERVICES SECTION
+          SECTION 3: PROGRAMS & SERVICES OVERVIEW
           ========================================================================= */}
-      <SectionWrapper
-        id={SECTION_IDS.SERVICES}
-        background="main"
-        padding="standard"
-        containerSize="wide"
-      >
-        <SectionHeading
-          eyebrow="Coaching Programs"
-          title={
-            <>
-              Personalized Online <span className="text-gradient-emerald">Coaching Programs</span>
-            </>
-          }
-          subtitle="Designed to build sustainable daily habits, practical nutrition clarity, and consistent progress."
-          align="center"
-        />
-
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '2rem'
-          }}
-        >
-          {INITIAL_CONTENT.programs.map((program) => (
-            <Card
-              key={program.id}
-              variant="elevated"
-              interactive
-              className="stack stack-md"
-              style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
-            >
-              <div className="stack stack-md">
-                <div className="split">
-                  {program.badge && <Badge variant="gold">{program.badge}</Badge>}
-                  <Badge variant="neutral">Online</Badge>
-                </div>
-
-                <div className="stack stack-xs">
-                  <h3 style={{ fontSize: 'var(--text-2xl)', fontWeight: 700 }}>{program.title}</h3>
-                  <span style={{ fontSize: 'var(--text-sm)', color: 'var(--color-gold-400)', fontWeight: 600 }}>
-                    {program.tagline}
-                  </span>
-                </div>
-
-                <p style={{ fontSize: 'var(--text-sm)', color: 'var(--color-text-secondary)' }}>
-                  {program.description}
-                </p>
-
-                <div className="stack stack-xs">
-                  <span style={{ fontSize: 'var(--text-xs)', fontWeight: 700, textTransform: 'uppercase', color: 'var(--color-text-muted)' }}>
-                    What's Included:
-                  </span>
-                  <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                    {program.features.map((feat, fIdx) => (
-                      <li key={fIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: 'var(--text-sm)' }}>
-                        <Icon name="check" size={16} style={{ color: 'var(--color-primary-400)', flexShrink: 0, marginTop: '3px' }} />
-                        <span>{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {/* Safe Pricing Placeholder Display */}
-              <div
-                style={{
-                  marginTop: '1.5rem',
-                  paddingTop: '1.25rem',
-                  borderTop: '1px solid var(--color-border)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '1rem'
-                }}
-              >
-                <div className="split">
-                  <span style={{ fontSize: 'var(--text-xs)', color: 'var(--color-text-muted)' }}>Program Investment:</span>
-                  <PlaceholderShield value={program.pricing} />
-                </div>
-
-                <Button
-                  variant="primary"
-                  size="md"
-                  fullWidth
-                  href={CTA_CONFIG.primary.href}
-                  rightIcon={<Icon name="arrow-right" size={16} />}
-                >
-                  Inquire for Program
-                </Button>
-              </div>
-            </Card>
-          ))}
-        </div>
-      </SectionWrapper>
+      <ServicesSection />
 
       {/* =========================================================================
-          SECTION 4: METHODOLOGY / HOW IT WORKS
+          INTERACTIVE GOAL-BASED PROGRAM FINDER
           ========================================================================= */}
-      <SectionWrapper
-        id={SECTION_IDS.METHODOLOGY}
-        background="surface"
-        padding="standard"
-        containerSize="wide"
-      >
-        <SectionHeading
-          eyebrow="Coaching Process"
-          title={
-            <>
-              How The Online Coaching <span className="text-gradient-gold">Roadmap Works</span>
-            </>
-          }
-          subtitle="A structured, supportive 4-step framework from initial consultation to long-term habit consistency."
-          align="center"
-        />
-
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: '1.5rem'
-          }}
-        >
-          {INITIAL_CONTENT.methodology.map((step) => (
-            <Card key={step.stepNumber} variant="elevated" className="stack stack-md">
-              <div className="split">
-                <span
-                  style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: 'var(--text-3xl)',
-                    fontWeight: 800,
-                    color: 'var(--color-primary-400)'
-                  }}
-                >
-                  {step.stepNumber}
-                </span>
-                <Badge variant="neutral">Step {step.stepNumber}</Badge>
-              </div>
-
-              <h4 style={{ fontSize: 'var(--text-lg)', fontWeight: 700 }}>{step.title}</h4>
-              <p style={{ fontSize: 'var(--text-sm)', color: 'var(--color-text-secondary)', lineHeight: 'var(--leading-normal)' }}>
-                {step.description}
-              </p>
-
-              <div className="stack stack-xs" style={{ marginTop: 'auto' }}>
-                <span style={{ fontSize: 'var(--text-xs)', fontWeight: 600, color: 'var(--color-text-muted)' }}>
-                  Deliverables:
-                </span>
-                <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-                  {step.keyDeliverables.map((deliv, dIdx) => (
-                    <li key={dIdx} style={{ fontSize: 'var(--text-xs)', color: 'var(--color-text-secondary)', display: 'flex', gap: '0.4rem' }}>
-                      <span style={{ color: 'var(--color-gold-400)' }}>•</span>
-                      <span>{deliv}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Card>
-          ))}
-        </div>
-      </SectionWrapper>
+      <ProgramFinderSection />
 
       {/* =========================================================================
-          SECTION 5: FAQ SECTION
+          DETAILED PROGRAM BREAKDOWNS (ALL 10 PROGRAMS)
+          ========================================================================= */}
+      <DetailedProgramsSection />
+
+      {/* =========================================================================
+          SECTION 4: ONLINE CLASSES SECTION (ZOOM LIVE COACHING)
+          ========================================================================= */}
+      <OnlineClassesSection />
+
+      {/* =========================================================================
+          MORNING AND EVENING CLASS SCHEDULE
+          ========================================================================= */}
+      <ClassScheduleSection />
+
+      {/* =========================================================================
+          FEATURED 21 DAYS WEIGHT LOSS CHALLENGE SPRINT
+          ========================================================================= */}
+      <ChallengeSection />
+
+      {/* =========================================================================
+          HOW IT WORKS (4-STEP ONLINE COACHING JOURNEY)
+          ========================================================================= */}
+      <HowItWorksSection />
+
+      {/* =========================================================================
+          WHY CHOOSE HALIMA FITNESS CLUB (8 GROUNDED DIFFERENTIATORS)
+          ========================================================================= */}
+      <WhyChooseUsSection />
+
+      {/* =========================================================================
+          SECTION 5: SUCCESS STORIES (ETHICAL EDITORIAL JOURNEYS)
+          ========================================================================= */}
+      <SuccessStoriesSection />
+
+      {/* =========================================================================
+          SECTION 6: TESTIMONIALS SECTION (AUTHENTIC FEEDBACK READY)
+          ========================================================================= */}
+      <TestimonialsSection />
+
+      {/* =========================================================================
+          HIGH-CONVERSION FREE CONSULTATION CTA
+          ========================================================================= */}
+      <ConsultationCtaSection />
+
+      {/* =========================================================================
+          SECTION 7: FAQ SECTION
           ========================================================================= */}
       <SectionWrapper
         id={SECTION_IDS.FAQ}
-        background="main"
+        background="subtle"
         padding="standard"
         containerSize="narrow"
       >
         <SectionHeading
           eyebrow="Frequently Asked Questions"
+          eyebrowVariant="primary"
           title={
             <>
-              Got Questions? <span className="text-gradient-emerald">We Have Answers</span>
+              Got Questions? <span className="text-primary-green">We Have Answers</span>
             </>
           }
           subtitle="Everything you need to know about Coach Halima's online coaching framework."
@@ -436,7 +143,7 @@ export const HomePage: React.FC = () => {
       </SectionWrapper>
 
       {/* =========================================================================
-          SECTION 6: CONTACT & CONSULTATION
+          SECTION 8: CONTACT & CONSULTATION
           ========================================================================= */}
       <SectionWrapper
         id={SECTION_IDS.CONTACT}
@@ -446,10 +153,11 @@ export const HomePage: React.FC = () => {
       >
         <SectionHeading
           eyebrow={INITIAL_CONTENT.contact.eyebrow}
+          eyebrowVariant="accent"
           title={
             <>
-              Start Your Consultation with{' '}
-              <span className="text-gradient-gold">{BUSINESS_CONFIG.coach.name}</span>
+              Book Your Free Consultation with{' '}
+              <span className="text-accent-orange">{BUSINESS_CONFIG.coach.name}</span>
             </>
           }
           subtitle={INITIAL_CONTENT.contact.subheading}
@@ -465,10 +173,10 @@ export const HomePage: React.FC = () => {
         >
           {/* Direct Verified Contact Channels */}
           <div className="stack stack-lg">
-            <Card variant="glass" className="stack stack-md">
+            <Card variant="surface" className="stack stack-md">
               <h3 style={{ fontSize: 'var(--text-xl)', fontWeight: 700 }}>Direct Contact Channels</h3>
               <p style={{ fontSize: 'var(--text-sm)', color: 'var(--color-text-secondary)' }}>
-                Reach out directly via email or Instagram to discuss custom coaching availability.
+                Reach out directly via email or Instagram to discuss online coaching availability and custom goals.
               </p>
 
               {/* Email Contact Card */}
@@ -480,7 +188,7 @@ export const HomePage: React.FC = () => {
                   gap: '1rem',
                   padding: '1rem',
                   borderRadius: 'var(--radius-md)',
-                  backgroundColor: 'var(--color-bg-surface-elevated)',
+                  backgroundColor: 'var(--color-bg-subtle)',
                   border: '1px solid var(--color-border)',
                   textDecoration: 'none'
                 }}
@@ -489,12 +197,12 @@ export const HomePage: React.FC = () => {
                   style={{
                     width: '42px',
                     height: '42px',
-                    borderRadius: '10px',
-                    backgroundColor: 'rgba(16, 185, 129, 0.15)',
+                    borderRadius: '8px',
+                    backgroundColor: 'var(--color-secondary-soft)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: 'var(--color-primary-400)',
+                    color: 'var(--color-primary-700)',
                     flexShrink: 0
                   }}
                 >
@@ -519,7 +227,7 @@ export const HomePage: React.FC = () => {
                   gap: '1rem',
                   padding: '1rem',
                   borderRadius: 'var(--radius-md)',
-                  backgroundColor: 'var(--color-bg-surface-elevated)',
+                  backgroundColor: 'var(--color-bg-subtle)',
                   border: '1px solid var(--color-border)',
                   textDecoration: 'none'
                 }}
@@ -528,12 +236,12 @@ export const HomePage: React.FC = () => {
                   style={{
                     width: '42px',
                     height: '42px',
-                    borderRadius: '10px',
-                    backgroundColor: 'rgba(212, 175, 55, 0.15)',
+                    borderRadius: '8px',
+                    backgroundColor: 'var(--color-accent-50)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: 'var(--color-gold-400)',
+                    color: 'var(--color-accent-600)',
                     flexShrink: 0
                   }}
                 >
@@ -552,8 +260,8 @@ export const HomePage: React.FC = () => {
                 style={{
                   padding: '1rem',
                   borderRadius: 'var(--radius-md)',
-                  backgroundColor: 'rgba(245, 158, 11, 0.08)',
-                  border: '1px dashed rgba(245, 158, 11, 0.3)',
+                  backgroundColor: 'var(--color-placeholder-bg)',
+                  border: '1px dashed var(--color-placeholder-border)',
                   display: 'flex',
                   flexDirection: 'column',
                   gap: '0.5rem'
@@ -573,25 +281,26 @@ export const HomePage: React.FC = () => {
             </Card>
           </div>
 
-          {/* Consultation Request Form Control Scaffold */}
-          <Card variant="glass">
+          {/* Consultation Request Form Control */}
+          <Card variant="surface">
             <form onSubmit={handleFormSubmit} className="stack stack-md">
               <h3 style={{ fontSize: 'var(--text-xl)', fontWeight: 700 }}>
-                Request Consultation
+                Book Free Consultation
               </h3>
 
               {formSubmitted && (
                 <div
                   style={{
-                    padding: '1rem',
+                    padding: '0.85rem 1rem',
                     borderRadius: 'var(--radius-md)',
-                    backgroundColor: 'rgba(16, 185, 129, 0.2)',
-                    border: '1px solid var(--color-primary-400)',
-                    color: '#FFFFFF',
-                    fontSize: 'var(--text-sm)'
+                    backgroundColor: 'var(--color-success-bg)',
+                    border: '1px solid var(--color-success-border)',
+                    color: 'var(--color-success-text)',
+                    fontSize: 'var(--text-sm)',
+                    fontWeight: 500
                   }}
                 >
-                  Thank you! Your inquiry has been received. Coach Halima will get back to you via email.
+                  Thank you! Your consultation request has been received. Coach Halima will get back to you directly.
                 </div>
               )}
 
@@ -610,23 +319,23 @@ export const HomePage: React.FC = () => {
 
               <Input
                 label={INITIAL_CONTENT.contact.formFields.goalLabel}
-                placeholder="e.g. Daily nutrition, workout consistency, energy"
+                placeholder="e.g. Sustainable nutrition, routine consistency"
               />
 
               <Textarea
                 label={INITIAL_CONTENT.contact.formFields.messageLabel}
-                placeholder="Tell Coach Halima about your current fitness and nutrition habits..."
-                rows={4}
+                placeholder="Tell Coach Halima about your current routine & wellness goals..."
+                rows={3}
               />
 
               <Button
                 type="submit"
-                variant="gold"
+                variant="accent"
                 size="lg"
                 fullWidth
                 rightIcon={<Icon name="arrow-right" size={18} />}
               >
-                {INITIAL_CONTENT.contact.formFields.submitLabel}
+                {CTA_CONFIG.primary.label}
               </Button>
             </form>
           </Card>
@@ -634,10 +343,10 @@ export const HomePage: React.FC = () => {
       </SectionWrapper>
 
       {/* =========================================================================
-          REUSABLE CTA BANNER SCAFFOLD
+          REUSABLE CONVERSION CTA BANNER
           ========================================================================= */}
       <SectionWrapper background="main" padding="standard" containerSize="wide">
-        <CtaBanner />
+        <CtaBanner primaryCtaText={CTA_CONFIG.primary.label} />
       </SectionWrapper>
     </main>
   );
