@@ -5,14 +5,12 @@ import { Badge } from '../../primitives/Badge/Badge';
 import { Card } from '../../primitives/Card/Card';
 import { Icon } from '../../primitives/Icon/Icon';
 import { ImagePlaceholder } from '../../primitives/ImagePlaceholder/ImagePlaceholder';
-import { PlaceholderShield } from '../../shared/PlaceholderShield/PlaceholderShield';
+import { WhatsAppButton } from '../../shared/WhatsAppButton/WhatsAppButton';
 import { BUSINESS_CONFIG } from '../../../config/business.config';
 import { SECTION_IDS, CTA_CONFIG } from '../../../config/navigation.config';
 import { INITIAL_CONTENT } from '../../../content/initialContent';
-import { isPlaceholder } from '../../../content/placeholders';
 
 export const HeroSection: React.FC = () => {
-  const isWhatsappConfigured = !isPlaceholder(BUSINESS_CONFIG.contactPlaceholders.whatsapp);
 
   return (
     <SectionWrapper
@@ -73,45 +71,13 @@ export const HeroSection: React.FC = () => {
             </Button>
 
             {/* Tier 3: Tertiary Action (WhatsApp Us) */}
-            {isWhatsappConfigured ? (
-              <Button
-                variant="secondary"
-                size="lg"
-                href={`https://wa.me/${BUSINESS_CONFIG.contactPlaceholders.whatsapp.replace(/\D/g, '')}`}
-                isExternal
-                leftIcon={<Icon name="message" size={18} />}
-                className="hero-btn-tertiary"
-              >
-                {INITIAL_CONTENT.hero.tertiaryCtaText || 'WhatsApp Us'}
-              </Button>
-            ) : (
-              <div
-                className="hero-whatsapp-placeholder"
-                title="WhatsApp support will connect here once configured"
-              >
-                <div
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '0.5rem',
-                    padding: '0.75rem 1.15rem',
-                    borderRadius: 'var(--radius-full)',
-                    backgroundColor: 'var(--color-secondary-soft)',
-                    border: '1px solid var(--color-secondary-border)',
-                    fontSize: 'var(--text-sm)',
-                    fontWeight: 600,
-                    color: 'var(--color-primary-800)'
-                  }}
-                >
-                  <Icon name="message" size={18} style={{ color: 'var(--color-primary-700)' }} />
-                  <span>WhatsApp Us:</span>
-                  <PlaceholderShield
-                    value={BUSINESS_CONFIG.contactPlaceholders.whatsapp}
-                    fallbackText="[WHATSAPP NUMBER REQUIRED]"
-                  />
-                </div>
-              </div>
-            )}
+            <WhatsAppButton
+              messageKey="consultation"
+              variant="outline"
+              size="lg"
+              label="WhatsApp Us"
+              className="hero-btn-tertiary"
+            />
           </div>
 
           {/* Verified Supporting Trust Cues */}

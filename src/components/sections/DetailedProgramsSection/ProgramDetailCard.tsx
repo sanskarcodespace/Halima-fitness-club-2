@@ -4,10 +4,8 @@ import { Badge } from '../../primitives/Badge/Badge';
 import { Button } from '../../primitives/Button/Button';
 import { Icon } from '../../primitives/Icon/Icon';
 import { ImagePlaceholder } from '../../primitives/ImagePlaceholder/ImagePlaceholder';
-import { PlaceholderShield } from '../../shared/PlaceholderShield/PlaceholderShield';
-import { BUSINESS_CONFIG } from '../../../config/business.config';
+import { WhatsAppButton } from '../../shared/WhatsAppButton/WhatsAppButton';
 import { CTA_CONFIG } from '../../../config/navigation.config';
-import { isPlaceholder } from '../../../content/placeholders';
 
 export interface DetailedProgramData {
   id: string;
@@ -36,8 +34,6 @@ export const ProgramDetailCard: React.FC<ProgramDetailCardProps> = ({
   program,
   reverseLayout = false
 }) => {
-  const isWhatsappConfigured = !isPlaceholder(BUSINESS_CONFIG.contactPlaceholders.whatsapp);
-
   return (
     <Card
       id={program.anchorId}
@@ -134,33 +130,26 @@ export const ProgramDetailCard: React.FC<ProgramDetailCardProps> = ({
 
           {/* WhatsApp Secondary or Class Option */}
           {program.isClassRelated ? (
-            <Button
+            <WhatsAppButton
+              messageKey="classes"
               variant="outline"
               size="md"
-              href="#classes"
-              rightIcon={<Icon name="chevron-down" size={16} />}
-            >
-              Explore Class Schedule
-            </Button>
-          ) : isWhatsappConfigured ? (
-            <Button
+              label="WhatsApp: Join Classes"
+            />
+          ) : program.id === 'det-weight-loss' ? (
+            <WhatsAppButton
+              messageKey="weightLoss"
               variant="outline"
               size="md"
-              href={`https://wa.me/${BUSINESS_CONFIG.contactPlaceholders.whatsapp.replace(/\D/g, '')}`}
-              isExternal
-              leftIcon={<Icon name="message" size={16} />}
-            >
-              WhatsApp Us
-            </Button>
+              label="WhatsApp: Weight Loss"
+            />
           ) : (
-            <div className="whatsapp-notice-shield">
-              <Icon name="message" size={14} style={{ color: 'var(--color-primary-700)' }} />
-              <span>WhatsApp:</span>
-              <PlaceholderShield
-                value={BUSINESS_CONFIG.contactPlaceholders.whatsapp}
-                fallbackText="[WHATSAPP NUMBER REQUIRED]"
-              />
-            </div>
+            <WhatsAppButton
+              customMessage={`Hi Coach Halima, I am interested in ${program.title}.`}
+              variant="outline"
+              size="md"
+              label="WhatsApp Us"
+            />
           )}
         </div>
       </div>

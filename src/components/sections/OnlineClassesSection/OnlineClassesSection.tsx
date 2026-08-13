@@ -6,13 +6,10 @@ import { Button } from '../../primitives/Button/Button';
 import { Badge } from '../../primitives/Badge/Badge';
 import { Icon } from '../../primitives/Icon/Icon';
 import { ImagePlaceholder } from '../../primitives/ImagePlaceholder/ImagePlaceholder';
-import { PlaceholderShield } from '../../shared/PlaceholderShield/PlaceholderShield';
-import { BUSINESS_CONFIG } from '../../../config/business.config';
+import { WhatsAppButton } from '../../shared/WhatsAppButton/WhatsAppButton';
 import { SECTION_IDS, CTA_CONFIG } from '../../../config/navigation.config';
-import { isPlaceholder } from '../../../content/placeholders';
 
 export const OnlineClassesSection: React.FC = () => {
-  const isWhatsappConfigured = !isPlaceholder(BUSINESS_CONFIG.contactPlaceholders.whatsapp);
 
   const classKeyFacts = [
     {
@@ -206,26 +203,12 @@ export const OnlineClassesSection: React.FC = () => {
             </Button>
 
             {/* Tertiary Action: WhatsApp Us */}
-            {isWhatsappConfigured ? (
-              <Button
-                variant="outline"
-                size="lg"
-                href={`https://wa.me/${BUSINESS_CONFIG.contactPlaceholders.whatsapp.replace(/\D/g, '')}`}
-                isExternal
-                leftIcon={<Icon name="message" size={18} />}
-              >
-                WhatsApp Us
-              </Button>
-            ) : (
-              <div className="classes-whatsapp-badge">
-                <Icon name="message" size={15} style={{ color: 'var(--color-primary-700)' }} />
-                <span>WhatsApp:</span>
-                <PlaceholderShield
-                  value={BUSINESS_CONFIG.contactPlaceholders.whatsapp}
-                  fallbackText="[WHATSAPP NUMBER REQUIRED]"
-                />
-              </div>
-            )}
+            <WhatsAppButton
+              messageKey="classes"
+              variant="outline"
+              size="lg"
+              label="WhatsApp Us"
+            />
           </div>
         </div>
       </div>

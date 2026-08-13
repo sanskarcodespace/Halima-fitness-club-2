@@ -3,6 +3,7 @@ import { SectionWrapper } from '../../layout/SectionWrapper/SectionWrapper';
 import { Button } from '../../primitives/Button/Button';
 import { Badge } from '../../primitives/Badge/Badge';
 import { Icon } from '../../primitives/Icon/Icon';
+import { WhatsAppButton } from '../../shared/WhatsAppButton/WhatsAppButton';
 import { BUSINESS_CONFIG } from '../../../config/business.config';
 import { CTA_CONFIG } from '../../../config/navigation.config';
 
@@ -79,15 +80,13 @@ export const ConsultationCtaSection: React.FC<ConsultationCtaSectionProps> = ({
               Book Free Consultation
             </Button>
 
-            <Button
+            <WhatsAppButton
+              messageKey="consultation"
               variant="outline"
               size="lg"
-              href="#contact"
-              rightIcon={<Icon name="message" size={18} />}
+              label="WhatsApp Us"
               className="consultation-whatsapp-btn"
-            >
-              WhatsApp Us
-            </Button>
+            />
           </div>
 
           {/* Direct Email Link Footer */}
