@@ -420,6 +420,7 @@
   background-color: var(--color-secondary-soft);
   position: relative;
   box-shadow: var(--shadow-sm);
+  contain: layout paint;
 }
 
 .image-placeholder {

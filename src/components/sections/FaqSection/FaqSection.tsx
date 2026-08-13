@@ -3,7 +3,6 @@ import { SectionWrapper } from '../../layout/SectionWrapper/SectionWrapper';
 import { SectionHeading } from '../../primitives/SectionHeading/SectionHeading';
 import { Card } from '../../primitives/Card/Card';
 import { Button } from '../../primitives/Button/Button';
-import { Badge } from '../../primitives/Badge/Badge';
 import { Icon } from '../../primitives/Icon/Icon';
 import { PlaceholderNotice } from '../../primitives/PlaceholderNotice/PlaceholderNotice';
 import { BUSINESS_CONFIG } from '../../../config/business.config';
@@ -288,7 +287,7 @@ export const FaqSection: React.FC = () => {
                   className="search-clear-btn"
                   aria-label="Clear search"
                 >
-                  <Icon name="close" size={14} />
+                  <Icon name="x" size={14} />
                 </button>
               )}
             </div>

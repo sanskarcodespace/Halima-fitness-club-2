@@ -13,10 +13,12 @@ import { DetailedProgramsSection } from '../components/sections/DetailedPrograms
 import { OnlineClassesSection } from '../components/sections/OnlineClassesSection/OnlineClassesSection';
 import { ClassScheduleSection } from '../components/sections/ClassScheduleSection/ClassScheduleSection';
 import { ChallengeSection } from '../components/sections/ChallengeSection/ChallengeSection';
+import { WellnessToolsSection } from '../components/sections/WellnessToolsSection/WellnessToolsSection';
 import { HowItWorksSection } from '../components/sections/HowItWorksSection/HowItWorksSection';
 import { WhyChooseUsSection } from '../components/sections/WhyChooseUsSection/WhyChooseUsSection';
 import { SuccessStoriesSection } from '../components/sections/SuccessStoriesSection/SuccessStoriesSection';
 import { TestimonialsSection } from '../components/sections/TestimonialsSection/TestimonialsSection';
+import { BlogSection } from '../components/sections/BlogSection/BlogSection';
 import { ConsultationCtaSection } from '../components/sections/ConsultationCtaSection/ConsultationCtaSection';
 import { FaqSection } from '../components/sections/FaqSection/FaqSection';
 import { ContactSection } from '../components/sections/ContactSection/ContactSection';
@@ -71,6 +73,11 @@ export const HomePage: React.FC = () => {
       <ChallengeSection />
 
       {/* =========================================================================
+          INTERACTIVE WELLNESS TOOLS & BMI SCREENING (EDUCATIONAL & NON-MEDICAL)
+          ========================================================================= */}
+      <WellnessToolsSection />
+
+      {/* =========================================================================
           HOW IT WORKS (4-STEP ONLINE COACHING JOURNEY)
           ========================================================================= */}
       <HowItWorksSection />
@@ -89,6 +96,11 @@ export const HomePage: React.FC = () => {
           SECTION 6: TESTIMONIALS SECTION (AUTHENTIC FEEDBACK READY)
           ========================================================================= */}
       <TestimonialsSection />
+
+      {/* =========================================================================
+          HEALTH & WELLNESS TIPS / EDUCATIONAL BLOG SECTION
+          ========================================================================= */}
+      <BlogSection />
 
       {/* =========================================================================
           HIGH-CONVERSION FREE CONSULTATION CTA
