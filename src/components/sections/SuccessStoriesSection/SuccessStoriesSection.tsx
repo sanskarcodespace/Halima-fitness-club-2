@@ -1,39 +1,33 @@
 import React from 'react';
 import { SectionWrapper } from '../../layout/SectionWrapper/SectionWrapper';
 import { SectionHeading } from '../../primitives/SectionHeading/SectionHeading';
-import { Card } from '../../primitives/Card/Card';
 import { Button } from '../../primitives/Button/Button';
-import { Badge } from '../../primitives/Badge/Badge';
 import { Icon } from '../../primitives/Icon/Icon';
 import { SECTION_IDS, CTA_CONFIG } from '../../../config/navigation.config';
 
-// Real client transformation data — provided by client, used with consent
-// Disclaimer is displayed on each card per ethical and legal requirements
-const REAL_TRANSFORMATIONS = [
+// Real transformation data — shared with consent by @sadiya_fitcoach
+const TRANSFORMATIONS = [
   {
-    id: 'r1',
-    imageSrc: '/images/result-client1.png',
-    imageAlt: 'Client wellness transformation — before and after weight management coaching at Halima Fitness Club',
+    id: 't1',
+    src: '/images/result-client1.png',
+    alt: 'Client before-and-after transformation — weight loss coaching with Coach Halima Sadiya',
     result: '10 kg lost in 2 months',
-    program: 'Weight Loss Coaching',
-    source: '@sadiya_fitcoach'
+    label: 'Weight Loss Coaching',
   },
   {
-    id: 'r2',
-    imageSrc: '/images/result-client2.png',
-    imageAlt: 'Client transformation 73 kg to 55 kg — online wellness coaching results at Halima Fitness Club',
+    id: 't2',
+    src: '/images/result-client2.png',
+    alt: 'Client before-and-after — 73 kg to 55 kg online wellness coaching journey',
     result: '73 kg → 55 kg',
-    program: 'Weight Management Program',
-    source: '@sadiya_fitcoach'
+    label: 'Weight Management',
   },
   {
-    id: 'r3',
-    imageSrc: '/images/result-rana-tabassum.png',
-    imageAlt: 'Rana Tabassum wellness journey — 42 kg weight loss with online coaching, health issues resolved',
-    result: '42 kg lost — health improved',
-    program: 'Personal Health Coaching',
-    source: '@sadiya_fitcoach'
-  }
+    id: 't3',
+    src: '/images/result-rana-tabassum.png',
+    alt: 'Rana Tabassum before-and-after — 42 kg transformation, health issues resolved with online coaching',
+    result: '42 kg lost',
+    label: 'Personal Health Coaching',
+  },
 ];
 
 export const SuccessStoriesSection: React.FC = () => {
@@ -43,7 +37,7 @@ export const SuccessStoriesSection: React.FC = () => {
       background="surface"
       padding="standard"
       containerSize="wide"
-      className="success-stories-section"
+      className="ss-section"
     >
       <SectionHeading
         eyebrow="Real Client Results"
@@ -53,88 +47,72 @@ export const SuccessStoriesSection: React.FC = () => {
             Client <span className="text-accent-orange">Success Stories</span>
           </>
         }
-        subtitle="Real people. Real journeys. Coached online by Halima Fitness Club."
+        subtitle="Real people. Real journeys. Coached 100% online by Coach Halima Sadiya."
         align="center"
       />
 
-      {/* Legal Disclaimer — displayed prominently above all results */}
-      <div className="results-disclaimer-bar" role="note">
-        <Icon name="shield" size={16} className="disclaimer-icon" aria-hidden="true" />
-        <p className="disclaimer-text">
-          <strong>Disclaimer:</strong> Results shown are real but not typical. Individual results vary based on
-          personal commitment, consistency, lifestyle, and health status. These are genuine client journeys
-          shared with consent from <strong>@sadiya_fitcoach</strong>.
+      {/* ── Disclaimer ────────────────────────────────────────────────── */}
+      <div className="ss-disclaimer" role="note">
+        <Icon name="shield" size={15} className="ss-disclaimer-icon" aria-hidden="true" />
+        <p className="ss-disclaimer-text">
+          <strong>Disclaimer:</strong> Results shown are genuine but not typical. Individual results vary based on
+          personal commitment, consistency, lifestyle, and health status. Shared with consent from{' '}
+          <strong>@sadiya_fitcoach</strong>.
         </p>
       </div>
 
-      {/* Team Results Collage — Hero Visual */}
-      <div className="results-collage-wrapper">
+      {/* ── Team Results Collage (full-width hero) ─────────────────────── */}
+      <div className="ss-collage-card">
         <img
           src="/images/result-collage.jpg"
-          alt="My Team Result — multiple real client transformations from Halima Fitness Club online coaching program"
-          className="results-collage-img"
+          alt="My Team Result — multiple real client before-and-after transformations from Halima Fitness Club"
+          className="ss-collage-img"
           loading="lazy"
-          width="1080"
-          height="1080"
+          width="1086"
+          height="1448"
           decoding="async"
-          onError={(e) => {
-            // Hide gracefully if image not yet placed
-            (e.currentTarget as HTMLImageElement).closest('.results-collage-wrapper')?.setAttribute('style', 'display:none');
-          }}
         />
-        <div className="collage-attribution">
-          <Icon name="sparkles" size={14} aria-hidden="true" />
-          <span>Real People · Real Transformations · Real Success</span>
-          <span className="collage-handle">@sadiya_fitcoach</span>
+        <div className="ss-collage-overlay">
+          <span className="ss-collage-tag">Real People · Real Transformations · Real Success</span>
+          <span className="ss-collage-handle">@sadiya_fitcoach</span>
         </div>
       </div>
 
-      {/* Individual Before/After Cards */}
-      <div className="transformation-cards-grid">
-        {REAL_TRANSFORMATIONS.map((item) => (
-          <Card key={item.id} variant="surface" className="transformation-card">
-            {/* Result Image */}
-            <div className="transformation-img-wrapper">
+      {/* ── Individual Transformation Cards ───────────────────────────── */}
+      <div className="ss-cards-grid">
+        {TRANSFORMATIONS.map((item) => (
+          <div key={item.id} className="ss-card">
+            {/* Photo */}
+            <div className="ss-card-img-wrap">
               <img
-                src={item.imageSrc}
-                alt={item.imageAlt}
-                className="transformation-img"
+                src={item.src}
+                alt={item.alt}
+                className="ss-card-img"
                 loading="lazy"
-                width="480"
-                height="640"
+                width="899"
+                height="1599"
                 decoding="async"
-                onError={(e) => {
-                  const wrapper = (e.currentTarget as HTMLImageElement).closest('.transformation-img-wrapper');
-                  if (wrapper) (wrapper as HTMLElement).style.display = 'none';
-                }}
               />
-              {/* Result badge overlay */}
-              <div className="transformation-result-badge">
-                <span className="result-badge-text">{item.result}</span>
+              {/* Gradient result overlay */}
+              <div className="ss-card-overlay" aria-hidden="true">
+                <span className="ss-card-result">{item.result}</span>
               </div>
             </div>
-
-            {/* Card Footer */}
-            <div className="transformation-card-footer">
-              <Badge
-                variant="primary"
-                icon={<Icon name="sparkles" size={12} />}
-              >
-                {item.program}
-              </Badge>
-              <span className="transformation-source">{item.source}</span>
+            {/* Label row */}
+            <div className="ss-card-footer">
+              <span className="ss-card-label">
+                <Icon name="sparkles" size={12} className="ss-card-label-icon" aria-hidden="true" />
+                {item.label}
+              </span>
+              <span className="ss-card-source">@sadiya_fitcoach</span>
             </div>
-
-            {/* Per-card micro disclaimer */}
-            <p className="transformation-micro-disclaimer">
-              Results not typical · Individual results may vary
-            </p>
-          </Card>
+            <p className="ss-card-disclaimer">Results not typical · Individual results may vary</p>
+          </div>
         ))}
       </div>
 
-      {/* Bottom CTA Row */}
-      <div className="stories-cta-row">
+      {/* ── CTA ───────────────────────────────────────────────────────── */}
+      <div className="ss-cta">
         <Button
           variant="accent"
           size="lg"
@@ -143,200 +121,204 @@ export const SuccessStoriesSection: React.FC = () => {
         >
           Book Free Consultation
         </Button>
-        <span className="cta-sub-note">
-          Start your own health journey — personalised, online, and at your own pace.
+        <span className="ss-cta-note">
+          Start your own wellness journey — personalised, online, at your own pace.
         </span>
       </div>
 
-      {/* Section Scoped Styles */}
+      {/* ── Scoped styles ─────────────────────────────────────────────── */}
       <style>{`
-        .success-stories-section .section-heading-wrapper {
-          margin-bottom: 1.5rem;
-        }
-
-        /* ── Disclaimer Bar ─────────────────────────────────────────────── */
-        .results-disclaimer-bar {
+        /* Disclaimer */
+        .ss-disclaimer {
           display: flex;
           align-items: flex-start;
-          gap: 0.75rem;
-          padding: 0.85rem 1.15rem;
-          background-color: var(--color-secondary-soft);
+          gap: 0.65rem;
+          padding: 0.8rem 1rem;
+          background: var(--color-secondary-soft);
           border: 1px solid var(--color-secondary-border);
           border-radius: var(--radius-md);
-          margin-bottom: 2rem;
+          margin-bottom: 1.75rem;
         }
+        .ss-disclaimer-icon { color: var(--color-primary-600); flex-shrink: 0; margin-top: 2px; }
+        .ss-disclaimer-text { font-size: var(--text-sm); color: var(--color-text-secondary); line-height: 1.55; margin: 0; }
 
-        .disclaimer-icon {
-          color: var(--color-primary-600);
-          flex-shrink: 0;
-          margin-top: 2px;
-        }
-
-        .disclaimer-text {
-          font-size: var(--text-sm);
-          color: var(--color-text-secondary);
-          line-height: var(--leading-relaxed);
-          margin: 0;
-        }
-
-        /* ── Collage ────────────────────────────────────────────────────── */
-        .results-collage-wrapper {
+        /* Collage hero */
+        .ss-collage-card {
           position: relative;
           border-radius: var(--radius-xl);
           overflow: hidden;
           border: 1px solid var(--color-border);
           box-shadow: var(--shadow-md);
           margin-bottom: 2rem;
-          background-color: #000;
-          /* Let the square collage show at its natural ratio, capped */
-          max-height: 560px;
+          /* Show collage at natural ratio capped to viewport */
+          max-height: 520px;
+          background: #000;
         }
-
-        .results-collage-img {
+        .ss-collage-img {
           width: 100%;
-          display: block;
-          object-fit: cover;
-          object-position: center center;
-          max-height: 560px;
-        }
-
-        .collage-attribution {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          padding: 0.75rem 1rem;
-          background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 100%);
-          color: #fff;
-          font-size: var(--text-xs);
-          font-weight: 600;
-          letter-spacing: 0.04em;
-          text-transform: uppercase;
-        }
-
-        .collage-handle {
-          margin-left: auto;
-          opacity: 0.85;
-          font-style: italic;
-          text-transform: none;
-          letter-spacing: 0;
-          font-weight: 500;
-        }
-
-        /* ── Individual Cards ────────────────────────────────────────────── */
-        .transformation-cards-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-          gap: 1.25rem;
-          margin-bottom: 2.5rem;
-        }
-
-        .transformation-card {
-          display: flex;
-          flex-direction: column;
-          gap: 0.75rem;
-          padding: 0.85rem;
-          border: 1px solid var(--color-border);
-        }
-
-        .transformation-img-wrapper {
-          position: relative;
-          aspect-ratio: 3 / 4;
-          border-radius: var(--radius-md);
-          overflow: hidden;
-          background-color: var(--color-bg-subtle);
-        }
-
-        .transformation-img {
-          width: 100%;
-          height: 100%;
+          height: 520px;
           object-fit: cover;
           object-position: center top;
           display: block;
         }
-
-        .transformation-result-badge {
+        .ss-collage-overlay {
           position: absolute;
-          bottom: 0.5rem;
-          left: 0.5rem;
-          right: 0.5rem;
-          background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-900));
+          bottom: 0; left: 0; right: 0;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.65rem 1rem;
+          background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 100%);
           color: #fff;
-          border-radius: var(--radius-sm);
-          padding: 0.35rem 0.65rem;
-          text-align: center;
         }
-
-        .result-badge-text {
-          font-size: var(--text-sm);
+        .ss-collage-tag {
+          font-size: var(--text-xs);
           font-weight: 700;
-          letter-spacing: 0.01em;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          opacity: 0.9;
+        }
+        .ss-collage-handle {
+          margin-left: auto;
+          font-size: var(--text-xs);
+          font-style: italic;
+          opacity: 0.75;
         }
 
-        .transformation-card-footer {
+        /* Cards grid — equal width 3 columns */
+        .ss-cards-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1.25rem;
+          margin-bottom: 2.5rem;
+        }
+
+        /* Card */
+        .ss-card {
+          display: flex;
+          flex-direction: column;
+          gap: 0;
+          border-radius: var(--radius-lg);
+          overflow: hidden;
+          border: 1px solid var(--color-border);
+          box-shadow: var(--shadow-sm);
+          background: #fff;
+          transition: box-shadow 0.2s ease, transform 0.2s ease;
+        }
+        .ss-card:hover {
+          box-shadow: var(--shadow-md);
+          transform: translateY(-2px);
+        }
+
+        /* Image wrapper — fixed aspect 4:5 for a premium editorial crop */
+        .ss-card-img-wrap {
+          position: relative;
+          aspect-ratio: 4 / 5;
+          overflow: hidden;
+          background: #f0f0f0;
+        }
+        .ss-card-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          /* Center vertically — for these portrait photos this shows upper body/full body */
+          object-position: center 20%;
+          display: block;
+          transition: transform 0.35s ease;
+        }
+        .ss-card:hover .ss-card-img {
+          transform: scale(1.03);
+        }
+
+        /* Result label gradient overlay at bottom of image */
+        .ss-card-overlay {
+          position: absolute;
+          bottom: 0; left: 0; right: 0;
+          padding: 1.5rem 0.9rem 0.65rem;
+          background: linear-gradient(to top, rgba(10,37,21,0.88) 0%, transparent 100%);
+          display: flex;
+          align-items: flex-end;
+        }
+        .ss-card-result {
+          font-family: var(--font-heading);
+          font-size: var(--text-base);
+          font-weight: 800;
+          color: #fff;
+          letter-spacing: 0.01em;
+          line-height: 1.2;
+        }
+
+        /* Footer below image */
+        .ss-card-footer {
           display: flex;
           align-items: center;
           justify-content: space-between;
+          padding: 0.6rem 0.85rem 0.25rem;
           gap: 0.5rem;
-          flex-wrap: wrap;
         }
-
-        .transformation-source {
+        .ss-card-label {
+          display: flex;
+          align-items: center;
+          gap: 0.3rem;
           font-size: var(--text-xs);
-          color: var(--color-text-muted);
-          font-style: italic;
+          font-weight: 700;
+          color: var(--color-primary-700);
+          letter-spacing: 0.02em;
+          text-transform: uppercase;
         }
-
-        .transformation-micro-disclaimer {
+        .ss-card-label-icon { color: var(--color-primary-600); }
+        .ss-card-source {
           font-size: 10px;
           color: var(--color-text-muted);
-          margin: 0;
           font-style: italic;
-          line-height: 1.4;
+        }
+        .ss-card-disclaimer {
+          margin: 0;
+          padding: 0.3rem 0.85rem 0.65rem;
+          font-size: 9px;
+          color: var(--color-text-muted);
+          font-style: italic;
           border-top: 1px solid var(--color-border);
-          padding-top: 0.5rem;
         }
 
-        /* ── CTA Row ─────────────────────────────────────────────────────── */
-        .stories-cta-row {
+        /* CTA */
+        .ss-cta {
           display: flex;
           flex-direction: column;
           align-items: center;
           gap: 0.75rem;
-          padding-top: 0.5rem;
         }
-
-        .cta-sub-note {
+        .ss-cta-note {
           font-size: var(--text-sm);
           color: var(--color-text-muted);
           text-align: center;
-          max-width: 480px;
-          line-height: var(--leading-relaxed);
+          max-width: 420px;
+          line-height: 1.6;
         }
 
-        /* ── Mobile ─────────────────────────────────────────────────────── */
-        @media (max-width: 640px) {
-          .transformation-cards-grid {
-            grid-template-columns: 1fr 1fr;
-            gap: 0.75rem;
+        /* ── Responsive ─────────────────────────────────────────────── */
+        @media (max-width: 768px) {
+          .ss-cards-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.85rem;
           }
-
-          .results-collage-wrapper {
-            max-height: 320px;
+          .ss-collage-img {
+            height: 380px;
           }
-
-          .results-collage-img {
-            max-height: 320px;
+          .ss-collage-card {
+            max-height: 380px;
           }
         }
 
-        @media (max-width: 400px) {
-          .transformation-cards-grid {
+        @media (max-width: 480px) {
+          .ss-cards-grid {
             grid-template-columns: 1fr;
+            max-width: 320px;
+            margin-left: auto;
+            margin-right: auto;
           }
+          .ss-collage-img { height: 280px; }
+          .ss-collage-card { max-height: 280px; }
         }
       `}</style>
     </SectionWrapper>

@@ -211,7 +211,7 @@
    ========================================================================== */
 
 .section-heading {
-  margin-bottom: clamp(2rem, 4vw, 3.25rem);
+  margin-bottom: clamp(1.25rem, 2.5vw, 2rem);
 }
 
 .section-heading-center {
