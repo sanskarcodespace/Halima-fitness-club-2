@@ -4,7 +4,6 @@ import { Button } from '../../primitives/Button/Button';
 import { Badge } from '../../primitives/Badge/Badge';
 import { Card } from '../../primitives/Card/Card';
 import { Icon } from '../../primitives/Icon/Icon';
-import { ImagePlaceholder } from '../../primitives/ImagePlaceholder/ImagePlaceholder';
 import { WhatsAppButton } from '../../shared/WhatsAppButton/WhatsAppButton';
 import { BUSINESS_CONFIG } from '../../../config/business.config';
 import { SECTION_IDS, CTA_CONFIG } from '../../../config/navigation.config';
@@ -108,18 +107,36 @@ export const HeroSection: React.FC = () => {
             ===================================================================== */}
         <div className="hero-visual-col hero-visual-enter">
           <Card variant="surface" className="hero-visual-card">
-            {/* Visual Lifestyle Aspect Container */}
-            <ImagePlaceholder
-              aspectRatio="4/3"
-              category="lifestyle"
-              title="Balanced Health & Nutrition"
-              caption="Personalized guidance tailored for sustainable daily habits"
-            />
+            {/* Real Wellness Lifestyle Image */}
+            <div className="hero-image-wrapper">
+              <img
+                src="/images/hero-lifestyle.jpg"
+                alt="Woman doing gentle yoga at home — online wellness coaching lifestyle"
+                className="hero-lifestyle-img"
+                loading="eager"
+                width="800"
+                height="600"
+                decoding="async"
+              />
+            </div>
 
             {/* Coach Halima Sadiya Credential Card */}
             <div className="hero-coach-badge">
-              <div className="coach-badge-avatar">
-                <Icon name="user" size={24} />
+              <div className="coach-badge-avatar coach-badge-photo-wrapper">
+                {/* When real coach photo is placed at /images/coach-halima.jpg, update src below */}
+                <img
+                  src="/images/coach-halima.jpg"
+                  alt="Coach Halima Sadiya"
+                  className="coach-badge-photo"
+                  loading="eager"
+                  onError={(e) => {
+                    // Fallback to initials avatar if photo not yet placed
+                    (e.currentTarget as HTMLImageElement).style.display = 'none';
+                    const sibling = e.currentTarget.nextElementSibling as HTMLElement | null;
+                    if (sibling) sibling.style.display = 'flex';
+                  }}
+                />
+                <span className="coach-badge-avatar-fallback" aria-hidden="true">HS</span>
               </div>
               <div className="stack stack-xs">
                 <span className="coach-badge-name">{BUSINESS_CONFIG.coach.name}</span>
@@ -245,6 +262,23 @@ export const HeroSection: React.FC = () => {
           background: #FFFFFF;
           border: 1px solid var(--color-border);
           box-shadow: var(--shadow-md);
+        }
+
+        .hero-image-wrapper {
+          width: 100%;
+          aspect-ratio: 4 / 3;
+          border-radius: var(--radius-lg);
+          overflow: hidden;
+          background-color: var(--color-bg-subtle);
+        }
+
+        .hero-lifestyle-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center top;
+          display: block;
+          border-radius: var(--radius-lg);
         }
 
         .hero-coach-badge {
