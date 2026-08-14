@@ -13,126 +13,86 @@ import { DetailedProgramsSection } from '../components/sections/DetailedPrograms
 import { OnlineClassesSection } from '../components/sections/OnlineClassesSection/OnlineClassesSection';
 import { ClassScheduleSection } from '../components/sections/ClassScheduleSection/ClassScheduleSection';
 import { ChallengeSection } from '../components/sections/ChallengeSection/ChallengeSection';
-import { WellnessToolsSection } from '../components/sections/WellnessToolsSection/WellnessToolsSection';
 import { HowItWorksSection } from '../components/sections/HowItWorksSection/HowItWorksSection';
 import { WhyChooseUsSection } from '../components/sections/WhyChooseUsSection/WhyChooseUsSection';
-import { SuccessStoriesSection } from '../components/sections/SuccessStoriesSection/SuccessStoriesSection';
 import { TestimonialsSection } from '../components/sections/TestimonialsSection/TestimonialsSection';
-import { BlogSection } from '../components/sections/BlogSection/BlogSection';
+import { SuccessStoriesSection } from '../components/sections/SuccessStoriesSection/SuccessStoriesSection';
 import { ConsultationCtaSection } from '../components/sections/ConsultationCtaSection/ConsultationCtaSection';
-import { FaqSection } from '../components/sections/FaqSection/FaqSection';
 import { ContactSection } from '../components/sections/ContactSection/ContactSection';
 import { InstagramSection } from '../components/sections/InstagramSection/InstagramSection';
+import { FaqSection } from '../components/sections/FaqSection/FaqSection';
+import { BlogSection } from '../components/sections/BlogSection/BlogSection';
+import { WellnessToolsSection } from '../components/sections/WellnessToolsSection/WellnessToolsSection';
 
 export const HomePage: React.FC = () => {
   return (
     <main id="main-content" style={{ display: 'flex', flexDirection: 'column' }}>
-      {/* =========================================================================
-          SECTION 1: HOME / HERO SECTION
-          ========================================================================= */}
+      {/* 1. Hero Section */}
       <HeroSection />
 
-      {/* =========================================================================
-          EVIDENCE-BASED TRUST / STATISTICS SECTION
-          ========================================================================= */}
+      {/* 2. Trust & Credibility */}
       <TrustSection />
 
-      {/* =========================================================================
-          SECTION 2: ABOUT COACH SECTION
-          ========================================================================= */}
+      {/* 3. About Coach Halima */}
       <AboutSection />
 
-      {/* =========================================================================
-          SECTION 3: PROGRAMS & SERVICES OVERVIEW
-          ========================================================================= */}
+      {/* 4. Programs & Services Overview */}
       <ServicesSection />
 
-      {/* =========================================================================
-          INTERACTIVE GOAL-BASED PROGRAM FINDER
-          ========================================================================= */}
+      {/* 5. Interactive Program Finder */}
       <ProgramFinderSection />
 
-      {/* =========================================================================
-          DETAILED PROGRAM BREAKDOWNS (ALL 10 PROGRAMS)
-          ========================================================================= */}
+      {/* 6. Detailed Program Breakdown */}
       <DetailedProgramsSection />
 
-      {/* =========================================================================
-          SECTION 4: ONLINE CLASSES SECTION (ZOOM LIVE COACHING)
-          ========================================================================= */}
+      {/* 7. Live Online Classes */}
       <OnlineClassesSection />
 
-      {/* =========================================================================
-          MORNING AND EVENING CLASS SCHEDULE
-          ========================================================================= */}
+      {/* 8. Class Schedule */}
       <ClassScheduleSection />
 
-      {/* =========================================================================
-          FEATURED 21 DAYS WEIGHT LOSS CHALLENGE SPRINT
-          ========================================================================= */}
+      {/* 9. 21 Days Challenge Sprint */}
       <ChallengeSection />
 
-      {/* =========================================================================
-          INTERACTIVE WELLNESS TOOLS & BMI SCREENING (EDUCATIONAL & NON-MEDICAL)
-          ========================================================================= */}
-      <WellnessToolsSection />
-
-      {/* =========================================================================
-          HOW IT WORKS (4-STEP ONLINE COACHING JOURNEY)
-          ========================================================================= */}
+      {/* 10. How It Works (4-Step Online Coaching Journey) */}
       <HowItWorksSection />
 
-      {/* =========================================================================
-          WHY CHOOSE HALIMA FITNESS CLUB (8 GROUNDED DIFFERENTIATORS)
-          ========================================================================= */}
+      {/* 11. Why Choose Halima Fitness Club */}
       <WhyChooseUsSection />
 
-      {/* =========================================================================
-          SECTION 5: SUCCESS STORIES (ETHICAL EDITORIAL JOURNEYS)
-          ========================================================================= */}
-      <SuccessStoriesSection />
-
-      {/* =========================================================================
-          SECTION 6: TESTIMONIALS SECTION (AUTHENTIC FEEDBACK READY)
-          ========================================================================= */}
+      {/* 12. Testimonials */}
       <TestimonialsSection />
 
-      {/* =========================================================================
-          HEALTH & WELLNESS TIPS / EDUCATIONAL BLOG SECTION
-          ========================================================================= */}
-      <BlogSection />
+      {/* 13. Client Success Stories */}
+      <SuccessStoriesSection />
 
-      {/* =========================================================================
-          HIGH-CONVERSION FREE CONSULTATION CTA
-          ========================================================================= */}
+      {/* 14. Free Consultation CTA */}
       <ConsultationCtaSection />
 
-      {/* =========================================================================
-          SECTION 7: FAQ SECTION (ALL 14 QUESTIONS GROUNDED)
-          ========================================================================= */}
-      <FaqSection />
-
-      {/* =========================================================================
-          SECTION 8: CONTACT & CONSULTATION SECTION
-          ========================================================================= */}
+      {/* 15. Contact & Consultation Form */}
       <ContactSection />
 
-      {/* =========================================================================
-          SECTION 9: INSTAGRAM COMMUNITY & SOCIAL PROOF
-          ========================================================================= */}
+      {/* 16. Instagram Community & Social Channel */}
       <InstagramSection />
 
-      {/* =========================================================================
-          REUSABLE CONVERSION CTA BANNER
-          ========================================================================= */}
+      {/* 17. Grounded FAQ Section (All 14 Questions) */}
+      <FaqSection />
+
+      {/* 18. Health & Wellness Tips / Blog */}
+      <BlogSection />
+
+      {/* 19. Educational Wellness Tools & BMI Screening */}
+      <WellnessToolsSection />
+
+      {/* 20. Reusable High-Conversion CTA Banner */}
       <SectionWrapper background="main" padding="standard" containerSize="wide">
         <CtaBanner primaryCtaText={CTA_CONFIG.primary.label} />
       </SectionWrapper>
 
-      {/* =========================================================================
-          FLOATING WHATSAPP LEAD GENERATION WIDGET
-          ========================================================================= */}
+      {/* 21. Floating WhatsApp Lead Generation Widget */}
       <FloatingWhatsAppWidget />
     </main>
   );
 };
+
+export default HomePage;

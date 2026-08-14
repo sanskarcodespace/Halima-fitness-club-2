@@ -13,6 +13,7 @@
   --duration-normal: 250ms;
   --duration-medium: 350ms;
   --duration-slow: 500ms;
+  --duration-reveal: 560ms;
 }
 
 /* ==========================================================================
@@ -22,7 +23,18 @@
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUpHero {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
   }
   to {
     opacity: 1;
@@ -68,6 +80,52 @@
   }
 }
 
+/* Nav underline: grows from center outward */
+@keyframes underlineGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ==========================================================================
+   Scroll-Triggered Reveal System
+   Base state: hidden. Triggered state: .is-visible added by useInView hook.
+   ========================================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity var(--duration-reveal) var(--ease-out-soft),
+    transform var(--duration-reveal) var(--ease-out-soft);
+  /* Only hint will-change during the transition window — not permanently */
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays — used with .reveal on sequential grid children */
+.reveal-delay-1 {
+  transition-delay: 80ms;
+}
+.reveal-delay-2 {
+  transition-delay: 160ms;
+}
+.reveal-delay-3 {
+  transition-delay: 240ms;
+}
+.reveal-delay-4 {
+  transition-delay: 320ms;
+}
+.reveal-delay-5 {
+  transition-delay: 400ms;
+}
+
 /* ==========================================================================
    Component Micro-Interactions
    ========================================================================== */
@@ -86,7 +144,8 @@
 }
 
 .btn:active:not(:disabled) {
-  transform: translateY(0) scale(0.98);
+  transform: translateY(0) scale(0.97);
+  transition-duration: 80ms !important;
 }
 
 /* Button with arrow micro-shift on hover */
@@ -150,6 +209,35 @@ textarea {
   animation: fadeInUp var(--duration-normal) var(--ease-out-soft);
 }
 
+/* Nav Active Underline — grows from center */
+.nav-active-underline {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--color-primary-700);
+  border-radius: 2px;
+  transform-origin: center;
+  animation: underlineGrow var(--duration-normal) var(--ease-out-soft) forwards;
+}
+
+/* ==========================================================================
+   Hero Above-Fold Entrance Animations (mount-time, not scroll-triggered)
+   ========================================================================== */
+
+.hero-content-enter {
+  animation: fadeInUpHero 0.65s var(--ease-out-soft) 0.1s both;
+}
+
+.hero-visual-enter {
+  animation: fadeInUpHero 0.65s var(--ease-out-soft) 0.28s both;
+}
+
+.hero-trust-enter {
+  animation: fadeIn 0.6s var(--ease-out-soft) 0.5s both;
+}
+
 /* ==========================================================================
    Strict Accessibility: Prefers-Reduced-Motion
    ========================================================================== */
@@ -161,7 +249,20 @@ textarea {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+    transition-delay: 0ms !important;
     scroll-behavior: auto !important;
+  }
+
+  /* Reveal elements: show immediately without movement */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .reveal.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   .btn:hover:not(:disabled),
@@ -180,5 +281,16 @@ textarea {
   .status-beacon-pulse {
     animation: none !important;
     box-shadow: 0 0 6px #22C55E !important;
+  }
+
+  .hero-content-enter,
+  .hero-visual-enter,
+  .hero-trust-enter {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+
+  .nav-active-underline {
+    animation: none !important;
   }
 }

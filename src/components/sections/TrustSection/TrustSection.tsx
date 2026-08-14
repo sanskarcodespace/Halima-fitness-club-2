@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from '../../primitives/Container/Container';
 import { Icon } from '../../primitives/Icon/Icon';
+import { RevealWrapper } from '../../shared/RevealWrapper/RevealWrapper';
 
 export interface TrustItemData {
   id: string;
@@ -58,7 +59,11 @@ export const TrustSection: React.FC = () => {
       <Container size="wide">
         <div className="trust-grid">
           {TRUST_ITEMS.map((item, index) => (
-            <div key={item.id} className="trust-card">
+            <RevealWrapper
+              key={item.id}
+              delay={(Math.min(index + 1, 5)) as 1 | 2 | 3 | 4 | 5}
+              className="trust-card"
+            >
               {/* Header with icon and metric */}
               <div className="trust-card-top">
                 <div className="trust-icon-box" aria-hidden="true">
@@ -77,7 +82,7 @@ export const TrustSection: React.FC = () => {
               {index < TRUST_ITEMS.length - 1 && (
                 <div className="trust-column-divider" aria-hidden="true" />
               )}
-            </div>
+            </RevealWrapper>
           ))}
         </div>
       </Container>

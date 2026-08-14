@@ -24,7 +24,7 @@ export const HeroSection: React.FC = () => {
         {/* =====================================================================
             LEFT COLUMN: Proposition, Headline, CTAs, & Trust Cues
             ===================================================================== */}
-        <div className="hero-content stack stack-lg">
+        <div className="hero-content stack stack-lg hero-content-enter">
           {/* Eyebrow Positioning Badges */}
           <div className="cluster cluster-sm">
             <Badge variant="primary" icon={<Icon name="sparkles" size={14} />}>
@@ -81,7 +81,7 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* Verified Supporting Trust Cues */}
-          <div className="hero-trust-bar">
+          <div className="hero-trust-bar hero-trust-enter">
             <div className="trust-item">
               <span className="trust-val">{BUSINESS_CONFIG.coach.experience}</span>
               <span className="trust-label">Coaching Experience</span>
@@ -106,7 +106,7 @@ export const HeroSection: React.FC = () => {
         {/* =====================================================================
             RIGHT COLUMN: Premium Visual Composition & Coach Representation
             ===================================================================== */}
-        <div className="hero-visual-col">
+        <div className="hero-visual-col hero-visual-enter">
           <Card variant="surface" className="hero-visual-card">
             {/* Visual Lifestyle Aspect Container */}
             <ImagePlaceholder

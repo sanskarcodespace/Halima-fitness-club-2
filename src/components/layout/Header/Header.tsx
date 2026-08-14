@@ -128,17 +128,7 @@ export const Header: React.FC = () => {
                   >
                     {item.label}
                     {isActive && (
-                      <span
-                        style={{
-                          position: 'absolute',
-                          bottom: 0,
-                          left: 0,
-                          right: 0,
-                          height: '2px',
-                          backgroundColor: 'var(--color-primary-700)',
-                          borderRadius: '2px'
-                        }}
-                      />
+                      <span className="nav-active-underline" aria-hidden="true" />
                     )}
                   </a>
                 );

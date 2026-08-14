@@ -8,6 +8,7 @@ import { Icon } from '../../primitives/Icon/Icon';
 import { ImagePlaceholder } from '../../primitives/ImagePlaceholder/ImagePlaceholder';
 import { BUSINESS_CONFIG } from '../../../config/business.config';
 import { SECTION_IDS, CTA_CONFIG } from '../../../config/navigation.config';
+import { RevealWrapper } from '../../shared/RevealWrapper/RevealWrapper';
 
 export const AboutSection: React.FC = () => {
   const philosophyPillars = [
@@ -58,7 +59,7 @@ export const AboutSection: React.FC = () => {
         {/* =====================================================================
             LEFT COLUMN: Coach Visual Representation & Verified Badges
             ===================================================================== */}
-        <div className="about-visual-col stack stack-md">
+        <RevealWrapper delay={1} className="about-visual-col stack stack-md">
           <Card variant="surface" className="about-visual-card">
             {/* Clear Placeholder for Coach Photograph */}
             <div className="coach-image-wrapper">
