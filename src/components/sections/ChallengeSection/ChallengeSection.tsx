@@ -5,7 +5,7 @@ import { Card } from '../../primitives/Card/Card';
 import { Button } from '../../primitives/Button/Button';
 import { Badge } from '../../primitives/Badge/Badge';
 import { Icon } from '../../primitives/Icon/Icon';
-import { ImagePlaceholder } from '../../primitives/ImagePlaceholder/ImagePlaceholder';
+
 import { PlaceholderNotice } from '../../primitives/PlaceholderNotice/PlaceholderNotice';
 import { CTA_CONFIG } from '../../../config/navigation.config';
 
@@ -59,13 +59,18 @@ export const ChallengeSection: React.FC = () => {
             ===================================================================== */}
         <div className="challenge-visual-col stack stack-md">
           <Card variant="surface" className="challenge-visual-card">
-            {/* Aspect Ratio Lifestyle Visual */}
-            <ImagePlaceholder
-              aspectRatio="16/9"
-              category="coaching"
-              title="21 Days Habit Sprint"
-              caption="Guided Daily Consistency • Mindful Nutrition • Home Movement"
-            />
+            {/* Real Healthy Nutrition Image */}
+            <div className="challenge-img-wrapper">
+              <img
+                src="/images/challenge-nutrition.jpg"
+                alt="Nutritious balanced meal spread — healthy eating for the 21-day wellness challenge"
+                className="challenge-img"
+                loading="lazy"
+                width="1280"
+                height="720"
+                decoding="async"
+              />
+            </div>
 
             {/* Sprint Milestone Timeline */}
             <div className="sprint-milestones-box stack stack-xs">
@@ -207,6 +212,22 @@ export const ChallengeSection: React.FC = () => {
           background: #FFFFFF;
           border: 1px solid var(--color-border);
           box-shadow: var(--shadow-sm);
+        }
+
+        .challenge-img-wrapper {
+          width: 100%;
+          aspect-ratio: 16 / 9;
+          border-radius: var(--radius-md);
+          overflow: hidden;
+          background-color: var(--color-bg-subtle);
+        }
+
+        .challenge-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          display: block;
         }
 
         .sprint-milestones-box {

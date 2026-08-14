@@ -5,7 +5,6 @@ import { Button } from '../../primitives/Button/Button';
 import { Card } from '../../primitives/Card/Card';
 import { Badge } from '../../primitives/Badge/Badge';
 import { Icon } from '../../primitives/Icon/Icon';
-import { ImagePlaceholder } from '../../primitives/ImagePlaceholder/ImagePlaceholder';
 import { BUSINESS_CONFIG } from '../../../config/business.config';
 import { SECTION_IDS, CTA_CONFIG } from '../../../config/navigation.config';
 import { RevealWrapper } from '../../shared/RevealWrapper/RevealWrapper';
@@ -61,18 +60,27 @@ export const AboutSection: React.FC = () => {
             ===================================================================== */}
         <RevealWrapper delay={1} className="about-visual-col stack stack-md">
           <Card variant="surface" className="about-visual-card">
-            {/* Clear Placeholder for Coach Photograph */}
+            {/* Coach Halima Sadiya Photo */}
             <div className="coach-image-wrapper">
-              <ImagePlaceholder
-                aspectRatio="3/4"
-                category="coaching"
-                title="Coach Halima Sadiya"
-                caption="Certified Health & Wellness Coach"
+              <img
+                src="/images/coach-halima.jpg"
+                alt="Coach Halima Sadiya — Certified Health &amp; Wellness Coach, Halima Fitness Club"
+                className="coach-photo-img"
+                loading="lazy"
+                width="480"
+                height="640"
+                onError={(e) => {
+                  // Show branded fallback if photo not yet placed
+                  const el = e.currentTarget;
+                  el.style.display = 'none';
+                  const fallback = el.nextElementSibling as HTMLElement | null;
+                  if (fallback) fallback.style.display = 'flex';
+                }}
               />
-              <div className="coach-placeholder-tag">
-                <Badge variant="placeholder">
-                  [COACH PHOTOGRAPH / VISUAL PLACEHOLDER]
-                </Badge>
+              <div className="coach-photo-fallback" aria-hidden="true" style={{ display: 'none' }}>
+                <span className="coach-photo-fallback-initials">HS</span>
+                <span className="coach-photo-fallback-label">Coach Halima Sadiya</span>
+                <span className="coach-photo-fallback-sub">Place photo at: /public/images/coach-halima.jpg</span>
               </div>
             </div>
 
@@ -198,15 +206,51 @@ export const AboutSection: React.FC = () => {
           position: relative;
           border-radius: var(--radius-md);
           overflow: hidden;
+          aspect-ratio: 3 / 4;
+          background-color: var(--color-bg-subtle);
         }
 
-        .coach-placeholder-tag {
+        .coach-photo-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center top;
+          display: block;
+          border-radius: var(--radius-md);
+        }
+
+        .coach-photo-fallback {
           position: absolute;
-          bottom: 10px;
-          left: 10px;
-          right: 10px;
+          inset: 0;
           display: flex;
+          flex-direction: column;
+          align-items: center;
           justify-content: center;
+          gap: 0.5rem;
+          background: linear-gradient(135deg, var(--color-primary-50), var(--color-secondary-soft));
+          padding: 1.5rem;
+        }
+
+        .coach-photo-fallback-initials {
+          font-family: var(--font-heading);
+          font-size: 3rem;
+          font-weight: 900;
+          color: var(--color-primary-700);
+          line-height: 1;
+        }
+
+        .coach-photo-fallback-label {
+          font-size: var(--text-base);
+          font-weight: 700;
+          color: var(--color-primary-900);
+          text-align: center;
+        }
+
+        .coach-photo-fallback-sub {
+          font-size: var(--text-xs);
+          color: var(--color-text-muted);
+          text-align: center;
+          font-style: italic;
         }
 
         .coach-name {

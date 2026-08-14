@@ -301,6 +301,29 @@ export const HeroSection: React.FC = () => {
           align-items: center;
           justify-content: center;
           flex-shrink: 0;
+          overflow: hidden;
+          position: relative;
+        }
+
+        .coach-badge-photo {
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          object-fit: cover;
+          object-position: center top;
+          display: block;
+        }
+
+        .coach-badge-avatar-fallback {
+          display: none;
+          font-size: var(--text-sm);
+          font-weight: 800;
+          letter-spacing: 0.02em;
+          color: #fff;
+          position: absolute;
+          inset: 0;
+          align-items: center;
+          justify-content: center;
         }
 
         .coach-badge-name {

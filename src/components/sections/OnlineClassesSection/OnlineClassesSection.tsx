@@ -5,7 +5,7 @@ import { Card } from '../../primitives/Card/Card';
 import { Button } from '../../primitives/Button/Button';
 import { Badge } from '../../primitives/Badge/Badge';
 import { Icon } from '../../primitives/Icon/Icon';
-import { ImagePlaceholder } from '../../primitives/ImagePlaceholder/ImagePlaceholder';
+
 import { WhatsAppButton } from '../../shared/WhatsAppButton/WhatsAppButton';
 import { SECTION_IDS, CTA_CONFIG } from '../../../config/navigation.config';
 
@@ -96,13 +96,18 @@ export const OnlineClassesSection: React.FC = () => {
             ===================================================================== */}
         <div className="classes-visual-col stack stack-md">
           <Card variant="surface" className="classes-visual-card">
-            {/* Visual Aspect Placeholder */}
-            <ImagePlaceholder
-              aspectRatio="16/9"
-              category="coaching"
-              title="Live Zoom Group Coaching"
-              caption="Interactive 60-Minute Guided Movement & Nutrition Sessions"
-            />
+            {/* Real Online Coaching Session Image */}
+            <div className="classes-visual-img-wrapper">
+              <img
+                src="/images/online-classes.jpg"
+                alt="Woman exercising at home via live Zoom coaching session — online fitness classes"
+                className="classes-visual-img"
+                loading="lazy"
+                width="1280"
+                height="720"
+                decoding="async"
+              />
+            </div>
 
             {/* Trial Class vs Free Consultation Distinction Box */}
             <div className="trial-distinction-box stack stack-sm">
@@ -236,6 +241,22 @@ export const OnlineClassesSection: React.FC = () => {
           background: #FFFFFF;
           border: 1px solid var(--color-border);
           box-shadow: var(--shadow-sm);
+        }
+
+        .classes-visual-img-wrapper {
+          width: 100%;
+          aspect-ratio: 16 / 9;
+          border-radius: var(--radius-md);
+          overflow: hidden;
+          background-color: var(--color-bg-subtle);
+        }
+
+        .classes-visual-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          display: block;
         }
 
         .trial-distinction-box {
