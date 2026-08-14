@@ -46,13 +46,17 @@ export const RevealWrapper: React.FC<RevealWrapperProps> = ({
   const visibleClass = inView ? ' is-visible' : '';
   const combinedClass = `reveal${delayClass}${visibleClass}${className ? ` ${className}` : ''}`;
 
-  const props = { ref, id, className: combinedClass, style };
+  // Cast ref to 'any' for the specific HTML element — all elements share the same
+  // underlying IntersectionObserver ref which only needs HTMLElement, not a specific subtype.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const castRef = ref as React.RefObject<any>;
+  const sharedProps = { ref: castRef, id, className: combinedClass, style };
 
   switch (as) {
-    case 'section': return <section {...props}>{children}</section>;
-    case 'article': return <article {...props}>{children}</article>;
-    case 'li': return <li {...props}>{children}</li>;
-    case 'aside': return <aside {...props}>{children}</aside>;
-    default: return <div {...props}>{children}</div>;
+    case 'section': return <section {...sharedProps}>{children}</section>;
+    case 'article': return <article {...sharedProps}>{children}</article>;
+    case 'li': return <li {...sharedProps}>{children}</li>;
+    case 'aside': return <aside {...sharedProps}>{children}</aside>;
+    default: return <div {...sharedProps}>{children}</div>;
   }
 };

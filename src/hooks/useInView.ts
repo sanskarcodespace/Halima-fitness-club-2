@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 interface UseInViewOptions {
   /** Fraction of element visible before triggering (0–1). Default: 0.12 */
   threshold?: number;
-  /** Root margin offset. Default: '-60px' (triggers slightly before fully in view) */
+  /** Root margin offset. Default: '-60px 0px' */
   rootMargin?: string;
   /** If true, re-triggers every time element enters view. Default: false (one-shot) */
   repeat?: boolean;
@@ -16,11 +16,12 @@ interface UseInViewOptions {
  *   const { ref, inView } = useInView();
  *   <div ref={ref} className={`reveal${inView ? ' is-visible' : ''}`}>...</div>
  */
-export function useInView<T extends HTMLElement = HTMLDivElement>(
+export function useInView(
   options: UseInViewOptions = {}
-): { ref: React.RefObject<T | null>; inView: boolean } {
+): { ref: React.RefObject<HTMLElement | null>; inView: boolean } {
   const { threshold = 0.12, rootMargin = '-60px 0px', repeat = false } = options;
-  const ref = useRef<T>(null);
+  // Use HTMLElement as the base so the ref is compatible with all HTML element types
+  const ref = useRef<HTMLElement>(null);
   const [inView, setInView] = useState(false);
 
   useEffect(() => {
