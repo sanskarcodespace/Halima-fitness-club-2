@@ -18,7 +18,7 @@ interface UseInViewOptions {
  */
 export function useInView<T extends HTMLElement = HTMLDivElement>(
   options: UseInViewOptions = {}
-): { ref: React.RefObject<T>; inView: boolean } {
+): { ref: React.RefObject<T | null>; inView: boolean } {
   const { threshold = 0.12, rootMargin = '-60px 0px', repeat = false } = options;
   const ref = useRef<T>(null);
   const [inView, setInView] = useState(false);

@@ -6,6 +6,7 @@ import { Icon } from '../../primitives/Icon/Icon';
 import { WhatsAppButton } from '../../shared/WhatsAppButton/WhatsAppButton';
 import { BUSINESS_CONFIG } from '../../../config/business.config';
 import { CTA_CONFIG } from '../../../config/navigation.config';
+import { RevealWrapper } from '../../shared/RevealWrapper/RevealWrapper';
 
 export interface ConsultationCtaSectionProps {
   id?: string;
@@ -34,7 +35,7 @@ export const ConsultationCtaSection: React.FC<ConsultationCtaSectionProps> = ({
         {/* Decorative Background Accents */}
         <div className="cta-backdrop-glow" aria-hidden="true" />
 
-        <div className="consultation-cta-content stack stack-lg">
+        <RevealWrapper className="consultation-cta-content stack stack-lg">
           {/* Eyebrow & Badges */}
           <div className="cluster cluster-sm cta-header-cluster">
             <Badge variant="accent" icon={<Icon name="sparkles" size={13} />}>
@@ -100,7 +101,7 @@ export const ConsultationCtaSection: React.FC<ConsultationCtaSectionProps> = ({
               <span>{BUSINESS_CONFIG.email}</span>
             </a>
           </div>
-        </div>
+        </RevealWrapper>
       </div>
 
       {/* Scoped CSS for Reusable Free Consultation CTA */}

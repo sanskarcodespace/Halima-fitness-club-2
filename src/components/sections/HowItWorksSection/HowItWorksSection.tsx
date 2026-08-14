@@ -6,6 +6,7 @@ import { Button } from '../../primitives/Button/Button';
 import { Badge } from '../../primitives/Badge/Badge';
 import { Icon } from '../../primitives/Icon/Icon';
 import { CTA_CONFIG } from '../../../config/navigation.config';
+import { RevealWrapper } from '../../shared/RevealWrapper/RevealWrapper';
 
 export const HowItWorksSection: React.FC = () => {
   const steps = [
@@ -67,38 +68,42 @@ export const HowItWorksSection: React.FC = () => {
         {/* 4-Step Process Grid / Timeline */}
         <div className="steps-grid">
           {steps.map((step, idx) => (
-            <Card
+            <RevealWrapper
               key={step.stepNumber}
-              variant="surface"
-              className="step-card"
+              delay={(Math.min(idx + 1, 4)) as 1 | 2 | 3 | 4}
             >
-              {/* Step Header */}
-              <div className="step-card-header split">
-                <span className="step-number-badge">{step.stepNumber}</span>
-                <div className="step-icon-box" aria-hidden="true">
-                  <Icon name={step.icon} size={18} />
+              <Card
+                variant="surface"
+                className="step-card"
+              >
+                {/* Step Header */}
+                <div className="step-card-header split">
+                  <span className="step-number-badge">{step.stepNumber}</span>
+                  <div className="step-icon-box" aria-hidden="true">
+                    <Icon name={step.icon} size={18} />
+                  </div>
                 </div>
-              </div>
 
-              {/* Step Content */}
-              <div className="step-card-body stack stack-xs">
-                <span className="step-eyebrow">{step.eyebrow}</span>
-                <h3 className="step-title">{step.title}</h3>
-                <p className="step-desc">{step.description}</p>
-              </div>
+                {/* Step Content */}
+                <div className="step-card-body stack stack-xs">
+                  <span className="step-eyebrow">{step.eyebrow}</span>
+                  <h3 className="step-title">{step.title}</h3>
+                  <p className="step-desc">{step.description}</p>
+                </div>
 
-              {/* Step Footer Highlight */}
-              <div className="step-card-footer">
-                <Badge variant="primary" icon={<Icon name="check" size={12} />}>
-                  {step.highlight}
-                </Badge>
-              </div>
+                {/* Step Footer Highlight */}
+                <div className="step-card-footer">
+                  <Badge variant="primary" icon={<Icon name="check" size={12} />}>
+                    {step.highlight}
+                  </Badge>
+                </div>
 
-              {/* Connector line for desktop except last item */}
-              {idx < steps.length - 1 && (
-                <div className="step-desktop-connector" aria-hidden="true" />
-              )}
-            </Card>
+                {/* Connector line for desktop except last item */}
+                {idx < steps.length - 1 && (
+                  <div className="step-desktop-connector" aria-hidden="true" />
+                )}
+              </Card>
+            </RevealWrapper>
           ))}
         </div>
 

@@ -6,6 +6,7 @@ import { Button } from '../../primitives/Button/Button';
 import { Badge } from '../../primitives/Badge/Badge';
 import { Icon } from '../../primitives/Icon/Icon';
 import { CTA_CONFIG } from '../../../config/navigation.config';
+import { RevealWrapper } from '../../shared/RevealWrapper/RevealWrapper';
 
 export const WhyChooseUsSection: React.FC = () => {
   const differentiators = [
@@ -98,25 +99,29 @@ export const WhyChooseUsSection: React.FC = () => {
       <div className="why-choose-container stack stack-lg">
         {/* 8 Differentiator Cards Grid */}
         <div className="differentiators-grid">
-          {differentiators.map((item) => (
-            <Card
+          {differentiators.map((item, index) => (
+            <RevealWrapper
               key={item.id}
-              variant="surface"
-              className="differentiator-card"
+              delay={((index % 3) + 1) as 1 | 2 | 3}
             >
-              <div className="diff-card-header split">
-                <div className="diff-icon-box" aria-hidden="true">
-                  <Icon name={item.icon} size={20} />
+              <Card
+                variant="surface"
+                className="differentiator-card"
+              >
+                <div className="diff-card-header split">
+                  <div className="diff-icon-box" aria-hidden="true">
+                    <Icon name={item.icon} size={20} />
+                  </div>
+                  <Badge variant="primary">{item.badge}</Badge>
                 </div>
-                <Badge variant="primary">{item.badge}</Badge>
-              </div>
 
-              <div className="diff-card-body stack stack-xs">
-                <h3 className="diff-title">{item.title}</h3>
-                <span className="diff-tagline">{item.tagline}</span>
-                <p className="diff-desc">{item.description}</p>
-              </div>
-            </Card>
+                <div className="diff-card-body stack stack-xs">
+                  <h3 className="diff-title">{item.title}</h3>
+                  <span className="diff-tagline">{item.tagline}</span>
+                  <p className="diff-desc">{item.description}</p>
+                </div>
+              </Card>
+            </RevealWrapper>
           ))}
         </div>
 

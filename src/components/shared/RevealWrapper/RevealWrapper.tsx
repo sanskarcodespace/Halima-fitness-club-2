@@ -6,8 +6,12 @@ interface RevealWrapperProps {
   delay?: 0 | 1 | 2 | 3 | 4 | 5;
   /** Additional CSS classes to apply to the wrapper */
   className?: string;
-  /** HTML element to render as. Default: 'div' */
-  as?: keyof JSX.IntrinsicElements;
+  /**
+   * HTML element to render as.
+   * Supported: 'div' | 'section' | 'article' | 'li' | 'aside'
+   * Default: 'div'
+   */
+  as?: 'div' | 'section' | 'article' | 'li' | 'aside';
   /** IntersectionObserver threshold. Default: 0.12 */
   threshold?: number;
   /** IntersectionObserver rootMargin. Default: '-60px 0px' */
@@ -29,7 +33,7 @@ interface RevealWrapperProps {
 export const RevealWrapper: React.FC<RevealWrapperProps> = ({
   delay = 0,
   className = '',
-  as: Tag = 'div',
+  as = 'div',
   threshold,
   rootMargin,
   children,
@@ -42,15 +46,13 @@ export const RevealWrapper: React.FC<RevealWrapperProps> = ({
   const visibleClass = inView ? ' is-visible' : '';
   const combinedClass = `reveal${delayClass}${visibleClass}${className ? ` ${className}` : ''}`;
 
-  return (
-    // @ts-expect-error — dynamic tag type is safe here
-    <Tag
-      ref={ref}
-      id={id}
-      className={combinedClass}
-      style={style}
-    >
-      {children}
-    </Tag>
-  );
+  const props = { ref, id, className: combinedClass, style };
+
+  switch (as) {
+    case 'section': return <section {...props}>{children}</section>;
+    case 'article': return <article {...props}>{children}</article>;
+    case 'li': return <li {...props}>{children}</li>;
+    case 'aside': return <aside {...props}>{children}</aside>;
+    default: return <div {...props}>{children}</div>;
+  }
 };

@@ -8,6 +8,7 @@ import { Icon } from '../../primitives/Icon/Icon';
 import { PlaceholderShield } from '../../shared/PlaceholderShield/PlaceholderShield';
 import { SECTION_IDS, CTA_CONFIG } from '../../../config/navigation.config';
 import { PLACEHOLDERS, isPlaceholder } from '../../../content/placeholders';
+import { RevealWrapper } from '../../shared/RevealWrapper/RevealWrapper';
 
 export interface TestimonialItem {
   id: string;
@@ -70,16 +71,19 @@ export const TestimonialsSection: React.FC = () => {
       <div className="testimonials-container stack stack-lg">
         {/* Testimonials 3-Card Grid */}
         <div className="testimonials-grid" role="region" aria-label="Client testimonials list">
-          {INITIAL_TESTIMONIALS.map((item) => {
+          {INITIAL_TESTIMONIALS.map((item, index) => {
             const hasRealReview = !isPlaceholder(item.reviewText);
             const hasRealName = !isPlaceholder(item.clientName);
 
             return (
-              <Card
+              <RevealWrapper
                 key={item.id}
-                variant="surface"
-                className="testimonial-card stack stack-md"
+                delay={(index + 1) as 1 | 2 | 3}
               >
+                <Card
+                  variant="surface"
+                  className="testimonial-card stack stack-md"
+                >
                 {/* Top Bar: Rating Stars & Program Badge */}
                 <div className="split testimonial-top-bar">
                   <div className="star-rating-row" aria-label={`Rating: ${item.rating || 5} out of 5 stars`}>
@@ -137,7 +141,8 @@ export const TestimonialsSection: React.FC = () => {
                     <span>Verified</span>
                   </div>
                 </div>
-              </Card>
+                </Card>
+              </RevealWrapper>
             );
           })}
         </div>

@@ -8,6 +8,7 @@ import { Icon } from '../../primitives/Icon/Icon';
 import { SECTION_IDS, CTA_CONFIG } from '../../../config/navigation.config';
 import { INITIAL_CONTENT } from '../../../content/initialContent';
 import type { ServiceItem } from '../../../content/types';
+import { RevealWrapper } from '../../shared/RevealWrapper/RevealWrapper';
 
 export const ServicesSection: React.FC = () => {
   return (
@@ -32,13 +33,16 @@ export const ServicesSection: React.FC = () => {
 
       {/* 10 Services Grid */}
       <div className="services-grid">
-        {INITIAL_CONTENT.services.map((service: ServiceItem) => (
-          <Card
+        {INITIAL_CONTENT.services.map((service: ServiceItem, index: number) => (
+          <RevealWrapper
             key={service.id}
-            id={service.anchorId}
-            variant="surface"
-            className="service-card"
+            delay={((index % 3) + 1) as 1 | 2 | 3}
           >
+            <Card
+              id={service.anchorId}
+              variant="surface"
+              className="service-card"
+            >
             <div className="service-card-header">
               <div className="service-icon-box" aria-hidden="true">
                 <Icon name={service.icon} size={22} />
@@ -89,6 +93,7 @@ export const ServicesSection: React.FC = () => {
               </Button>
             </div>
           </Card>
+          </RevealWrapper>
         ))}
       </div>
 

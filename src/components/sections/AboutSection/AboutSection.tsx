@@ -100,12 +100,12 @@ export const AboutSection: React.FC = () => {
               </div>
             </div>
           </Card>
-        </div>
+        </RevealWrapper>
 
         {/* =====================================================================
             RIGHT COLUMN: Introduction, Achievement Context, Philosophy & CTAs
             ===================================================================== */}
-        <div className="about-content-col stack stack-lg">
+        <RevealWrapper delay={2} className="about-content-col stack stack-lg">
           {/* Main Introduction Paragraph */}
           <div className="stack stack-sm">
             <h3 className="about-subtitle">
@@ -166,7 +166,7 @@ export const AboutSection: React.FC = () => {
               {CTA_CONFIG.secondary.label}
             </Button>
           </div>
-        </div>
+        </RevealWrapper>
       </div>
 
       {/* Scoped Styles for About Section */}

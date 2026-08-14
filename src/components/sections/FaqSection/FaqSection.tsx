@@ -7,6 +7,7 @@ import { Icon } from '../../primitives/Icon/Icon';
 import { PlaceholderNotice } from '../../primitives/PlaceholderNotice/PlaceholderNotice';
 import { BUSINESS_CONFIG } from '../../../config/business.config';
 import { SECTION_IDS, CTA_CONFIG } from '../../../config/navigation.config';
+import { RevealWrapper } from '../../shared/RevealWrapper/RevealWrapper';
 
 export interface FaqItem {
   id: string;
@@ -238,17 +239,19 @@ export const FaqSection: React.FC = () => {
       containerSize="standard"
       className="faq-section"
     >
-      <SectionHeading
-        eyebrow="Got Questions?"
-        eyebrowVariant="primary"
-        title={
-          <>
-            Frequently Asked <span className="text-primary-green">Questions</span>
-          </>
-        }
-        subtitle="Clear, honest answers about online coaching, live Zoom batches, schedules, and consultation steps."
-        align="center"
-      />
+      <RevealWrapper>
+        <SectionHeading
+          eyebrow="Got Questions?"
+          eyebrowVariant="primary"
+          title={
+            <>
+              Frequently Asked <span className="text-primary-green">Questions</span>
+            </>
+          }
+          subtitle="Clear, honest answers about online coaching, live Zoom batches, schedules, and consultation steps."
+          align="center"
+        />
+      </RevealWrapper>
 
       <div className="faq-container stack stack-md">
         {/* Controls Bar: Categories, Search, & Expand Actions */}

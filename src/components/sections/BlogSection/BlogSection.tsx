@@ -8,6 +8,7 @@ import { ImagePlaceholder } from '../../primitives/ImagePlaceholder/ImagePlaceho
 import { PlaceholderNotice } from '../../primitives/PlaceholderNotice/PlaceholderNotice';
 import { BUSINESS_CONFIG } from '../../../config/business.config';
 import { SECTION_IDS, CTA_CONFIG } from '../../../config/navigation.config';
+import { RevealWrapper } from '../../shared/RevealWrapper/RevealWrapper';
 
 export interface ArticleItem {
   id: string;
@@ -174,8 +175,13 @@ export const BlogSection: React.FC = () => {
 
         {/* 3-Column Articles Grid */}
         <div className="articles-grid">
-          {filteredArticles.map((art) => (
-            <article key={art.id} className="article-card stack stack-sm">
+          {filteredArticles.map((art, index) => (
+            <RevealWrapper
+              key={art.id}
+              delay={((index % 3) + 1) as 1 | 2 | 3}
+              as="article"
+              className="article-card stack stack-sm"
+            >
               {/* Media Preview Box */}
               <div className="article-media-box">
                 <ImagePlaceholder
@@ -219,7 +225,7 @@ export const BlogSection: React.FC = () => {
                   View Topic Details
                 </Button>
               </div>
-            </article>
+            </RevealWrapper>
           ))}
         </div>
 
