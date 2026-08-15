@@ -65,7 +65,7 @@ export const InstagramSection: React.FC = () => {
         align="center"
       />
 
-      <div className="instagram-container stack stack-lg">
+      <div className="instagram-container stack stack-md">
         {/* Profile Card Header Banner */}
         <Card variant="surface" className="instagram-profile-banner split">
           <div className="profile-info-cluster">

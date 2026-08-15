@@ -62,7 +62,7 @@ export const ClassScheduleSection: React.FC = () => {
         align="center"
       />
 
-      <div className="schedule-container stack stack-lg">
+      <div className="schedule-container stack stack-md">
         {/* Quick Specs Highlight Bar */}
         <div className="schedule-specs-bar">
           <div className="spec-pill">

@@ -1,8 +1,5 @@
 import React from 'react';
-import { SectionWrapper } from '../components/layout/SectionWrapper/SectionWrapper';
-import { CtaBanner } from '../components/shared/CtaBanner/CtaBanner';
 import { FloatingWhatsAppWidget } from '../components/shared/FloatingWhatsAppWidget/FloatingWhatsAppWidget';
-import { CTA_CONFIG } from '../config/navigation.config';
 
 import { HeroSection } from '../components/sections/HeroSection/HeroSection';
 import { TrustSection } from '../components/sections/TrustSection/TrustSection';
@@ -75,7 +72,7 @@ export const HomePage: React.FC = () => {
       {/* 16. Instagram Community & Social Channel */}
       <InstagramSection />
 
-      {/* 17. Grounded FAQ Section (All 14 Questions) */}
+      {/* 17. Grounded FAQ Section */}
       <FaqSection />
 
       {/* 18. Health & Wellness Tips / Blog */}
@@ -84,12 +81,7 @@ export const HomePage: React.FC = () => {
       {/* 19. Educational Wellness Tools & BMI Screening */}
       <WellnessToolsSection />
 
-      {/* 20. Reusable High-Conversion CTA Banner */}
-      <SectionWrapper background="main" padding="standard" containerSize="wide">
-        <CtaBanner primaryCtaText={CTA_CONFIG.primary.label} />
-      </SectionWrapper>
-
-      {/* 21. Floating WhatsApp Lead Generation Widget */}
+      {/* Floating WhatsApp Lead Generation Widget */}
       <FloatingWhatsAppWidget />
     </main>
   );

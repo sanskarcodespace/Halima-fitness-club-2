@@ -67,7 +67,7 @@ export const TestimonialsSection: React.FC = () => {
         align="center"
       />
 
-      <div className="testimonials-container stack stack-lg">
+      <div className="testimonials-container stack stack-md">
         {/* Testimonials 3-Card Grid */}
         <div className="testimonials-grid" role="region" aria-label="Client testimonials list">
           {INITIAL_TESTIMONIALS.map((item, index) => {

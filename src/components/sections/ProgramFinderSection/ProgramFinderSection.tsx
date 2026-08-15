@@ -157,7 +157,7 @@ export const ProgramFinderSection: React.FC = () => {
         align="center"
       />
 
-      <div className="finder-container stack stack-lg">
+      <div className="finder-container stack stack-md">
         {/* Step 1: Goal Selection Grid */}
         {!selectedGoal ? (
           <div className="stack stack-md">

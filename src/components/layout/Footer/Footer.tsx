@@ -289,8 +289,8 @@ export const Footer: React.FC = () => {
         .site-footer {
           background-color: #062217;
           border-top: 1px solid rgba(255, 255, 255, 0.08);
-          padding-top: clamp(3.5rem, 6vw, 5rem);
-          padding-bottom: 2.5rem;
+          padding-top: clamp(2rem, 4vw, 3rem);
+          padding-bottom: 1.5rem;
           color: #E2E8F0;
           position: relative;
         }
@@ -298,8 +298,8 @@ export const Footer: React.FC = () => {
         .footer-grid {
           display: grid;
           grid-template-columns: 1fr;
-          gap: clamp(2rem, 4vw, 3rem);
-          margin-bottom: 2.5rem;
+          gap: clamp(1.5rem, 3vw, 2rem);
+          margin-bottom: 1.5rem;
         }
 
         @media (min-width: 640px) {
@@ -460,7 +460,7 @@ export const Footer: React.FC = () => {
           border-radius: var(--radius-md);
           background-color: rgba(4, 31, 22, 0.85);
           border: 1px solid rgba(255, 255, 255, 0.1);
-          margin-bottom: 2rem;
+          margin-bottom: 1.25rem;
         }
 
         .footer-disclaimer-icon {

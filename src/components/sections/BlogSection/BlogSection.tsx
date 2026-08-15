@@ -189,7 +189,7 @@ export const BlogSection: React.FC = () => {
         align="center"
       />
 
-      <div className="blog-container stack stack-lg">
+      <div className="blog-container stack stack-md">
         {/* Category Tabs */}
         <div className="blog-category-nav" role="tablist" aria-label="Article categories">
           {categories.map((cat) => (

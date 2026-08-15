@@ -281,7 +281,7 @@ export const DetailedProgramsSection: React.FC = () => {
         align="center"
       />
 
-      <div className="detailed-programs-list stack stack-lg">
+      <div className="detailed-programs-list stack stack-md">
         {DETAILED_PROGRAMS_DATA.map((program, index) => (
           <ProgramDetailCard
             key={program.id}
