@@ -5,8 +5,8 @@ import { Card } from '../../primitives/Card/Card';
 import { Button } from '../../primitives/Button/Button';
 import { Badge } from '../../primitives/Badge/Badge';
 import { Icon } from '../../primitives/Icon/Icon';
-import { ImagePlaceholder } from '../../primitives/ImagePlaceholder/ImagePlaceholder';
 import { PlaceholderNotice } from '../../primitives/PlaceholderNotice/PlaceholderNotice';
+import { InstagramFeedWidget } from './InstagramFeedWidget';
 import { BUSINESS_CONFIG } from '../../../config/business.config';
 import { CTA_CONFIG } from '../../../config/navigation.config';
 
@@ -15,6 +15,7 @@ export const InstagramSection: React.FC = () => {
     {
       id: 'ig-pillar-1',
       title: 'Nutrition & Kitchen Tips',
+      imageSrc: '/images/ig-nutrition.jpg',
       category: 'nutrition' as const,
       tag: 'Mindful Eating',
       description: 'Practical home-cooking recipes, portion awareness, and balanced meal structuring.'
@@ -22,6 +23,7 @@ export const InstagramSection: React.FC = () => {
     {
       id: 'ig-pillar-2',
       title: 'Home Movement & Mobility',
+      imageSrc: '/images/ig-workout.jpg',
       category: 'fitness' as const,
       tag: 'Daily Activity',
       description: 'Quick 15-minute home workout demos, posture corrections, and joint-friendly stretches.'
@@ -29,6 +31,7 @@ export const InstagramSection: React.FC = () => {
     {
       id: 'ig-pillar-3',
       title: '21-Day Habit Motivation',
+      imageSrc: '/images/ig-habits.jpg',
       category: 'coaching' as const,
       tag: 'Habit Consistency',
       description: 'Daily mindset reminders, morning routine pacing, and lifestyle accountability.'
@@ -36,6 +39,7 @@ export const InstagramSection: React.FC = () => {
     {
       id: 'ig-pillar-4',
       title: 'Coaching Q&As & Lifestyle',
+      imageSrc: '/images/ig-coaching.jpg',
       category: 'lifestyle' as const,
       tag: 'Ask Coach Halima',
       description: 'Answers to common wellness questions, hydration tips, and healthy habit building.'
@@ -111,12 +115,17 @@ export const InstagramSection: React.FC = () => {
             >
               {/* Media Preview Box */}
               <div className="ig-media-box">
-                <ImagePlaceholder
-                  aspectRatio="1/1"
-                  category={pillar.category}
-                  title={pillar.title}
-                  caption={`@sadiya_fitcoach • ${pillar.tag}`}
-                />
+                <div className="ig-img-wrapper">
+                  <img
+                    src={pillar.imageSrc}
+                    alt={`${pillar.title} — @sadiya_fitcoach`}
+                    className="ig-img"
+                    loading="lazy"
+                    width="400"
+                    height="400"
+                    decoding="async"
+                  />
+                </div>
                 <div className="ig-overlay-tag">
                   <Badge variant="primary" icon={<Icon name="instagram" size={11} />}>
                     {pillar.tag}
@@ -130,13 +139,27 @@ export const InstagramSection: React.FC = () => {
                 <p className="ig-pillar-desc">{pillar.description}</p>
               </div>
 
-              {/* Feed Placeholder Status */}
+              {/* Card Footer */}
               <div className="ig-card-footer split">
                 <span className="ig-handle-tag">{BUSINESS_CONFIG.instagram.handle}</span>
-                <PlaceholderNotice label="[LIVE FEED INTEGRATION READY]" />
+                <a
+                  href={BUSINESS_CONFIG.instagram.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ig-card-follow-btn"
+                  aria-label="Follow on Instagram"
+                >
+                  <Icon name="instagram" size={13} />
+                  Follow
+                </a>
               </div>
             </Card>
           ))}
+        </div>
+
+        {/* ── Live Instagram Feed ─────────────────────────────────────── */}
+        <div className="ig-live-feed-section">
+          <InstagramFeedWidget />
         </div>
 
         {/* Authenticity & Integration Note */}
@@ -304,6 +327,21 @@ export const InstagramSection: React.FC = () => {
           overflow: hidden;
         }
 
+        .ig-img-wrapper {
+          aspect-ratio: 1 / 1;
+          overflow: hidden;
+          border-radius: var(--radius-md);
+        }
+        .ig-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          display: block;
+          transition: transform 0.35s ease;
+        }
+        .ig-pillar-card:hover .ig-img { transform: scale(1.04); }
+
         .ig-overlay-tag {
           position: absolute;
           top: 8px;
@@ -340,6 +378,26 @@ export const InstagramSection: React.FC = () => {
           font-size: 10px;
           font-weight: 700;
           color: var(--color-primary-700);
+        }
+
+        .ig-card-follow-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.3rem;
+          font-size: 10px;
+          font-weight: 700;
+          color: #fff;
+          background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+          padding: 3px 9px;
+          border-radius: 99px;
+          text-decoration: none;
+          letter-spacing: 0.03em;
+          transition: opacity 0.15s ease, transform 0.15s ease;
+        }
+        .ig-card-follow-btn:hover { opacity: 0.88; transform: scale(1.04); }
+
+        .ig-live-feed-section {
+          margin-top: 0.5rem;
         }
 
         .ig-integration-note {

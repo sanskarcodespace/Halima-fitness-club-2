@@ -3,9 +3,18 @@ import { Card } from '../../primitives/Card/Card';
 import { Badge } from '../../primitives/Badge/Badge';
 import { Button } from '../../primitives/Button/Button';
 import { Icon } from '../../primitives/Icon/Icon';
-import { ImagePlaceholder } from '../../primitives/ImagePlaceholder/ImagePlaceholder';
 import { WhatsAppButton } from '../../shared/WhatsAppButton/WhatsAppButton';
 import { CTA_CONFIG } from '../../../config/navigation.config';
+
+// Map program categories to real images
+const PROGRAM_IMAGES: Record<string, string> = {
+  nutrition: '/images/program-nutrition.jpg',
+  fitness: '/images/blog-fitness.jpg',
+  lifestyle: '/images/blog-lifestyle.jpg',
+  challenge: '/images/challenge-nutrition.jpg',
+  coaching: '/images/program-weight-loss.jpg',
+};
+const DEFAULT_PROGRAM_IMG = '/images/program-weight-loss.jpg';
 
 export interface DetailedProgramData {
   id: string;
@@ -42,12 +51,17 @@ export const ProgramDetailCard: React.FC<ProgramDetailCardProps> = ({
     >
       {/* Visual / Highlights Column */}
       <div className="program-detail-visual stack stack-md">
-        <ImagePlaceholder
-          aspectRatio="16/9"
-          category={program.category === 'challenge' ? 'coaching' : program.category}
-          title={program.title}
-          caption={program.tagline}
-        />
+        <div className="program-img-wrapper">
+          <img
+            src={PROGRAM_IMAGES[program.category] ?? DEFAULT_PROGRAM_IMG}
+            alt={`${program.title} — online wellness coaching program`}
+            className="program-banner-img"
+            loading="lazy"
+            width="800"
+            height="450"
+            decoding="async"
+          />
+        </div>
 
         {/* Target Profile Box */}
         <div className="target-profile-box stack stack-xs">
@@ -194,6 +208,22 @@ export const ProgramDetailCard: React.FC<ProgramDetailCardProps> = ({
           border-radius: var(--radius-md);
           background-color: var(--color-secondary-soft);
           border: 1px solid var(--color-secondary-border);
+
+        .program-img-wrapper {
+          aspect-ratio: 16 / 9;
+          overflow: hidden;
+          border-radius: var(--radius-lg);
+          border: 1px solid var(--color-border);
+        }
+        .program-banner-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          display: block;
+          transition: transform 0.4s ease;
+        }
+        .program-detail-card:hover .program-banner-img { transform: scale(1.03); }
         }
 
         .profile-label {

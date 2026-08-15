@@ -4,7 +4,6 @@ import { SectionHeading } from '../../primitives/SectionHeading/SectionHeading';
 import { Button } from '../../primitives/Button/Button';
 import { Badge } from '../../primitives/Badge/Badge';
 import { Icon } from '../../primitives/Icon/Icon';
-import { ImagePlaceholder } from '../../primitives/ImagePlaceholder/ImagePlaceholder';
 import { PlaceholderNotice } from '../../primitives/PlaceholderNotice/PlaceholderNotice';
 import { BUSINESS_CONFIG } from '../../../config/business.config';
 import { SECTION_IDS, CTA_CONFIG } from '../../../config/navigation.config';
@@ -13,6 +12,7 @@ import { RevealWrapper } from '../../shared/RevealWrapper/RevealWrapper';
 export interface ArticleItem {
   id: string;
   title: string;
+  imageSrc: string;
   category: 'nutrition' | 'fitness' | 'lifestyle' | 'coaching';
   categoryLabel: string;
   datePlaceholder: string;
@@ -37,6 +37,7 @@ export const BlogSection: React.FC = () => {
   const featuredArticle: ArticleItem = {
     id: 'art-feat-1',
     title: 'Building Sustainable Morning Habits for Daily Energy & Consistency',
+    imageSrc: '/images/blog-featured.jpg',
     category: 'lifestyle',
     categoryLabel: 'Healthy Lifestyle',
     datePlaceholder: '[PUBLICATION DATE PENDING]',
@@ -51,6 +52,7 @@ export const BlogSection: React.FC = () => {
     {
       id: 'art-1',
       title: 'Mindful Plate Structuring: Balancing Whole Foods at Home',
+      imageSrc: '/images/blog-nutrition.jpg',
       category: 'nutrition',
       categoryLabel: 'Nutrition Guidance',
       datePlaceholder: '[PUBLICATION DATE PENDING]',
@@ -62,6 +64,7 @@ export const BlogSection: React.FC = () => {
     {
       id: 'art-2',
       title: 'Making the Most of Your 60-Minute Live Online Fitness Sessions',
+      imageSrc: '/images/blog-fitness.jpg',
       category: 'fitness',
       categoryLabel: 'Online Fitness',
       datePlaceholder: '[PUBLICATION DATE PENDING]',
@@ -73,6 +76,7 @@ export const BlogSection: React.FC = () => {
     {
       id: 'art-3',
       title: 'The 21-Day Mindset: Overcoming Common Routine Plateaus',
+      imageSrc: '/images/blog-mindset.jpg',
       category: 'coaching',
       categoryLabel: 'Wellness Habits',
       datePlaceholder: '[PUBLICATION DATE PENDING]',
@@ -127,12 +131,17 @@ export const BlogSection: React.FC = () => {
         {(selectedCategory === 'all' || selectedCategory === 'lifestyle') && (
           <article className="featured-article-card split">
             <div className="featured-media-box">
-              <ImagePlaceholder
-                aspectRatio="16/9"
-                category={featuredArticle.category}
-                title={featuredArticle.title}
-                caption="Editorial Feature • Coach Halima Sadiya"
-              />
+              <div className="featured-img-wrapper">
+                <img
+                  src={featuredArticle.imageSrc}
+                  alt={featuredArticle.title}
+                  className="featured-img"
+                  loading="lazy"
+                  width="1280"
+                  height="720"
+                  decoding="async"
+                />
+              </div>
               <div className="featured-overlay-badge">
                 <Badge variant="accent">Featured Spotlight</Badge>
               </div>
@@ -184,12 +193,17 @@ export const BlogSection: React.FC = () => {
             >
               {/* Media Preview Box */}
               <div className="article-media-box">
-                <ImagePlaceholder
-                  aspectRatio="16/9"
-                  category={art.category}
-                  title={art.title}
-                  caption={`${art.categoryLabel} • Educational Tip`}
-                />
+                <div className="article-img-wrapper">
+                  <img
+                    src={art.imageSrc}
+                    alt={art.title}
+                    className="article-img"
+                    loading="lazy"
+                    width="640"
+                    height="360"
+                    decoding="async"
+                  />
+                </div>
                 <div className="article-tag-overlay">
                   <Badge variant="primary">{art.categoryLabel}</Badge>
                 </div>
@@ -387,6 +401,21 @@ export const BlogSection: React.FC = () => {
           overflow: hidden;
         }
 
+        .featured-img-wrapper {
+          aspect-ratio: 16 / 9;
+          overflow: hidden;
+          border-radius: var(--radius-lg);
+        }
+        .featured-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          display: block;
+          transition: transform 0.35s ease;
+        }
+        .featured-img:hover { transform: scale(1.03); }
+
         .featured-overlay-badge {
           position: absolute;
           top: 12px;
@@ -495,6 +524,21 @@ export const BlogSection: React.FC = () => {
           border-radius: var(--radius-md);
           overflow: hidden;
         }
+
+        .article-img-wrapper {
+          aspect-ratio: 16 / 9;
+          overflow: hidden;
+          border-radius: var(--radius-md);
+        }
+        .article-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          display: block;
+          transition: transform 0.35s ease;
+        }
+        .article-card:hover .article-img { transform: scale(1.04); }
 
         .article-tag-overlay {
           position: absolute;
