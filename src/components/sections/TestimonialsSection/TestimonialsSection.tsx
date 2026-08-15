@@ -184,7 +184,7 @@ export const TestimonialsSection: React.FC = () => {
         .testimonials-grid {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 1.5rem;
+          gap: 1.25rem;
         }
 
         @media (min-width: 768px) {
@@ -203,7 +203,7 @@ export const TestimonialsSection: React.FC = () => {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          padding: 1.75rem;
+          padding: 1.25rem;
           background: #FFFFFF;
           border: 1px solid var(--color-border);
           border-radius: var(--radius-lg);

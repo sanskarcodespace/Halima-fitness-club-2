@@ -32,6 +32,7 @@ export interface DetailedProgramData {
   customCtaLabel?: string;
   customCtaHref?: string;
   isClassRelated?: boolean;
+  imageSrc?: string;
 }
 
 interface ProgramDetailCardProps {
@@ -53,7 +54,7 @@ export const ProgramDetailCard: React.FC<ProgramDetailCardProps> = ({
       <div className="program-detail-visual stack stack-md">
         <div className="program-img-wrapper">
           <img
-            src={PROGRAM_IMAGES[program.category] ?? DEFAULT_PROGRAM_IMG}
+            src={program.imageSrc ?? PROGRAM_IMAGES[program.category] ?? DEFAULT_PROGRAM_IMG}
             alt={`${program.title} — online wellness coaching program`}
             className="program-banner-img"
             loading="lazy"

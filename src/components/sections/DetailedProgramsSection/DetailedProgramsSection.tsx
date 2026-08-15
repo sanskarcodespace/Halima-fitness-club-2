@@ -10,6 +10,7 @@ export const DETAILED_PROGRAMS_DATA: DetailedProgramData[] = [
     title: 'Weight Loss Coaching',
     tagline: 'Sustainable caloric and nutritional guidance for gradual, lasting fat loss.',
     category: 'lifestyle',
+    imageSrc: '/images/program-weight-loss.jpg',
     targetAudience: 'Individuals seeking safe, steady weight reduction without restrictive crash dieting or exhausting gym routines.',
     focusAreas: [
       'Mindful caloric balance & portion awareness',
@@ -35,6 +36,7 @@ export const DETAILED_PROGRAMS_DATA: DetailedProgramData[] = [
     title: 'Weight Gain Coaching',
     tagline: 'Nutrient-dense nutrition and progressive home strength routines to build healthy body mass.',
     category: 'fitness',
+    imageSrc: '/images/blog-fitness.jpg',
     targetAudience: 'Individuals looking to build healthy weight, lean muscle tone, and improved metabolic strength.',
     focusAreas: [
       'Nutrient-dense caloric surplus planning',
@@ -60,6 +62,7 @@ export const DETAILED_PROGRAMS_DATA: DetailedProgramData[] = [
     title: 'Online Nutrition Coaching',
     tagline: 'Practical nutrition education and mindful eating habits suited to your lifestyle.',
     category: 'nutrition',
+    imageSrc: '/images/program-nutrition.jpg',
     targetAudience: 'Busy professionals, parents, and individuals needing dietary clarity and balance without extreme rules.',
     focusAreas: [
       'Balanced macronutrient distribution (carbs, protein, fats)',
@@ -85,6 +88,7 @@ export const DETAILED_PROGRAMS_DATA: DetailedProgramData[] = [
     title: 'Online Fitness Coaching',
     tagline: 'Tailored home exercise routines designed for your current fitness baseline.',
     category: 'fitness',
+    imageSrc: '/images/ig-workout.jpg',
     targetAudience: 'Anyone seeking guided, effective, and injury-safe workouts that can be completed from home.',
     focusAreas: [
       'Functional full-body movement & core strength',
@@ -110,6 +114,7 @@ export const DETAILED_PROGRAMS_DATA: DetailedProgramData[] = [
     title: 'Personalized Diet Guidance',
     tagline: 'Custom meal recommendations designed around your cultural preferences and daily schedule.',
     category: 'nutrition',
+    imageSrc: '/images/blog-nutrition.jpg',
     targetAudience: 'Individuals wanting clear, customized food choices that respect their cultural cuisine and daily timetable.',
     focusAreas: [
       'Schedule-aligned meal timing & digestion optimization',
@@ -135,6 +140,7 @@ export const DETAILED_PROGRAMS_DATA: DetailedProgramData[] = [
     title: '21 Days Weight Loss Challenge',
     tagline: 'A focused, structured kickstart sprint to build healthy morning routines and clean eating momentum.',
     category: 'challenge',
+    imageSrc: '/images/challenge-nutrition.jpg',
     targetAudience: 'Anyone needing a structured, time-bounded sprint to break inertia and build consistent daily discipline.',
     focusAreas: [
       '21-day daily habit consistency (hydration, movement, meals)',
@@ -161,6 +167,7 @@ export const DETAILED_PROGRAMS_DATA: DetailedProgramData[] = [
     title: 'Lifestyle & Wellness Coaching',
     tagline: 'Holistic lifestyle guidance addressing sleep quality, daily stress, and sustained energy.',
     category: 'lifestyle',
+    imageSrc: '/images/blog-mindset.jpg',
     targetAudience: 'Individuals managing stress, irregular sleep patterns, afternoon energy crashes, or mental fatigue.',
     focusAreas: [
       'Sleep hygiene and circadian rhythm alignment',
@@ -186,6 +193,7 @@ export const DETAILED_PROGRAMS_DATA: DetailedProgramData[] = [
     title: 'Online Diet & Fitness Classes',
     tagline: 'Interactive virtual group sessions covering nutrition fundamentals and guided movement.',
     category: 'coaching',
+    imageSrc: '/images/online-classes.jpg',
     targetAudience: 'Group learners seeking interactive virtual guidance, practical cooking strategies, and guided home exercises.',
     focusAreas: [
       'Interactive nutrition masterclasses & label reading',
@@ -213,6 +221,7 @@ export const DETAILED_PROGRAMS_DATA: DetailedProgramData[] = [
     title: 'Weight Management Program',
     tagline: 'Long-term nutritional balance and lifestyle stabilization to maintain your ideal weight.',
     category: 'lifestyle',
+    imageSrc: '/images/blog-lifestyle.jpg',
     targetAudience: 'Clients who have reached their target weight and want sustainable strategies to prevent rebound.',
     focusAreas: [
       'Transition from weight reduction to long-term maintenance',
@@ -238,6 +247,7 @@ export const DETAILED_PROGRAMS_DATA: DetailedProgramData[] = [
     title: 'Personal Health Coaching',
     tagline: 'All-inclusive 1-on-1 dedicated virtual wellness coaching for holistic health transformation.',
     category: 'coaching',
+    imageSrc: '/images/blog-featured.jpg',
     targetAudience: 'Individuals seeking dedicated, continuous 1-on-1 mentorship across nutrition, fitness, and daily lifestyle habits.',
     focusAreas: [
       'Fully customized nutrition & home fitness roadmaps',

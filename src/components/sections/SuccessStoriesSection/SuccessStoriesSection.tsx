@@ -152,7 +152,7 @@ export const SuccessStoriesSection: React.FC = () => {
           margin-bottom: 2rem;
           background: #000;
           /* Fixed height cinematic banner */
-          height: 400px;
+          height: 300px;
         }
         .ss-collage-img {
           width: 100%;
@@ -190,8 +190,8 @@ export const SuccessStoriesSection: React.FC = () => {
         .ss-cards-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 1.25rem;
-          margin-bottom: 2.5rem;
+          gap: 1rem;
+          margin-bottom: 1.5rem;
           /* Force all rows to the same height */
           align-items: stretch;
         }
@@ -216,7 +216,7 @@ export const SuccessStoriesSection: React.FC = () => {
         .ss-card-img-wrap {
           position: relative;
           /* 4:5 is the most consistent crop for portrait before/after pairs */
-          aspect-ratio: 4 / 5;
+          aspect-ratio: 1 / 1;
           overflow: hidden;
           background: #111;
           flex-shrink: 0;
