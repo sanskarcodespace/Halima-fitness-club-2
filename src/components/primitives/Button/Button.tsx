@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { cn } from '../../../utils/cn';
 
 export type ButtonVariant = 'primary' | 'accent' | 'orange' | 'secondary' | 'outline' | 'ghost' | 'gold';
@@ -39,6 +40,22 @@ export const Button: React.FC<ButtonProps> = ({
   );
 
   if (href) {
+    const isInternal = href.startsWith('/') && !href.startsWith('//');
+
+    if (isInternal) {
+      return (
+        <Link
+          to={href}
+          className={classes}
+          aria-disabled={disabled || isLoading}
+        >
+          {leftIcon && <span className="btn-icon-left">{leftIcon}</span>}
+          <span>{children}</span>
+          {rightIcon && <span className="btn-icon-right">{rightIcon}</span>}
+        </Link>
+      );
+    }
+
     return (
       <a
         href={href}

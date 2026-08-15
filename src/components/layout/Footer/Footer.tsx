@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { BUSINESS_CONFIG } from '../../../config/business.config';
 import { SECTION_IDS, CTA_CONFIG } from '../../../config/navigation.config';
 import { BrandLogo } from '../../shared/BrandLogo/BrandLogo';
@@ -13,23 +14,23 @@ export const Footer: React.FC = () => {
   const [legalModalType, setLegalModalType] = useState<'privacy' | 'terms' | null>(null);
 
   const mainNavLinks = [
-    { label: 'Home', href: `#${SECTION_IDS.HOME}` },
-    { label: 'About Coach Halima', href: `#${SECTION_IDS.ABOUT}` },
-    { label: 'Programs & Services', href: `#${SECTION_IDS.PROGRAMS}` },
-    { label: 'Live Online Classes', href: `#${SECTION_IDS.CLASSES}` },
-    { label: 'Success Stories', href: `#${SECTION_IDS.SUCCESS_STORIES}` },
-    { label: 'Client Testimonials', href: `#${SECTION_IDS.TESTIMONIALS}` },
-    { label: 'FAQ', href: `#${SECTION_IDS.FAQ}` },
-    { label: 'Book Consultation', href: `#${SECTION_IDS.CONTACT}` }
+    { label: 'Home', href: '/' },
+    { label: 'About Coach Halima', href: '/about' },
+    { label: 'Programs & Services', href: '/programs' },
+    { label: 'Live Online Classes', href: '/programs' },
+    { label: 'Success Stories', href: '/results' },
+    { label: 'Client Testimonials', href: '/results' },
+    { label: 'FAQ', href: '/about' },
+    { label: 'Book Consultation', href: '/consultation' }
   ];
 
   const coachingTracks = [
-    { label: 'Weight Loss Coaching', href: `#${SECTION_IDS.PROGRAMS}` },
-    { label: 'Weight Gain Support', href: `#${SECTION_IDS.PROGRAMS}` },
-    { label: 'Weight Management', href: `#${SECTION_IDS.PROGRAMS}` },
-    { label: 'Personalized Nutrition', href: `#${SECTION_IDS.PROGRAMS}` },
-    { label: '21 Days Transformation Challenge', href: '#challenge' },
-    { label: 'Daily Live Zoom Batches (6 Days/Wk)', href: `#${SECTION_IDS.CLASSES}` }
+    { label: 'Weight Loss Coaching', href: '/programs' },
+    { label: 'Weight Gain Support', href: '/programs' },
+    { label: 'Weight Management', href: '/programs' },
+    { label: 'Personalized Nutrition', href: '/programs' },
+    { label: '21 Days Transformation Challenge', href: '/programs' },
+    { label: 'Daily Live Zoom Batches (6 Days/Wk)', href: '/programs' }
   ];
 
   const scrollToTop = () => {
@@ -71,9 +72,9 @@ export const Footer: React.FC = () => {
             <ul className="footer-link-list">
               {mainNavLinks.map((item) => (
                 <li key={item.label}>
-                  <a href={item.href} className="footer-link">
+                  <Link to={item.href} className="footer-link">
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -85,9 +86,9 @@ export const Footer: React.FC = () => {
             <ul className="footer-link-list">
               {coachingTracks.map((item) => (
                 <li key={item.label}>
-                  <a href={item.href} className="footer-link">
+                  <Link to={item.href} className="footer-link">
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

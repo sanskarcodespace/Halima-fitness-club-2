@@ -10,7 +10,15 @@ import { INITIAL_CONTENT } from '../../../content/initialContent';
 import type { ServiceItem } from '../../../content/types';
 import { RevealWrapper } from '../../shared/RevealWrapper/RevealWrapper';
 
-export const ServicesSection: React.FC = () => {
+export interface ServicesSectionProps {
+  limit?: number;
+}
+
+export const ServicesSection: React.FC<ServicesSectionProps> = ({ limit }) => {
+  const displayedServices = limit 
+    ? INITIAL_CONTENT.services.slice(0, limit) 
+    : INITIAL_CONTENT.services;
+
   return (
     <SectionWrapper
       id={SECTION_IDS.PROGRAMS}
@@ -31,9 +39,9 @@ export const ServicesSection: React.FC = () => {
         align="center"
       />
 
-      {/* 10 Services Grid */}
+      {/* Services Grid */}
       <div className="services-grid">
-        {INITIAL_CONTENT.services.map((service: ServiceItem, index: number) => (
+        {displayedServices.map((service: ServiceItem, index: number) => (
           <RevealWrapper
             key={service.id}
             delay={((index % 3) + 1) as 1 | 2 | 3}
@@ -96,6 +104,19 @@ export const ServicesSection: React.FC = () => {
           </RevealWrapper>
         ))}
       </div>
+
+      {limit && (
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2rem' }}>
+          <Button
+            variant="outline"
+            size="lg"
+            href="/programs"
+            rightIcon={<Icon name="arrow-right" size={18} />}
+          >
+            View All Programs
+          </Button>
+        </div>
+      )}
 
       {/* Services Overview Scoped Styles */}
       <style>{`

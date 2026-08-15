@@ -5,7 +5,7 @@ import { Button } from '../../primitives/Button/Button';
 import { Badge } from '../../primitives/Badge/Badge';
 import { Icon } from '../../primitives/Icon/Icon';
 import { BUSINESS_CONFIG } from '../../../config/business.config';
-import { SECTION_IDS, CTA_CONFIG } from '../../../config/navigation.config';
+import { CTA_CONFIG } from '../../../config/navigation.config';
 import { RevealWrapper } from '../../shared/RevealWrapper/RevealWrapper';
 
 export interface ArticleItem {
@@ -333,7 +333,7 @@ export const BlogSection: React.FC = () => {
           <Button
             variant="outline"
             size="sm"
-            href={`#${SECTION_IDS.CONTACT}`}
+            href="/consultation"
             className="disclaimer-consult-btn"
           >
             Ask a Question
@@ -396,7 +396,7 @@ export const BlogSection: React.FC = () => {
               <Button
                 variant="accent"
                 size="md"
-                href={`#${SECTION_IDS.CONTACT}`}
+                href="/consultation"
                 onClick={() => setActiveArticle(null)}
                 rightIcon={<Icon name="arrow-right" size={16} />}
               >

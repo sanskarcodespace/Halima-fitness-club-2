@@ -1,4 +1,5 @@
 import React, { useState, useId } from 'react';
+import { Link } from 'react-router-dom';
 import { SectionWrapper } from '../../layout/SectionWrapper/SectionWrapper';
 import { SectionHeading } from '../../primitives/SectionHeading/SectionHeading';
 import { Card } from '../../primitives/Card/Card';
@@ -146,7 +147,7 @@ export const FaqSection: React.FC = () => {
       categoryLabel: 'Consultation',
       answer: (
         <p>
-          You can request your free consultation directly through the <a href={`#${SECTION_IDS.CONTACT}`} className="faq-inline-link">Consultation Form on this page</a> or email Coach Halima at <a href={`mailto:${BUSINESS_CONFIG.email}`} className="faq-inline-link">{BUSINESS_CONFIG.email}</a>.
+          You can request your free consultation directly through the <Link to="/consultation" className="faq-inline-link">Consultation Form</Link> or email Coach Halima at <a href={`mailto:${BUSINESS_CONFIG.email}`} className="faq-inline-link">{BUSINESS_CONFIG.email}</a>.
         </p>
       )
     },
@@ -390,7 +391,7 @@ export const FaqSection: React.FC = () => {
             <Button
               variant="accent"
               size="md"
-              href={`#${SECTION_IDS.CONTACT}`}
+              href="/consultation"
               rightIcon={<Icon name="arrow-right" size={16} />}
             >
               {CTA_CONFIG.primary.label}

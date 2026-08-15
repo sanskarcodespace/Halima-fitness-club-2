@@ -46,7 +46,15 @@ export const INITIAL_TESTIMONIALS: TestimonialItem[] = [
   }
 ];
 
-export const TestimonialsSection: React.FC = () => {
+export interface TestimonialsSectionProps {
+  limit?: number;
+}
+
+export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ limit }) => {
+  const displayedTestimonials = limit
+    ? INITIAL_TESTIMONIALS.slice(0, limit)
+    : INITIAL_TESTIMONIALS;
+
   return (
     <SectionWrapper
       id={SECTION_IDS.TESTIMONIALS}
@@ -68,9 +76,9 @@ export const TestimonialsSection: React.FC = () => {
       />
 
       <div className="testimonials-container stack stack-md">
-        {/* Testimonials 3-Card Grid */}
+        {/* Testimonials Grid */}
         <div className="testimonials-grid" role="region" aria-label="Client testimonials list">
-          {INITIAL_TESTIMONIALS.map((item, index) => {
+          {displayedTestimonials.map((item, index) => {
             const hasRealReview = !isPlaceholder(item.reviewText);
             const hasRealName = !isPlaceholder(item.clientName);
 
@@ -141,37 +149,53 @@ export const TestimonialsSection: React.FC = () => {
           })}
         </div>
 
-        {/* Verification Policy Box */}
-        <div className="testimonials-policy-banner">
-          <Icon name="shield" size={18} className="policy-shield-icon" />
-          <div className="stack stack-none">
-            <span className="policy-title">Our Authentic Feedback Policy</span>
-            <p className="policy-desc">
-              Halima Fitness Club upholds strict content integrity. We never fabricate client reviews, generate fictional 5-star ratings, or publish misleading before/after statistics. All published testimonials reflect verified, authorized feedback from real clients.
-            </p>
+        {/* Conditional Footer Actions */}
+        {limit ? (
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
+            <Button
+              variant="outline"
+              size="lg"
+              href="/results"
+              rightIcon={<Icon name="arrow-right" size={18} />}
+            >
+              See All Client Results
+            </Button>
           </div>
-        </div>
+        ) : (
+          <>
+            {/* Verification Policy Box */}
+            <div className="testimonials-policy-banner">
+              <Icon name="shield" size={18} className="policy-shield-icon" />
+              <div className="stack stack-none">
+                <span className="policy-title">Our Authentic Feedback Policy</span>
+                <p className="policy-desc">
+                  Halima Fitness Club upholds strict content integrity. We never fabricate client reviews, generate fictional 5-star ratings, or publish misleading before/after statistics. All published testimonials reflect verified, authorized feedback from real clients.
+                </p>
+              </div>
+            </div>
 
-        {/* CTA Row */}
-        <div className="testimonials-cta-row">
-          <Button
-            variant="accent"
-            size="lg"
-            href={CTA_CONFIG.primary.href}
-            rightIcon={<Icon name="arrow-right" size={18} />}
-          >
-            Book Free Consultation
-          </Button>
+            {/* CTA Row */}
+            <div className="testimonials-cta-row">
+              <Button
+                variant="accent"
+                size="lg"
+                href={CTA_CONFIG.primary.href}
+                rightIcon={<Icon name="arrow-right" size={18} />}
+              >
+                Book Free Consultation
+              </Button>
 
-          <Button
-            variant="outline"
-            size="lg"
-            href="#contact"
-            rightIcon={<Icon name="message" size={16} />}
-          >
-            Submit Client Feedback
-          </Button>
-        </div>
+              <Button
+                variant="outline"
+                size="lg"
+                href="/consultation"
+                rightIcon={<Icon name="message" size={16} />}
+              >
+                Submit Client Feedback
+              </Button>
+            </div>
+          </>
+        )}
       </div>
 
       {/* Testimonials Scoped Styles */}

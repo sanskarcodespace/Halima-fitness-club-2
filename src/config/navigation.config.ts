@@ -32,25 +32,22 @@ export const SECTION_IDS = {
 } as const;
 
 export const PRIMARY_NAV_ITEMS: NavItem[] = [
-  { id: 'nav-home', label: 'Home', href: `#${SECTION_IDS.HOME}` },
-  { id: 'nav-about', label: 'About', href: `#${SECTION_IDS.ABOUT}` },
-  { id: 'nav-programs', label: 'Programs', href: `#${SECTION_IDS.PROGRAMS}` },
-  { id: 'nav-classes', label: 'Online Classes', href: `#${SECTION_IDS.CLASSES}` },
-  { id: 'nav-stories', label: 'Success Stories', href: `#${SECTION_IDS.SUCCESS_STORIES}` },
-  { id: 'nav-testimonials', label: 'Testimonials', href: `#${SECTION_IDS.TESTIMONIALS}` },
-  { id: 'nav-faq', label: 'FAQ', href: `#${SECTION_IDS.FAQ}` },
-  { id: 'nav-contact', label: 'Contact', href: `#${SECTION_IDS.CONTACT}` }
+  { id: 'nav-home', label: 'Home', href: '/' },
+  { id: 'nav-about', label: 'About', href: '/about' },
+  { id: 'nav-programs', label: 'Programs', href: '/programs' },
+  { id: 'nav-results', label: 'Results', href: '/results' },
+  { id: 'nav-consultation', label: 'Consultation', href: '/consultation' }
 ];
 
 export const CTA_CONFIG = {
   primary: {
     label: 'Book Free Consultation',
-    href: `#${SECTION_IDS.CONTACT}`,
+    href: '/consultation',
     ariaLabel: 'Book a free online consultation with Coach Halima'
   },
   secondary: {
     label: 'Explore Programs',
-    href: `#${SECTION_IDS.PROGRAMS}`,
+    href: '/programs',
     ariaLabel: 'View online wellness and nutrition programs'
   },
   instagramCta: {
@@ -64,21 +61,21 @@ export const FOOTER_NAV_GROUPS: FooterLinkGroup[] = [
   {
     title: 'Explore',
     links: [
-      { label: 'About Coach Halima', href: `#${SECTION_IDS.ABOUT}` },
-      { label: 'Online Programs', href: `#${SECTION_IDS.PROGRAMS}` },
-      { label: 'Online Classes', href: `#${SECTION_IDS.CLASSES}` },
-      { label: 'Success Stories', href: `#${SECTION_IDS.SUCCESS_STORIES}` },
-      { label: 'Client Testimonials', href: `#${SECTION_IDS.TESTIMONIALS}` },
-      { label: 'FAQ', href: `#${SECTION_IDS.FAQ}` }
+      { label: 'About Coach Halima', href: '/about' },
+      { label: 'Online Programs', href: '/programs' },
+      { label: 'Live Online Classes', href: '/programs' },
+      { label: 'Success Stories', href: '/results' },
+      { label: 'Client Testimonials', href: '/results' },
+      { label: 'FAQ', href: '/about' }
     ]
   },
   {
     title: 'Coaching Focus',
     links: [
-      { label: 'Personalized Nutrition Guidance', href: `#${SECTION_IDS.PROGRAMS}` },
-      { label: 'Online Workout Support', href: `#${SECTION_IDS.PROGRAMS}` },
-      { label: 'Lifestyle & Habit Coaching', href: `#${SECTION_IDS.PROGRAMS}` },
-      { label: 'Regular Accountability & Follow-up', href: `#${SECTION_IDS.PROGRAMS}` }
+      { label: 'Personalized Nutrition Guidance', href: '/programs' },
+      { label: 'Online Workout Support', href: '/programs' },
+      { label: 'Lifestyle & Habit Coaching', href: '/programs' },
+      { label: 'Regular Accountability & Follow-up', href: '/programs' }
     ]
   },
   {

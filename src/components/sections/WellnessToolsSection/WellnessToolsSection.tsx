@@ -5,7 +5,7 @@ import { Card } from '../../primitives/Card/Card';
 import { Button } from '../../primitives/Button/Button';
 import { Badge } from '../../primitives/Badge/Badge';
 import { Icon } from '../../primitives/Icon/Icon';
-import { SECTION_IDS, CTA_CONFIG } from '../../../config/navigation.config';
+import { CTA_CONFIG } from '../../../config/navigation.config';
 
 export type UnitSystem = 'metric' | 'imperial';
 
@@ -364,7 +364,7 @@ export const WellnessToolsSection: React.FC = () => {
                   <Button
                     variant="accent"
                     size="sm"
-                    href={`#${SECTION_IDS.CONTACT}`}
+                    href="/consultation"
                     rightIcon={<Icon name="arrow-right" size={14} />}
                   >
                     Discuss in Consultation
@@ -473,7 +473,7 @@ export const WellnessToolsSection: React.FC = () => {
                   <Button
                     variant="accent"
                     size="sm"
-                    href={`#${SECTION_IDS.CONTACT}`}
+                    href="/consultation"
                     rightIcon={<Icon name="arrow-right" size={14} />}
                   >
                     {CTA_CONFIG.primary.label}

@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { PRIMARY_NAV_ITEMS, CTA_CONFIG, SECTION_IDS } from '../../../config/navigation.config';
+import { Link, useLocation } from 'react-router-dom';
+import { PRIMARY_NAV_ITEMS, CTA_CONFIG } from '../../../config/navigation.config';
 import { BrandLogo } from '../../shared/BrandLogo/BrandLogo';
 import { Button } from '../../primitives/Button/Button';
 import { Icon } from '../../primitives/Icon/Icon';
 import { Container } from '../../primitives/Container/Container';
-import { useScrollSpy } from '../../../hooks/useScrollSpy';
 
 export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,8 +12,7 @@ export const Header: React.FC = () => {
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
 
-  const sectionIds = Object.values(SECTION_IDS);
-  const activeSection = useScrollSpy(sectionIds, 100);
+  const location = useLocation();
 
   // Track scroll position for sticky header styling
   useEffect(() => {
@@ -103,13 +102,12 @@ export const Header: React.FC = () => {
               }}
             >
               {PRIMARY_NAV_ITEMS.map((item) => {
-                const targetId = item.href.replace('#', '');
-                const isActive = activeSection === targetId;
+                const isActive = location.pathname === item.href;
 
                 return (
-                  <a
+                  <Link
                     key={item.id}
-                    href={item.href}
+                    to={item.href}
                     style={{
                       fontSize: 'var(--text-sm)',
                       fontWeight: isActive ? 700 : 500,
@@ -130,7 +128,7 @@ export const Header: React.FC = () => {
                     {isActive && (
                       <span className="nav-active-underline" aria-hidden="true" />
                     )}
-                  </a>
+                  </Link>
                 );
               })}
             </nav>
@@ -270,13 +268,12 @@ export const Header: React.FC = () => {
               }}
             >
               {PRIMARY_NAV_ITEMS.map((item) => {
-                const targetId = item.href.replace('#', '');
-                const isActive = activeSection === targetId;
+                const isActive = location.pathname === item.href;
 
                 return (
-                  <a
+                  <Link
                     key={`mobile-${item.id}`}
-                    href={item.href}
+                    to={item.href}
                     onClick={closeMobileMenu}
                     style={{
                       display: 'flex',
@@ -302,7 +299,7 @@ export const Header: React.FC = () => {
                         }}
                       />
                     )}
-                  </a>
+                  </Link>
                 );
               })}
             </nav>

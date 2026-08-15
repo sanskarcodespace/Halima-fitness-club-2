@@ -1,89 +1,32 @@
 import React from 'react';
-import { FloatingWhatsAppWidget } from '../components/shared/FloatingWhatsAppWidget/FloatingWhatsAppWidget';
-
 import { HeroSection } from '../components/sections/HeroSection/HeroSection';
 import { TrustSection } from '../components/sections/TrustSection/TrustSection';
-import { AboutSection } from '../components/sections/AboutSection/AboutSection';
-import { ServicesSection } from '../components/sections/ServicesSection/ServicesSection';
-import { ProgramFinderSection } from '../components/sections/ProgramFinderSection/ProgramFinderSection';
-import { DetailedProgramsSection } from '../components/sections/DetailedProgramsSection/DetailedProgramsSection';
-import { OnlineClassesSection } from '../components/sections/OnlineClassesSection/OnlineClassesSection';
-import { ClassScheduleSection } from '../components/sections/ClassScheduleSection/ClassScheduleSection';
-import { ChallengeSection } from '../components/sections/ChallengeSection/ChallengeSection';
-import { HowItWorksSection } from '../components/sections/HowItWorksSection/HowItWorksSection';
 import { WhyChooseUsSection } from '../components/sections/WhyChooseUsSection/WhyChooseUsSection';
+import { ServicesSection } from '../components/sections/ServicesSection/ServicesSection';
 import { TestimonialsSection } from '../components/sections/TestimonialsSection/TestimonialsSection';
-import { SuccessStoriesSection } from '../components/sections/SuccessStoriesSection/SuccessStoriesSection';
 import { ConsultationCtaSection } from '../components/sections/ConsultationCtaSection/ConsultationCtaSection';
-import { ContactSection } from '../components/sections/ContactSection/ContactSection';
-import { InstagramSection } from '../components/sections/InstagramSection/InstagramSection';
-import { FaqSection } from '../components/sections/FaqSection/FaqSection';
-import { BlogSection } from '../components/sections/BlogSection/BlogSection';
-import { WellnessToolsSection } from '../components/sections/WellnessToolsSection/WellnessToolsSection';
 
 export const HomePage: React.FC = () => {
   return (
-    <main id="main-content" style={{ display: 'flex', flexDirection: 'column' }}>
+    <>
       {/* 1. Hero Section */}
       <HeroSection />
 
-      {/* 2. Trust & Credibility */}
+      {/* 2. Trust Cues (Short Introduction) */}
       <TrustSection />
 
-      {/* 3. About Coach Halima */}
-      <AboutSection />
-
-      {/* 4. Programs & Services Overview */}
-      <ServicesSection />
-
-      {/* 5. Interactive Program Finder */}
-      <ProgramFinderSection />
-
-      {/* 6. Detailed Program Breakdown */}
-      <DetailedProgramsSection />
-
-      {/* 7. Live Online Classes */}
-      <OnlineClassesSection />
-
-      {/* 8. Class Schedule */}
-      <ClassScheduleSection />
-
-      {/* 9. 21 Days Challenge Sprint */}
-      <ChallengeSection />
-
-      {/* 10. How It Works (4-Step Online Coaching Journey) */}
-      <HowItWorksSection />
-
-      {/* 11. Why Choose Halima Fitness Club */}
+      {/* 3. Key Benefits / Why Choose Us */}
       <WhyChooseUsSection />
 
-      {/* 12. Testimonials */}
-      <TestimonialsSection />
+      {/* 4. Small Preview of Programs (Featured top 3) */}
+      <ServicesSection limit={3} />
 
-      {/* 13. Client Success Stories */}
-      <SuccessStoriesSection />
+      {/* 5. Small Testimonial Preview (Top 2) */}
+      <TestimonialsSection limit={2} />
 
-      {/* 14. Free Consultation CTA */}
+      {/* 6. Strong Consultation CTA */}
       <ConsultationCtaSection />
-
-      {/* 15. Contact & Consultation Form */}
-      <ContactSection />
-
-      {/* 16. Instagram Community & Social Channel */}
-      <InstagramSection />
-
-      {/* 17. Grounded FAQ Section */}
-      <FaqSection />
-
-      {/* 18. Health & Wellness Tips / Blog */}
-      <BlogSection />
-
-      {/* 19. Educational Wellness Tools & BMI Screening */}
-      <WellnessToolsSection />
-
-      {/* Floating WhatsApp Lead Generation Widget */}
-      <FloatingWhatsAppWidget />
-    </main>
+    </>
   );
 };
 
