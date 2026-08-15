@@ -23,7 +23,7 @@ export const HeroSection: React.FC = () => {
         {/* =====================================================================
             LEFT COLUMN: Proposition, Headline, CTAs, & Trust Cues
             ===================================================================== */}
-        <div className="hero-content stack stack-lg hero-content-enter">
+        <div className="hero-content stack stack-md hero-content-enter">
           {/* Eyebrow Positioning Badges */}
           <div className="cluster cluster-sm">
             <Badge variant="primary" icon={<Icon name="sparkles" size={14} />}>
@@ -170,7 +170,7 @@ export const HeroSection: React.FC = () => {
         .hero-grid {
           display: grid;
           grid-template-columns: 1fr;
-          gap: clamp(2.5rem, 5vw, 4rem);
+          gap: clamp(1.5rem, 3vw, 2.5rem);
           align-items: center;
         }
 
@@ -181,12 +181,12 @@ export const HeroSection: React.FC = () => {
         }
 
         .hero-main-title {
-          font-size: var(--text-5xl);
+          font-size: var(--text-4xl);
           font-weight: 800;
           letter-spacing: -0.03em;
           line-height: 1.12;
           color: var(--color-text-main);
-          margin-bottom: var(--space-2);
+          margin-bottom: var(--space-1);
         }
 
         .hero-supporting-text {
@@ -208,9 +208,9 @@ export const HeroSection: React.FC = () => {
         .hero-trust-bar {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-          gap: 1rem;
-          padding-top: 1.5rem;
-          margin-top: 1rem;
+          gap: 0.75rem;
+          padding-top: 0.75rem;
+          margin-top: 0.5rem;
           border-top: 1px solid var(--color-border);
           align-items: center;
         }
@@ -255,10 +255,10 @@ export const HeroSection: React.FC = () => {
 
         /* Right Column Styling */
         .hero-visual-card {
-          padding: 1.25rem;
+          padding: 1rem;
           display: flex;
           flex-direction: column;
-          gap: 1.25rem;
+          gap: 1rem;
           background: #FFFFFF;
           border: 1px solid var(--color-border);
           box-shadow: var(--shadow-md);

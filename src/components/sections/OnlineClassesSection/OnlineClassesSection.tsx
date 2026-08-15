@@ -147,7 +147,7 @@ export const OnlineClassesSection: React.FC = () => {
         {/* =====================================================================
             RIGHT COLUMN: Key Facts Grid, Benefits & 3-Tier CTAs
             ===================================================================== */}
-        <div className="classes-content-col stack stack-lg">
+        <div className="classes-content-col stack stack-md">
           {/* Confirmed Class Facts 6-Grid */}
           <div className="stack stack-xs">
             <h3 className="classes-section-subtitle">Confirmed Class Specifications</h3>

@@ -211,7 +211,7 @@
    ========================================================================== */
 
 .section-heading {
-  margin-bottom: clamp(1.25rem, 2.5vw, 2rem);
+  margin-bottom: clamp(0.85rem, 1.5vw, 1.25rem);
 }
 
 .section-heading-center {
@@ -242,7 +242,7 @@
 
 @media (min-width: 768px) {
   .section-title {
-    font-size: var(--text-4xl);
+    font-size: var(--text-3xl);
   }
 }
 

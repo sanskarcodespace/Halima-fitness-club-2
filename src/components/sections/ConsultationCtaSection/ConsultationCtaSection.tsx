@@ -35,7 +35,7 @@ export const ConsultationCtaSection: React.FC<ConsultationCtaSectionProps> = ({
         {/* Decorative Background Accents */}
         <div className="cta-backdrop-glow" aria-hidden="true" />
 
-        <RevealWrapper className="consultation-cta-content stack stack-lg">
+        <RevealWrapper className="consultation-cta-content stack stack-md">
           {/* Eyebrow & Badges */}
           <div className="cluster cluster-sm cta-header-cluster">
             <Badge variant="accent" icon={<Icon name="sparkles" size={13} />}>
@@ -111,7 +111,7 @@ export const ConsultationCtaSection: React.FC<ConsultationCtaSectionProps> = ({
           background: linear-gradient(145deg, #062217 0%, #0D4A38 50%, #083324 100%);
           border: 1px solid rgba(212, 175, 55, 0.25);
           border-radius: var(--radius-xl);
-          padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 3rem);
+          padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.25rem, 3vw, 2.25rem);
           overflow: hidden;
           box-shadow: 0 20px 40px -15px rgba(6, 34, 23, 0.4);
           text-align: center;

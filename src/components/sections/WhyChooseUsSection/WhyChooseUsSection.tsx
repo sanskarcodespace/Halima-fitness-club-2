@@ -96,7 +96,7 @@ export const WhyChooseUsSection: React.FC = () => {
         align="center"
       />
 
-      <div className="why-choose-container stack stack-lg">
+      <div className="why-choose-container stack stack-md">
         {/* 8 Differentiator Cards Grid */}
         <div className="differentiators-grid">
           {differentiators.map((item, index) => (
@@ -155,13 +155,13 @@ export const WhyChooseUsSection: React.FC = () => {
         .differentiators-grid {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 1.25rem;
+          gap: 1rem;
         }
 
         @media (min-width: 640px) {
           .differentiators-grid {
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+            gap: 1.25rem;
           }
         }
 
@@ -175,7 +175,7 @@ export const WhyChooseUsSection: React.FC = () => {
         .differentiator-card {
           display: flex;
           flex-direction: column;
-          padding: 1.5rem;
+          padding: 1.15rem;
           background: #FFFFFF;
           border: 1px solid var(--color-border);
           border-radius: var(--radius-lg);

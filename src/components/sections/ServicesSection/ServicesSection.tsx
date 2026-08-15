@@ -102,14 +102,14 @@ export const ServicesSection: React.FC = () => {
         .services-grid {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 1.5rem;
-          margin-top: 1rem;
+          gap: 1.25rem;
+          margin-top: 0.5rem;
         }
 
         @media (min-width: 640px) {
           .services-grid {
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+            gap: 1.25rem;
           }
         }
 
@@ -124,7 +124,7 @@ export const ServicesSection: React.FC = () => {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          padding: 1.5rem;
+          padding: 1.15rem;
           background: #FFFFFF;
           border: 1px solid var(--color-border);
           border-radius: var(--radius-lg);
@@ -143,12 +143,12 @@ export const ServicesSection: React.FC = () => {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          margin-bottom: 1rem;
+          margin-bottom: 0.65rem;
         }
 
         .service-icon-box {
-          width: 44px;
-          height: 44px;
+          width: 38px;
+          height: 38px;
           border-radius: var(--radius-md);
           background-color: var(--color-secondary-soft);
           border: 1px solid var(--color-secondary-border);
@@ -238,8 +238,8 @@ export const ServicesSection: React.FC = () => {
         }
 
         .service-card-footer {
-          margin-top: 1.25rem;
-          padding-top: 1rem;
+          margin-top: 0.85rem;
+          padding-top: 0.75rem;
           border-top: 1px solid var(--color-border);
         }
 

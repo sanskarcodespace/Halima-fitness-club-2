@@ -116,7 +116,7 @@ export const ChallengeSection: React.FC = () => {
         {/* =====================================================================
             RIGHT COLUMN: Positioning, 4 Pillars, Disclaimer & Actions
             ===================================================================== */}
-        <div className="challenge-content-col stack stack-lg">
+        <div className="challenge-content-col stack stack-md">
           {/* Main Positioning Block */}
           <div className="stack stack-xs">
             <div className="cluster cluster-sm">

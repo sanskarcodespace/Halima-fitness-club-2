@@ -31,14 +31,14 @@
 
 /* Section Spacing */
 .section {
-  padding-block: clamp(2.5rem, 4vw, 4rem);
+  padding-block: clamp(1.75rem, 3vw, 2.75rem);
   position: relative;
   width: 100%;
 }
 
 .section-hero {
-  padding-top: clamp(4rem, 6vw, 6rem);
-  padding-bottom: clamp(2.5rem, 4vw, 4rem);
+  padding-top: clamp(2.5rem, 4vw, 3.5rem);
+  padding-bottom: clamp(1.5rem, 2.5vw, 2.5rem);
   position: relative;
   width: 100%;
 }
@@ -48,7 +48,7 @@
 }
 
 .section-lg {
-  padding-block: clamp(3rem, 5vw, 5rem);
+  padding-block: clamp(2rem, 3.5vw, 3rem);
 }
 
 /* Background Variations */
@@ -223,5 +223,19 @@
 .section-wrapper,
 section[id] {
   scroll-margin-top: 72px;
+}
+
+/* Mobile-specific section tightening */
+@media (max-width: 768px) {
+  .section {
+    padding-block: clamp(1.25rem, 3vw, 1.75rem);
+  }
+  .section-hero {
+    padding-top: clamp(1.75rem, 3vw, 2.5rem);
+    padding-bottom: clamp(1rem, 2vw, 1.5rem);
+  }
+  .section-lg {
+    padding-block: clamp(1.5rem, 3vw, 2rem);
+  }
 }
 

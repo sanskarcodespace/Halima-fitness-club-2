@@ -64,7 +64,7 @@ export const HowItWorksSection: React.FC = () => {
         align="center"
       />
 
-      <div className="how-it-works-container stack stack-lg">
+      <div className="how-it-works-container stack stack-md">
         {/* 4-Step Process Grid / Timeline */}
         <div className="steps-grid">
           {steps.map((step, idx) => (

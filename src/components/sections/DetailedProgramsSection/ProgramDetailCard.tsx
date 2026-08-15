@@ -174,7 +174,7 @@ export const ProgramDetailCard: React.FC<ProgramDetailCardProps> = ({
           display: grid;
           grid-template-columns: 1fr;
           gap: 2rem;
-          padding: 1.75rem;
+          padding: 1.25rem;
           background: #FFFFFF;
           border: 1px solid var(--color-border);
           border-radius: var(--radius-lg);
@@ -187,7 +187,7 @@ export const ProgramDetailCard: React.FC<ProgramDetailCardProps> = ({
           .program-detail-card {
             grid-template-columns: 1fr 1.25fr;
             align-items: start;
-            padding: 2.25rem;
+            padding: 1.5rem;
           }
 
           .program-detail-card.reverse-layout {

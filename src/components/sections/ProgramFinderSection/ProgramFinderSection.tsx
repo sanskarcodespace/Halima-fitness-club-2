@@ -443,7 +443,7 @@ export const ProgramFinderSection: React.FC = () => {
         }
 
         .matched-program-card {
-          padding: 1.75rem;
+          padding: 1.25rem;
           border-radius: var(--radius-lg);
           background: #FFFFFF;
           border: 1px solid var(--color-secondary-border);
@@ -453,7 +453,7 @@ export const ProgramFinderSection: React.FC = () => {
         .matched-card-inner {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 2rem;
+          gap: 1.5rem;
         }
 
         @media (min-width: 860px) {

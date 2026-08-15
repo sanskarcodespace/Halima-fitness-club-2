@@ -52,7 +52,7 @@ export const TrustSection: React.FC = () => {
         backgroundColor: '#F4F9F6',
         borderTop: '1px solid var(--color-border)',
         borderBottom: '1px solid var(--color-border)',
-        paddingBlock: 'clamp(2.5rem, 4vw, 3.5rem)',
+        paddingBlock: 'clamp(1.25rem, 2.5vw, 2rem)',
         position: 'relative'
       }}
     >
@@ -112,8 +112,8 @@ export const TrustSection: React.FC = () => {
         .trust-card {
           display: flex;
           flex-direction: column;
-          gap: 0.5rem;
-          padding: 1.25rem 1.35rem;
+          gap: 0.35rem;
+          padding: 1rem 1.15rem;
           background-color: #FFFFFF;
           border: 1px solid var(--color-border);
           border-radius: var(--radius-md);

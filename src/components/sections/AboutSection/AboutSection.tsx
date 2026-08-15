@@ -113,7 +113,7 @@ export const AboutSection: React.FC = () => {
         {/* =====================================================================
             RIGHT COLUMN: Introduction, Achievement Context, Philosophy & CTAs
             ===================================================================== */}
-        <RevealWrapper delay={2} className="about-content-col stack stack-lg">
+        <RevealWrapper delay={2} className="about-content-col stack stack-md">
           {/* Main Introduction Paragraph */}
           <div className="stack stack-sm">
             <h3 className="about-subtitle">
@@ -182,7 +182,7 @@ export const AboutSection: React.FC = () => {
         .about-grid {
           display: grid;
           grid-template-columns: 1fr;
-          gap: clamp(2rem, 5vw, 3.5rem);
+          gap: clamp(1.5rem, 3vw, 2.5rem);
           align-items: start;
         }
 
@@ -193,10 +193,10 @@ export const AboutSection: React.FC = () => {
         }
 
         .about-visual-card {
-          padding: 1.25rem;
+          padding: 1rem;
           display: flex;
           flex-direction: column;
-          gap: 1.25rem;
+          gap: 1rem;
           background-color: #FFFFFF;
           border: 1px solid var(--color-border);
           box-shadow: var(--shadow-sm);
@@ -206,7 +206,7 @@ export const AboutSection: React.FC = () => {
           position: relative;
           border-radius: var(--radius-md);
           overflow: hidden;
-          aspect-ratio: 3 / 4;
+          aspect-ratio: 5 / 6;
           background-color: var(--color-bg-subtle);
         }
 
