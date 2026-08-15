@@ -4,7 +4,6 @@ import { SectionHeading } from '../../primitives/SectionHeading/SectionHeading';
 import { Button } from '../../primitives/Button/Button';
 import { Badge } from '../../primitives/Badge/Badge';
 import { Icon } from '../../primitives/Icon/Icon';
-import { PlaceholderNotice } from '../../primitives/PlaceholderNotice/PlaceholderNotice';
 import { BUSINESS_CONFIG } from '../../../config/business.config';
 import { SECTION_IDS, CTA_CONFIG } from '../../../config/navigation.config';
 import { RevealWrapper } from '../../shared/RevealWrapper/RevealWrapper';
@@ -20,6 +19,7 @@ export interface ArticleItem {
   excerpt: string;
   author: string;
   isFeatured?: boolean;
+  content: React.ReactNode;
 }
 
 export const BlogSection: React.FC = () => {
@@ -40,12 +40,29 @@ export const BlogSection: React.FC = () => {
     imageSrc: '/images/blog-featured.jpg',
     category: 'lifestyle',
     categoryLabel: 'Healthy Lifestyle',
-    datePlaceholder: '[PUBLICATION DATE PENDING]',
+    datePlaceholder: 'August 10, 2026',
     readTime: '4 min read',
     excerpt:
       'Discover how structured hydration, gentle morning movement, and consistent pacing establish natural momentum for daily physical vitality without extreme restriction.',
     author: `${BUSINESS_CONFIG.coach.name} (${BUSINESS_CONFIG.coach.title})`,
-    isFeatured: true
+    isFeatured: true,
+    content: (
+      <>
+        <p>Most people believe that high energy through the day requires expensive supplements, early 5 AM gym sessions, or extreme discipline. The reality is far simpler — and far more sustainable. The single most powerful thing you can do for your daily energy is build a <strong>consistent morning rhythm</strong> that your body learns to rely on.</p>
+        <h4>Start with Hydration First</h4>
+        <p>Before coffee, before your phone, drink one full glass of water. Your body has been without fluids for 7–9 hours. Hydration is the fastest, zero-cost energy boost available. Add a pinch of sea salt or a squeeze of lemon for electrolyte balance.</p>
+        <h4>10-Minute Gentle Movement</h4>
+        <p>You don't need a full workout. A 10-minute walk, five sun salutations, or light stretching activates your circulation, improves mental clarity, and tells your nervous system that today is a <em>movement day</em>. This consistency compounding over weeks becomes transformative.</p>
+        <h4>The 3-Piece Morning Framework</h4>
+        <ul>
+          <li><strong>Hydrate</strong> — water before anything else</li>
+          <li><strong>Move</strong> — even 10 minutes counts</li>
+          <li><strong>Anchor</strong> — one fixed morning task (journaling, prayer, breathwork)</li>
+        </ul>
+        <p>Within 21 days of consistent practice, most of our coaching clients report noticeably better afternoon energy, fewer cravings, and improved sleep quality — without changing any other habit. That's the power of the morning anchor.</p>
+        <p><em>Personalized morning routine planning is included in all Halima Fitness Club coaching programs. Book a free consultation to get started.</em></p>
+      </>
+    )
   };
 
   const articles: ArticleItem[] = [
@@ -55,11 +72,34 @@ export const BlogSection: React.FC = () => {
       imageSrc: '/images/blog-nutrition.jpg',
       category: 'nutrition',
       categoryLabel: 'Nutrition Guidance',
-      datePlaceholder: '[PUBLICATION DATE PENDING]',
+      datePlaceholder: 'August 5, 2026',
       readTime: '5 min read',
       excerpt:
         'A practical guide to portion balance, vegetable variety, and sustainable protein integration tailored to everyday home cooking.',
-      author: BUSINESS_CONFIG.coach.name
+      author: BUSINESS_CONFIG.coach.name,
+      content: (
+        <>
+          <p>Eating well at home doesn't require calorie counting, complex macro tracking, or expensive superfoods. It requires understanding <strong>plate structure</strong> — the ratio and variety of what goes on your plate at each meal.</p>
+          <h4>The Balanced Plate Formula</h4>
+          <p>A simple guideline that works for most people:</p>
+          <ul>
+            <li><strong>½ your plate</strong> — colourful vegetables (at least 2–3 varieties)</li>
+            <li><strong>¼ your plate</strong> — quality protein (eggs, lentils, paneer, chicken, fish)</li>
+            <li><strong>¼ your plate</strong> — whole grains or complex carbohydrates (brown rice, roti, oats)</li>
+          </ul>
+          <h4>Practical Tips for Home Cooking</h4>
+          <p><strong>Batch cook your vegetables.</strong> Roasting or stir-frying a large batch of mixed vegetables once every two days saves time and makes eating vegetables effortless.</p>
+          <p><strong>Vary your protein daily.</strong> Eating the same protein source repeatedly leads to nutrient gaps. Rotate between legumes, dairy, eggs, and lean meats across the week.</p>
+          <p><strong>Spices are nutrients too.</strong> Turmeric, cumin, coriander, and ginger are anti-inflammatory and add depth to simple food without adding calories.</p>
+          <h4>Common Mistakes to Avoid</h4>
+          <ul>
+            <li>Skipping vegetables at dinner (the most commonly skipped meal component)</li>
+            <li>Relying only on rice or roti for an entire meal</li>
+            <li>Undereating protein, which drives afternoon cravings</li>
+          </ul>
+          <p><em>Our nutrition coaching sessions include customized meal structure templates based on your food preferences, household cooking style, and wellness goals.</em></p>
+        </>
+      )
     },
     {
       id: 'art-2',
@@ -67,11 +107,32 @@ export const BlogSection: React.FC = () => {
       imageSrc: '/images/blog-fitness.jpg',
       category: 'fitness',
       categoryLabel: 'Online Fitness',
-      datePlaceholder: '[PUBLICATION DATE PENDING]',
+      datePlaceholder: 'July 28, 2026',
       readTime: '3 min read',
       excerpt:
         'Essential tips on screen positioning, warm-up mindset, and posture awareness for live Zoom group coaching environments.',
-      author: BUSINESS_CONFIG.coach.name
+      author: BUSINESS_CONFIG.coach.name,
+      content: (
+        <>
+          <p>Live online fitness sessions are fundamentally different from gym workouts or pre-recorded videos. When done well, they provide real-time correction, accountability, and community energy that pre-recorded content can never replicate. Here's how to get the absolute most out of every 60-minute session.</p>
+          <h4>Before the Session Starts</h4>
+          <ul>
+            <li><strong>Set up your space:</strong> Clear enough floor space for arms-wide movement and a mat. Ensure your camera shows your full body from head to knee if possible.</li>
+            <li><strong>Test your audio:</strong> Mute yourself if you're in a noisy environment and unmute when the coach invites questions.</li>
+            <li><strong>Have water ready:</strong> Hydrate before, sip during breaks, and rehydrate after.</li>
+          </ul>
+          <h4>During the Session</h4>
+          <p><strong>Follow form cues closely.</strong> Live coaching means your coach can observe your movement in real time. When a form correction is given, it's specific to what they see — apply it immediately and hold the corrected position.</p>
+          <p><strong>Modify without guilt.</strong> All movements have easier and harder variations. Choosing a modification isn't giving up — it's intelligent training. Ego-driven overexertion leads to injury, not results.</p>
+          <h4>After the Session</h4>
+          <ul>
+            <li>Light stretching for 5 minutes aids recovery</li>
+            <li>Note any exercises that felt uncomfortable — share feedback with Coach Halima</li>
+            <li>Log the session in your habit tracker for accountability</li>
+          </ul>
+          <p><em>All Halima Fitness Club group classes are live on Zoom and led by Coach Halima Sadiya. Sessions are structured for real results, regardless of your fitness level.</em></p>
+        </>
+      )
     },
     {
       id: 'art-3',
@@ -79,11 +140,28 @@ export const BlogSection: React.FC = () => {
       imageSrc: '/images/blog-mindset.jpg',
       category: 'coaching',
       categoryLabel: 'Wellness Habits',
-      datePlaceholder: '[PUBLICATION DATE PENDING]',
+      datePlaceholder: 'July 18, 2026',
       readTime: '4 min read',
       excerpt:
         'Understanding habit loops, managing daily motivation fluctuations, and maintaining momentum through accountability.',
-      author: BUSINESS_CONFIG.coach.name
+      author: BUSINESS_CONFIG.coach.name,
+      content: (
+        <>
+          <p>The most common question I receive after the first two weeks of a coaching program is: <em>"Coach, I was doing so well — why do I feel like stopping now?"</em> This is completely normal. It's called the <strong>21-Day Plateau</strong>, and understanding it is the key to getting past it.</p>
+          <h4>Why Day 14–21 Is the Hardest</h4>
+          <p>The initial motivation of something new naturally fades after 10–14 days. Neurologically, new habits are still forming — they haven't become automatic yet. The effort still feels conscious. This discomfort is not a sign of failure; it's a sign that real change is happening.</p>
+          <h4>The 3 Plateau Traps</h4>
+          <ul>
+            <li><strong>All-or-nothing thinking:</strong> Missing one day doesn't erase your progress. It just means tomorrow matters more.</li>
+            <li><strong>Expecting visible results too soon:</strong> Internal changes — better digestion, improved sleep, less bloating — often come before visible changes. Trust the process.</li>
+            <li><strong>Isolation:</strong> Going through a habit change alone is dramatically harder. Accountability — whether with a coach or a community — statistically triples adherence.</li>
+          </ul>
+          <h4>How to Break Through</h4>
+          <p><strong>Reduce, don't stop.</strong> If your 60-minute habit feels too much, do 20 minutes. Showing up, even imperfectly, builds the neural pathway that eventually makes the full habit effortless.</p>
+          <p><strong>Change your environment.</strong> If you always do your workout in the same room and feel bored, move to a different space. Novelty re-activates motivation temporarily — enough to carry you through the plateau.</p>
+          <p><em>Coach Halima provides weekly check-ins and habit accountability tracking across all coaching programs to support you through every plateau phase.</em></p>
+        </>
+      )
     }
   ];
 
@@ -165,7 +243,7 @@ export const BlogSection: React.FC = () => {
                   <Icon name="award" size={16} className="author-icon" />
                   <span className="author-name">By {featuredArticle.author}</span>
                 </div>
-                <PlaceholderNotice label="[ARTICLE CONTENT REQUIRED]" />
+                <Badge variant="primary">Full Article Inside</Badge>
               </div>
 
               <div className="featured-action-row">
@@ -225,7 +303,7 @@ export const BlogSection: React.FC = () => {
               <div className="article-card-footer stack stack-xs">
                 <div className="split">
                   <span className="article-author-text">By {art.author}</span>
-                  <PlaceholderNotice label="[ARTICLE CONTENT REQUIRED]" />
+                  <Badge variant="accent">Full Article Inside</Badge>
                 </div>
 
                 <Button
@@ -301,15 +379,8 @@ export const BlogSection: React.FC = () => {
 
             <div className="modal-body stack stack-sm">
               <p className="modal-lead">{activeArticle.excerpt}</p>
-
-              <div className="modal-placeholder-notice-box stack stack-xs">
-                <div className="split">
-                  <strong className="modal-notice-title">Editorial Publishing Status:</strong>
-                  <PlaceholderNotice label="[ARTICLE CONTENT REQUIRED]" />
-                </div>
-                <p className="modal-notice-desc">
-                  The complete article copy for this topic is currently in preparation. Once finalized, the full editorial body will be rendered here with zero placeholder copy.
-                </p>
+              <div className="modal-article-body">
+                {activeArticle.content}
               </div>
             </div>
 
@@ -676,22 +747,31 @@ export const BlogSection: React.FC = () => {
           margin: 0;
         }
 
-        .modal-placeholder-notice-box {
-          padding: 1rem;
-          border-radius: var(--radius-md);
-          background-color: var(--color-placeholder-bg);
-          border: 1px dashed var(--color-placeholder-border);
-          font-size: var(--text-xs);
+        .modal-article-body {
+          font-size: var(--text-sm);
+          color: var(--color-text-secondary);
+          line-height: 1.75;
+          padding-top: 0.25rem;
         }
-
-        .modal-notice-title {
-          color: var(--color-primary-900);
+        .modal-article-body h4 {
+          font-family: var(--font-heading);
+          font-size: var(--text-base);
+          font-weight: 700;
+          color: var(--color-text-main);
+          margin: 1.1rem 0 0.4rem;
         }
-
-        .modal-notice-desc {
-          color: var(--color-text-muted);
-          line-height: var(--leading-normal);
-          margin: 4px 0 0 0;
+        .modal-article-body p {
+          margin: 0 0 0.65rem;
+        }
+        .modal-article-body ul {
+          padding-left: 1.25rem;
+          margin: 0.25rem 0 0.75rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.35rem;
+        }
+        .modal-article-body li {
+          line-height: 1.6;
         }
 
         .modal-footer {

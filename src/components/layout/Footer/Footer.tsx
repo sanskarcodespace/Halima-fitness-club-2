@@ -6,7 +6,6 @@ import { Container } from '../../primitives/Container/Container';
 import { Badge } from '../../primitives/Badge/Badge';
 import { Icon } from '../../primitives/Icon/Icon';
 import { Button } from '../../primitives/Button/Button';
-import { PlaceholderShield } from '../../shared/PlaceholderShield/PlaceholderShield';
 import { PlaceholderNotice } from '../../primitives/PlaceholderNotice/PlaceholderNotice';
 
 export const Footer: React.FC = () => {
@@ -131,27 +130,36 @@ export const Footer: React.FC = () => {
                 </div>
               </a>
 
-              {/* Guarded Pending Channels */}
-              <div className="footer-pending-box stack stack-xs">
-                <div className="split">
-                  <span className="pending-title">Pending Lines:</span>
-                  <PlaceholderNotice label="[CONFIG PENDING]" />
+              {/* Direct Contact Lines */}
+              <a
+                href="https://wa.me/919570030631"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-contact-card"
+                aria-label="WhatsApp Coach Halima"
+              >
+                <div className="footer-contact-icon-wrap whatsapp-icon-wrap">
+                  <Icon name="message" size={18} aria-hidden="true" />
                 </div>
-                <div className="cluster cluster-xs">
-                  <span className="pending-sub">WhatsApp:</span>
-                  <PlaceholderShield
-                    value={BUSINESS_CONFIG.contactPlaceholders.whatsapp}
-                    fallbackText="[WHATSAPP NUMBER REQUIRED]"
-                  />
+                <div className="stack stack-none">
+                  <span className="contact-card-sub">WhatsApp</span>
+                  <span className="contact-card-main">+91 95700 30631</span>
                 </div>
-                <div className="cluster cluster-xs">
-                  <span className="pending-sub">Phone:</span>
-                  <PlaceholderShield
-                    value={BUSINESS_CONFIG.contactPlaceholders.phone}
-                    fallbackText="[PHONE NUMBER REQUIRED]"
-                  />
+              </a>
+
+              <a
+                href="tel:+919570030631"
+                className="footer-contact-card"
+                aria-label="Call Coach Halima"
+              >
+                <div className="footer-contact-icon-wrap phone-icon-wrap">
+                  <Icon name="user" size={18} aria-hidden="true" />
                 </div>
-              </div>
+                <div className="stack stack-none">
+                  <span className="contact-card-sub">Phone</span>
+                  <span className="contact-card-main">+91 95700 30631</span>
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -433,23 +441,18 @@ export const Footer: React.FC = () => {
           word-break: break-all;
         }
 
-        .footer-pending-box {
-          padding: 0.75rem;
-          background-color: rgba(0, 0, 0, 0.25);
-          border: 1px dashed rgba(255, 255, 255, 0.15);
-          border-radius: var(--radius-md);
+        .whatsapp-icon-wrap {
+          background: rgba(22, 163, 74, 0.2);
+          border-color: rgba(22, 163, 74, 0.35);
+          color: #4ade80;
         }
 
-        .pending-title {
-          font-size: 11px;
-          font-weight: 700;
-          color: #FCD34D;
+        .phone-icon-wrap {
+          background: rgba(99, 102, 241, 0.2);
+          border-color: rgba(99, 102, 241, 0.35);
+          color: #a5b4fc;
         }
 
-        .pending-sub {
-          font-size: 11px;
-          color: #94A3B8;
-        }
 
         /* Disclaimer Box */
         .footer-disclaimer-box {

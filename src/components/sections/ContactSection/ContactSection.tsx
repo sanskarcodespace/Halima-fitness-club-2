@@ -5,8 +5,6 @@ import { Card } from '../../primitives/Card/Card';
 import { Button } from '../../primitives/Button/Button';
 import { Badge } from '../../primitives/Badge/Badge';
 import { Icon } from '../../primitives/Icon/Icon';
-import { PlaceholderShield } from '../../shared/PlaceholderShield/PlaceholderShield';
-import { PlaceholderNotice } from '../../primitives/PlaceholderNotice/PlaceholderNotice';
 import { BUSINESS_CONFIG } from '../../../config/business.config';
 import { SECTION_IDS, CTA_CONFIG } from '../../../config/navigation.config';
 
@@ -133,23 +131,35 @@ export const ContactSection: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) {
-      // Focus the first invalid input for accessibility
       if (formRef.current) {
         const firstErrorField = formRef.current.querySelector<HTMLElement>('[aria-invalid="true"]');
-        if (firstErrorField) {
-          firstErrorField.focus();
-        }
+        if (firstErrorField) firstErrorField.focus();
       }
       return;
     }
 
     setIsSubmitting(true);
 
-    // Simulate form submission handling
+    // Build WhatsApp message from form data
+    const msg = [
+      `Hi Coach Halima, I'd like to book a free consultation.`,
+      ``,
+      `*Name:* ${formData.name}`,
+      `*Goal:* ${formData.goal}`,
+      `*Phone:* ${formData.phone || 'Not provided'}`,
+      `*Email:* ${formData.email || 'Not provided'}`,
+      `*Preferred Start:* ${formData.timing}`,
+      formData.message ? `*Message:* ${formData.message}` : null,
+    ].filter(Boolean).join('\n');
+
+    const waUrl = `https://wa.me/919570030631?text=${encodeURIComponent(msg)}`;
+
+    // Open WhatsApp in new tab, then show success state
     setTimeout(() => {
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 600);
+    }, 400);
   };
 
   const handleResetForm = () => {
@@ -253,37 +263,38 @@ export const ContactSection: React.FC = () => {
             </a>
           </div>
 
-          {/* Pending Contact Channels (Guarded Placeholders) */}
-          <div className="pending-channels-box stack stack-xs">
-            <div className="split">
-              <span className="pending-header-title">
-                <Icon name="shield" size={14} className="pending-shield-icon" />
-                <span>Pending Direct Line Setup:</span>
-              </span>
-              <PlaceholderNotice label="[CONFIG PENDING]" />
+          {/* Direct Contact Channels */}
+          <div className="direct-channels-box stack stack-xs">
+            <span className="direct-channels-title">
+              <Icon name="message" size={14} className="direct-channels-icon" />
+              <span>Direct Lines</span>
+            </span>
+
+            <div className="direct-badges-grid">
+              <a
+                href="https://wa.me/919570030631"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="direct-channel-item direct-channel-whatsapp"
+              >
+                <Icon name="message" size={14} />
+                <div className="stack stack-none">
+                  <span className="direct-item-label">WhatsApp</span>
+                  <span className="direct-item-value">+91 95700 30631</span>
+                </div>
+              </a>
+
+              <a
+                href="tel:+919570030631"
+                className="direct-channel-item direct-channel-phone"
+              >
+                <Icon name="user" size={14} />
+                <div className="stack stack-none">
+                  <span className="direct-item-label">Phone</span>
+                  <span className="direct-item-value">+91 95700 30631</span>
+                </div>
+              </a>
             </div>
-
-            <div className="pending-badges-grid">
-              <div className="pending-channel-item">
-                <span className="pending-item-label">WhatsApp:</span>
-                <PlaceholderShield
-                  value={BUSINESS_CONFIG.contactPlaceholders.whatsapp}
-                  fallbackText="[WHATSAPP NUMBER REQUIRED]"
-                />
-              </div>
-
-              <div className="pending-channel-item">
-                <span className="pending-item-label">Phone:</span>
-                <PlaceholderShield
-                  value={BUSINESS_CONFIG.contactPlaceholders.phone}
-                  fallbackText="[PHONE NUMBER REQUIRED]"
-                />
-              </div>
-            </div>
-
-            <p className="pending-note">
-              WhatsApp &amp; Phone numbers will activate upon verification. In the interim, please use the consultation form or direct email above.
-            </p>
           </div>
 
           {/* Privacy & Health Data Policy */}
@@ -323,14 +334,14 @@ export const ContactSection: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Developer / Backend Integration Transparency Notice */}
-                <div className="backend-transparency-box stack stack-xs">
-                  <div className="split">
-                    <span className="backend-notice-title">Integration Status:</span>
-                    <PlaceholderNotice label="[FORM SUBMISSION INTEGRATION REQUIRED]" />
+                {/* Direct WhatsApp Confirmation Note */}
+                <div className="wa-redirect-box stack stack-xs">
+                  <div className="cluster cluster-xs">
+                    <Icon name="message" size={16} className="wa-icon-green" />
+                    <strong className="wa-redirect-title">Opened in WhatsApp</strong>
                   </div>
-                  <p className="backend-notice-desc">
-                    The interface has recorded your simulated submission locally. For live production delivery, attach an email dispatch endpoint (e.g. EmailJS, Resend, or Webhook).
+                  <p className="wa-redirect-desc">
+                    Your details have been pre-filled into WhatsApp so you can send them directly to Coach Halima Sadiya. If WhatsApp did not open automatically, click below to connect or send a message directly to <strong>+91 95700 30631</strong>.
                   </p>
                 </div>
 
@@ -682,53 +693,81 @@ export const ContactSection: React.FC = () => {
           color: var(--color-primary-700);
         }
 
-        /* Pending Channels Box */
-        .pending-channels-box {
+        /* Direct Channels Box */
+        .direct-channels-box {
           padding: 1.15rem;
-          background-color: var(--color-placeholder-bg);
-          border: 1px dashed var(--color-placeholder-border);
+          background-color: var(--color-secondary-soft);
+          border: 1px solid var(--color-secondary-border);
           border-radius: var(--radius-md);
         }
 
-        .pending-header-title {
+        .direct-channels-title {
           display: flex;
           align-items: center;
           gap: 6px;
           font-size: var(--text-xs);
           font-weight: 700;
           color: var(--color-primary-900);
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
         }
 
-        .pending-shield-icon {
-          color: var(--color-accent-700);
+        .direct-channels-icon {
+          color: var(--color-primary-600);
         }
 
-        .pending-badges-grid {
-          display: flex;
-          flex-direction: column;
-          gap: 0.5rem;
+        .direct-badges-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 0.6rem;
           margin-top: 0.25rem;
         }
 
-        .pending-channel-item {
+        .direct-channel-item {
           display: flex;
           align-items: center;
-          gap: 0.5rem;
-          font-size: var(--text-xs);
+          gap: 0.55rem;
+          padding: 0.65rem 0.8rem;
+          border-radius: var(--radius-md);
+          border: 1px solid transparent;
+          text-decoration: none;
+          transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .direct-channel-item:hover {
+          transform: translateY(-1px);
+          box-shadow: var(--shadow-sm);
         }
 
-        .pending-item-label {
+        .direct-channel-whatsapp {
+          background: #f0faf3;
+          border-color: #bbf0cc;
+          color: #15803d;
+        }
+        .direct-channel-whatsapp svg { color: #16a34a; }
+
+        .direct-channel-phone {
+          background: #f0f4ff;
+          border-color: #c7d7ff;
+          color: #1d4ed8;
+        }
+        .direct-channel-phone svg { color: #2563eb; }
+
+        .direct-item-label {
+          font-size: 10px;
           font-weight: 700;
-          color: var(--color-primary-800);
-          width: 75px;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+          opacity: 0.7;
+          line-height: 1;
         }
 
-        .pending-note {
-          font-size: 11px;
-          color: var(--color-text-muted);
-          line-height: var(--leading-normal);
-          margin: 0.25rem 0 0 0;
+        .direct-item-value {
+          font-size: var(--text-xs);
+          font-weight: 700;
+          letter-spacing: 0.01em;
+          line-height: 1.4;
         }
+
 
         .privacy-reassurance-box {
           display: flex;
@@ -909,22 +948,26 @@ export const ContactSection: React.FC = () => {
           margin: 0.25rem 0 0 0;
         }
 
-        .backend-transparency-box {
+        .wa-redirect-box {
           width: 100%;
           padding: 0.95rem 1.15rem;
           border-radius: var(--radius-md);
-          background-color: var(--color-bg-subtle);
-          border: 1px solid var(--color-border);
+          background-color: #f0faf3;
+          border: 1px solid #bbf0cc;
           font-size: var(--text-xs);
         }
 
-        .backend-notice-title {
-          font-weight: 700;
-          color: var(--color-primary-900);
+        .wa-icon-green {
+          color: #16a34a;
         }
 
-        .backend-notice-desc {
-          color: var(--color-text-muted);
+        .wa-redirect-title {
+          font-weight: 700;
+          color: #15803d;
+        }
+
+        .wa-redirect-desc {
+          color: var(--color-text-secondary);
           line-height: var(--leading-normal);
           margin: 4px 0 0 0;
         }

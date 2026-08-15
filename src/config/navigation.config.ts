@@ -86,7 +86,7 @@ export const FOOTER_NAV_GROUPS: FooterLinkGroup[] = [
     links: [
       { label: 'Instagram (@sadiya_fitcoach)', href: 'https://www.instagram.com/sadiya_fitcoach/', isExternal: true },
       { label: 'Email: sadiyahalima2876@gmail.com', href: 'mailto:sadiyahalima2876@gmail.com', isExternal: true },
-      { label: 'WhatsApp: [WHATSAPP NUMBER REQUIRED]', href: '#contact', isPlaceholder: true }
+      { label: 'WhatsApp: +91 95700 30631', href: 'https://wa.me/919570030631', isExternal: true }
     ]
   },
   {

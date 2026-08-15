@@ -5,7 +5,6 @@ import { Card } from '../../primitives/Card/Card';
 import { Button } from '../../primitives/Button/Button';
 import { Badge } from '../../primitives/Badge/Badge';
 import { Icon } from '../../primitives/Icon/Icon';
-import { PlaceholderNotice } from '../../primitives/PlaceholderNotice/PlaceholderNotice';
 import { InstagramFeedWidget } from './InstagramFeedWidget';
 import { BUSINESS_CONFIG } from '../../../config/business.config';
 import { CTA_CONFIG } from '../../../config/navigation.config';

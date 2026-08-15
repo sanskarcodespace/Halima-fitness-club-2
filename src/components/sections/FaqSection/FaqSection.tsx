@@ -157,7 +157,7 @@ export const FaqSection: React.FC = () => {
       categoryLabel: 'Contact',
       answer: (
         <p>
-          You can reach Coach Halima via email at <a href={`mailto:${BUSINESS_CONFIG.email}`} className="faq-inline-link">{BUSINESS_CONFIG.email}</a> or connect on Instagram at <a href={BUSINESS_CONFIG.instagram.url} target="_blank" rel="noopener noreferrer" className="faq-inline-link">{BUSINESS_CONFIG.instagram.handle}</a>. Direct phone and WhatsApp lines are currently in pending verification.
+          You can reach Coach Halima via email at <a href={`mailto:${BUSINESS_CONFIG.email}`} className="faq-inline-link">{BUSINESS_CONFIG.email}</a>, WhatsApp / Phone at <a href="https://wa.me/919570030631" target="_blank" rel="noopener noreferrer" className="faq-inline-link">+91 95700 30631</a>, or connect on Instagram at <a href={BUSINESS_CONFIG.instagram.url} target="_blank" rel="noopener noreferrer" className="faq-inline-link">{BUSINESS_CONFIG.instagram.handle}</a>.
         </p>
       )
     },

@@ -44,10 +44,10 @@ export const BUSINESS_CONFIG = {
   availability: 'Always Open',
   consultationMode: '100% Online Coaching & Virtual Support',
 
-  // Contact Placeholders (Never invent phone/whatsapp numbers)
+  // Verified Contact Details
   contactPlaceholders: {
-    whatsapp: '[WHATSAPP NUMBER REQUIRED]',
-    phone: '[PHONE NUMBER REQUIRED]',
+    whatsapp: '+919570030631',
+    phone: '+91 95700 30631',
     address: '[ONLINE CONSULTING ONLY / ADDRESS NOT APPLICABLE]'
   },
 

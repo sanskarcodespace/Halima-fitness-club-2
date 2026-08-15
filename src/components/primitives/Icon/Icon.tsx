@@ -14,6 +14,7 @@ export type IconName =
   | 'arrow-right'
   | 'external-link'
   | 'alert'
+  | 'alert-circle'
   | 'user'
   | 'heart'
   | 'lifestyle'
@@ -21,7 +22,10 @@ export type IconName =
   | 'fitness'
   | 'message'
   | 'search'
-  | 'help';
+  | 'help'
+  | 'play'
+  | 'grid'
+  | 'book-open';
 
 export interface IconProps extends React.SVGProps<SVGSVGElement> {
   name: IconName;
@@ -202,6 +206,36 @@ export const Icon: React.FC<IconProps> = ({
           <circle cx="12" cy="12" r="10" />
           <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
           <line x1="12" y1="17" x2="12.01" y2="17" />
+        </svg>
+      );
+    case 'play':
+      return (
+        <svg {...iconProps}>
+          <polygon points="5 3 19 12 5 21 5 3" />
+        </svg>
+      );
+    case 'grid':
+      return (
+        <svg {...iconProps}>
+          <rect x="3" y="3" width="7" height="7" />
+          <rect x="14" y="3" width="7" height="7" />
+          <rect x="14" y="14" width="7" height="7" />
+          <rect x="3" y="14" width="7" height="7" />
+        </svg>
+      );
+    case 'book-open':
+      return (
+        <svg {...iconProps}>
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+        </svg>
+      );
+    case 'alert-circle':
+      return (
+        <svg {...iconProps}>
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" x2="12" y1="8" y2="12" />
+          <line x1="12" x2="12.01" y1="16" y2="16" />
         </svg>
       );
     default:

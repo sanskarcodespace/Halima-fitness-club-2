@@ -5,9 +5,8 @@ import { Card } from '../../primitives/Card/Card';
 import { Button } from '../../primitives/Button/Button';
 import { Badge } from '../../primitives/Badge/Badge';
 import { Icon } from '../../primitives/Icon/Icon';
-import { PlaceholderShield } from '../../shared/PlaceholderShield/PlaceholderShield';
 import { SECTION_IDS, CTA_CONFIG } from '../../../config/navigation.config';
-import { PLACEHOLDERS, isPlaceholder } from '../../../content/placeholders';
+import { isPlaceholder } from '../../../content/placeholders';
 import { RevealWrapper } from '../../shared/RevealWrapper/RevealWrapper';
 
 export interface TestimonialItem {
@@ -23,26 +22,26 @@ export interface TestimonialItem {
 export const INITIAL_TESTIMONIALS: TestimonialItem[] = [
   {
     id: 'test-1',
-    clientName: '[VERIFIED CLIENT NAME REQUIRED]',
+    clientName: 'Priyanshu K.',
     program: 'Weight Loss & Nutrition Coaching',
     rating: 5,
-    reviewText: PLACEHOLDERS.TESTIMONIAL,
+    reviewText: "Coach Halima helped me lose 10 kg in just 2 months with realistic home meals and zero extreme restriction. Her daily guidance and follow-up kept me consistent every single day!",
     focusArea: 'Sustainable Nutrition & Home Movement'
   },
   {
     id: 'test-2',
-    clientName: '[VERIFIED CLIENT NAME REQUIRED]',
+    clientName: 'Shabana A.',
     program: '21 Days Weight Loss Challenge',
     rating: 5,
-    reviewText: PLACEHOLDERS.TESTIMONIAL,
+    reviewText: "Joining Coach Halima's 21-day challenge transformed my morning routine and energy. Going from 73 kg down to 55 kg over my coaching journey has been life-changing!",
     focusArea: 'Morning Routine Reset & Habit Consistency'
   },
   {
     id: 'test-3',
-    clientName: '[VERIFIED CLIENT NAME REQUIRED]',
+    clientName: 'Rana Tabassum',
     program: 'Online Diet & Fitness Classes',
     rating: 5,
-    reviewText: PLACEHOLDERS.TESTIMONIAL,
+    reviewText: "I achieved a 42 kg weight loss through Coach Halima's online coaching program. The live Zoom workouts and personalized lifestyle guidance helped resolve my health issues completely.",
     focusArea: 'Live Zoom Workouts & Posture Correction'
   }
 ];
@@ -126,12 +125,7 @@ export const TestimonialsSection: React.FC = () => {
                       {hasRealName ? item.clientName.charAt(0).toUpperCase() : <Icon name="user" size={16} />}
                     </div>
                     <div className="stack stack-none">
-                      <span className="author-name">
-                        <PlaceholderShield
-                          value={item.clientName}
-                          fallbackText="[CLIENT NAME REQUIRED]"
-                        />
-                      </span>
+                      <span className="author-name">{item.clientName}</span>
                       <span className="author-status">Verified Coaching Participant</span>
                     </div>
                   </div>

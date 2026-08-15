@@ -56,45 +56,27 @@ const IgPostTile: React.FC<{ post: IgPost }> = ({ post }) => {
   );
 };
 
-/* ── Setup / Not-Connected State ──────────────────────────────────── */
+/* ── Setup / Not-Connected State (Clean Visitor Banner) ───────────────── */
 const IgSetupPrompt: React.FC = () => (
-  <div className="ig-setup-card">
-    <div className="ig-setup-icon-ring">
-      <Icon name="instagram" size={32} />
+  <div className="ig-simple-banner split">
+    <div className="cluster cluster-sm">
+      <div className="ig-simple-icon">
+        <Icon name="instagram" size={20} />
+      </div>
+      <div className="stack stack-none">
+        <strong className="ig-simple-title">Follow Coach Halima on Instagram</strong>
+        <span className="ig-simple-subtitle">Daily fitness tips, workout demos, and healthy recipes @sadiya_fitcoach</span>
+      </div>
     </div>
-    <h3 className="ig-setup-title">Connect Live Instagram Feed</h3>
-    <p className="ig-setup-desc">
-      Display your latest Instagram posts automatically. Add your Instagram access token to enable the live feed.
-    </p>
-    <ol className="ig-setup-steps">
-      <li>
-        <strong>1.</strong> Go to{' '}
-        <a href="https://developers.facebook.com/apps/" target="_blank" rel="noopener noreferrer">
-          developers.facebook.com
-        </a>{' '}
-        → Create an App → Add <em>Instagram Basic Display</em> product.
-      </li>
-      <li>
-        <strong>2.</strong> Generate a long-lived access token for{' '}
-        <strong>@sadiya_fitcoach</strong>.
-      </li>
-      <li>
-        <strong>3.</strong> Add to your <code>.env</code> file:
-        <pre className="ig-setup-code">VITE_INSTAGRAM_ACCESS_TOKEN=your_token_here</pre>
-      </li>
-      <li>
-        <strong>4.</strong> Restart dev server — your live feed will appear automatically.
-      </li>
-    </ol>
-    <a
-      href="https://developers.facebook.com/docs/instagram-basic-display-api/getting-started"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="ig-setup-docs-link"
+    <Button
+      variant="primary"
+      size="sm"
+      href="https://www.instagram.com/sadiya_fitcoach/"
+      isExternal
+      rightIcon={<Icon name="arrow-right" size={14} />}
     >
-      <Icon name="book-open" size={14} />
-      Read the Setup Guide
-    </a>
+      Follow @sadiya_fitcoach
+    </Button>
   </div>
 );
 
@@ -321,81 +303,37 @@ export const InstagramFeedWidget: React.FC = () => {
         .ig-error-icon { color: var(--color-accent-600); }
         .ig-error-msg { font-size: var(--text-sm); color: var(--color-text-secondary); margin: 0; }
 
-        /* Setup card */
-        .ig-setup-card {
-          border: 1.5px dashed var(--color-border);
-          border-radius: var(--radius-xl);
-          padding: 2rem 2.25rem;
-          display: flex;
-          flex-direction: column;
+        /* Simple Banner */
+        .ig-simple-banner {
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-lg);
+          padding: 1.15rem 1.5rem;
+          background: #FFFFFF;
+          box-shadow: var(--shadow-sm);
           align-items: center;
-          text-align: center;
-          gap: 0.75rem;
-          background: var(--color-bg-subtle);
+          gap: 1rem;
         }
-        .ig-setup-icon-ring {
-          width: 60px;
-          height: 60px;
+        .ig-simple-icon {
+          width: 40px;
+          height: 40px;
           border-radius: 50%;
           background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
           display: flex;
           align-items: center;
           justify-content: center;
           color: #fff;
+          flex-shrink: 0;
         }
-        .ig-setup-title {
+        .ig-simple-title {
           font-family: var(--font-heading);
-          font-size: var(--text-lg);
+          font-size: var(--text-sm);
           font-weight: 700;
           color: var(--color-text-main);
-          margin: 0;
         }
-        .ig-setup-desc {
-          font-size: var(--text-sm);
+        .ig-simple-subtitle {
+          font-size: var(--text-xs);
           color: var(--color-text-secondary);
-          max-width: 480px;
-          margin: 0;
         }
-        .ig-setup-steps {
-          list-style: none;
-          padding: 0;
-          margin: 0.5rem 0;
-          text-align: left;
-          font-size: var(--text-sm);
-          color: var(--color-text-secondary);
-          display: flex;
-          flex-direction: column;
-          gap: 0.6rem;
-          max-width: 520px;
-          width: 100%;
-        }
-        .ig-setup-steps li { line-height: 1.55; }
-        .ig-setup-steps a { color: var(--color-primary-700); font-weight: 600; }
-        .ig-setup-code {
-          display: block;
-          margin-top: 0.35rem;
-          padding: 0.35rem 0.75rem;
-          background: rgba(0,0,0,0.06);
-          border-radius: var(--radius-sm);
-          font-family: monospace;
-          font-size: 12px;
-          color: var(--color-text-main);
-          border: 1px solid var(--color-border);
-          white-space: pre-wrap;
-          word-break: break-all;
-        }
-        .ig-setup-docs-link {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.4rem;
-          font-size: var(--text-sm);
-          font-weight: 600;
-          color: var(--color-primary-700);
-          text-decoration: none;
-          border-bottom: 1px solid transparent;
-          transition: border-color 0.15s ease;
-        }
-        .ig-setup-docs-link:hover { border-color: var(--color-primary-700); }
       `}</style>
     </>
   );

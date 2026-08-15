@@ -142,7 +142,7 @@ export const SuccessStoriesSection: React.FC = () => {
         .ss-disclaimer-icon { color: var(--color-primary-600); flex-shrink: 0; margin-top: 2px; }
         .ss-disclaimer-text { font-size: var(--text-sm); color: var(--color-text-secondary); line-height: 1.55; margin: 0; }
 
-        /* Collage hero */
+        /* ── Collage hero ──────────────────────────────────────────────── */
         .ss-collage-card {
           position: relative;
           border-radius: var(--radius-xl);
@@ -150,15 +150,16 @@ export const SuccessStoriesSection: React.FC = () => {
           border: 1px solid var(--color-border);
           box-shadow: var(--shadow-md);
           margin-bottom: 2rem;
-          /* Show collage at natural ratio capped to viewport */
-          max-height: 520px;
           background: #000;
+          /* Fixed height cinematic banner */
+          height: 400px;
         }
         .ss-collage-img {
           width: 100%;
-          height: 520px;
+          height: 100%;
           object-fit: cover;
-          object-position: center top;
+          /* Show the top portion where the faces + text are */
+          object-position: center 25%;
           display: block;
         }
         .ss-collage-overlay {
@@ -185,19 +186,20 @@ export const SuccessStoriesSection: React.FC = () => {
           opacity: 0.75;
         }
 
-        /* Cards grid — equal width 3 columns */
+        /* ── Cards grid — 3 equal columns ─────────────────────────────── */
         .ss-cards-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 1.25rem;
           margin-bottom: 2.5rem;
+          /* Force all rows to the same height */
+          align-items: stretch;
         }
 
         /* Card */
         .ss-card {
           display: flex;
           flex-direction: column;
-          gap: 0;
           border-radius: var(--radius-lg);
           overflow: hidden;
           border: 1px solid var(--color-border);
@@ -210,31 +212,33 @@ export const SuccessStoriesSection: React.FC = () => {
           transform: translateY(-2px);
         }
 
-        /* Image wrapper — fixed aspect 4:5 for a premium editorial crop */
+        /* ── Image wrapper — SAME fixed ratio for all cards ───────────── */
         .ss-card-img-wrap {
           position: relative;
+          /* 4:5 is the most consistent crop for portrait before/after pairs */
           aspect-ratio: 4 / 5;
           overflow: hidden;
-          background: #f0f0f0;
+          background: #111;
+          flex-shrink: 0;
         }
         .ss-card-img {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          /* Center vertically — for these portrait photos this shows upper body/full body */
-          object-position: center 20%;
+          /* Center so the full before+after pair is visible */
+          object-position: center center;
           display: block;
           transition: transform 0.35s ease;
         }
         .ss-card:hover .ss-card-img {
-          transform: scale(1.03);
+          transform: scale(1.025);
         }
 
-        /* Result label gradient overlay at bottom of image */
+        /* Result label gradient overlay */
         .ss-card-overlay {
           position: absolute;
           bottom: 0; left: 0; right: 0;
-          padding: 1.5rem 0.9rem 0.65rem;
+          padding: 2rem 0.9rem 0.65rem;
           background: linear-gradient(to top, rgba(10,37,21,0.88) 0%, transparent 100%);
           display: flex;
           align-items: flex-end;
@@ -296,29 +300,23 @@ export const SuccessStoriesSection: React.FC = () => {
           line-height: 1.6;
         }
 
-        /* ── Responsive ─────────────────────────────────────────────── */
+        /* ── Responsive ──────────────────────────────────────────────── */
         @media (max-width: 768px) {
           .ss-cards-grid {
             grid-template-columns: repeat(2, 1fr);
             gap: 0.85rem;
           }
-          .ss-collage-img {
-            height: 380px;
-          }
-          .ss-collage-card {
-            max-height: 380px;
-          }
+          .ss-collage-card { height: 320px; }
         }
 
         @media (max-width: 480px) {
           .ss-cards-grid {
             grid-template-columns: 1fr;
-            max-width: 320px;
+            max-width: 360px;
             margin-left: auto;
             margin-right: auto;
           }
-          .ss-collage-img { height: 280px; }
-          .ss-collage-card { max-height: 280px; }
+          .ss-collage-card { height: 240px; }
         }
       `}</style>
     </SectionWrapper>
