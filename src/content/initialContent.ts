@@ -149,6 +149,24 @@ export const INITIAL_CONTENT: SiteContent = {
       supportIncludes: ['Dedicated 1-on-1 virtual sessions', 'Complete nutrition & fitness roadmap', 'Priority message support & follow-up'],
       icon: 'sparkles',
       badge: 'Comprehensive'
+    },
+    {
+      id: 'srv-skin-wellness',
+      anchorId: 'service-skin-wellness',
+      name: 'Skin & Wellness Guidance',
+      targetAudience: 'Individuals seeking nutrition and lifestyle support for healthy skin',
+      description: 'Personalized lifestyle, nutrition and wellness guidance focused on supporting healthy skin through balanced nutrition, hydration, healthy lifestyle habits and consistent wellness routines.',
+      supportIncludes: ['Nutrition guidance for healthy lifestyle habits', 'Hydration & daily routine optimization', 'Mindful habits for skin health'],
+      icon: 'lifestyle'
+    },
+    {
+      id: 'srv-child-health',
+      anchorId: 'service-child-health',
+      name: 'Child Health & Wellness Guidance',
+      targetAudience: 'Parents looking to build healthy habits and balanced nutrition for their children',
+      description: 'Family-focused guidance on balanced nutrition, active lifestyle habits, and positive wellness routines for children to support their healthy development and well-being.',
+      supportIncludes: ['Family-friendly nutrition guidance', 'Healthy daily habit building', 'Active lifestyle support for kids'],
+      icon: 'user'
     }
   ],
 

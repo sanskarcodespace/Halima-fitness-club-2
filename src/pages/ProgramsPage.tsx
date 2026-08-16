@@ -5,6 +5,7 @@ import { OnlineClassesSection } from '../components/sections/OnlineClassesSectio
 import { ClassScheduleSection } from '../components/sections/ClassScheduleSection/ClassScheduleSection';
 import { ChallengeSection } from '../components/sections/ChallengeSection/ChallengeSection';
 import { WellnessToolsSection } from '../components/sections/WellnessToolsSection/WellnessToolsSection';
+import { ServicesSection } from '../components/sections/ServicesSection/ServicesSection';
 
 export const ProgramsPage: React.FC = () => {
   return (
@@ -14,6 +15,9 @@ export const ProgramsPage: React.FC = () => {
 
       {/* 2. Detailed Program Breakdown */}
       <DetailedProgramsSection />
+
+      {/* 2.5 All Services */}
+      <ServicesSection />
 
       {/* 3. Live Online Classes */}
       <OnlineClassesSection />

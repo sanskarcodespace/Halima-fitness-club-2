@@ -118,6 +118,14 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ limit }) => {
         </div>
       )}
 
+      {/* Professional Medical Disclaimer */}
+      <div className="services-disclaimer">
+        <Icon name="alert-circle" size={16} className="disclaimer-icon" />
+        <p>
+          <strong>Professional Notice:</strong> These services provide general wellness, nutrition and lifestyle guidance and are not a substitute for diagnosis or treatment by a qualified medical professional. For medical concerns, please consult an appropriate healthcare professional.
+        </p>
+      </div>
+
       {/* Services Overview Scoped Styles */}
       <style>{`
         .services-grid {
@@ -266,6 +274,26 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ limit }) => {
 
         .service-cta-btn {
           width: 100%;
+        }
+
+        .services-disclaimer {
+          margin-top: 2rem;
+          padding: 1rem;
+          background-color: var(--color-bg-subtle);
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-md);
+          display: flex;
+          align-items: flex-start;
+          gap: 0.75rem;
+          font-size: var(--text-xs);
+          color: var(--color-text-secondary);
+          line-height: var(--leading-relaxed);
+        }
+
+        .disclaimer-icon {
+          color: var(--color-primary-600);
+          flex-shrink: 0;
+          margin-top: 2px;
         }
       `}</style>
     </SectionWrapper>
