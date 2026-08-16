@@ -21,7 +21,7 @@ export interface GoalOption {
   };
 }
 
-export const GOAL_OPTIONS: GoalOption[] = [
+const GOAL_OPTIONS: GoalOption[] = [
   {
     id: 'goal-weight-loss',
     label: 'I want to lose weight',

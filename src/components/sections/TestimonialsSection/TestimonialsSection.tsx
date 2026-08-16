@@ -19,7 +19,7 @@ export interface TestimonialItem {
   focusArea: string;
 }
 
-export const INITIAL_TESTIMONIALS: TestimonialItem[] = [
+const INITIAL_TESTIMONIALS: TestimonialItem[] = [
   {
     id: 'test-1',
     clientName: 'Priyanshu K.',

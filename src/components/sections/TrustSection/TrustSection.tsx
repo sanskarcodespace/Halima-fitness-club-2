@@ -12,7 +12,7 @@ export interface TrustItemData {
   accentColor?: string;
 }
 
-export const TRUST_ITEMS: TrustItemData[] = [
+const TRUST_ITEMS: TrustItemData[] = [
   {
     id: 'trust-exp',
     metric: '6+ Years',

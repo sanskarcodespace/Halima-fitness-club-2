@@ -3,7 +3,7 @@ import { SectionWrapper } from '../../layout/SectionWrapper/SectionWrapper';
 import { SectionHeading } from '../../primitives/SectionHeading/SectionHeading';
 import { ProgramDetailCard, type DetailedProgramData } from './ProgramDetailCard';
 
-export const DETAILED_PROGRAMS_DATA: DetailedProgramData[] = [
+const DETAILED_PROGRAMS_DATA: DetailedProgramData[] = [
   {
     id: 'det-weight-loss',
     anchorId: 'service-weight-loss',
