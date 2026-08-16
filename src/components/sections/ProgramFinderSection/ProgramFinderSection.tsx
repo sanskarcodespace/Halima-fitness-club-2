@@ -125,6 +125,32 @@ export const GOAL_OPTIONS: GoalOption[] = [
       whyItFits: 'Offers dedicated, continuous 1-on-1 mentorship across nutrition, fitness, sleep, and lifestyle habit architecture.',
       deliverables: ['Dedicated 1-on-1 virtual sessions', 'Complete nutrition & fitness roadmap', 'Priority message support']
     }
+  },
+  {
+    id: 'goal-skin-wellness',
+    label: 'I want skin & wellness guidance',
+    sublabel: 'Nutrition and lifestyle support for healthy skin',
+    icon: 'lifestyle',
+    matchedProgram: {
+      title: 'Skin & Wellness Guidance',
+      anchorId: 'service-skin-wellness',
+      tagline: 'Personalized lifestyle, nutrition and wellness guidance focused on supporting healthy skin.',
+      whyItFits: 'Provides balanced nutrition, hydration, and mindful habits specifically targeted at skin health.',
+      deliverables: ['Nutrition guidance for healthy lifestyle habits', 'Hydration & daily routine optimization', 'Mindful habits for skin health']
+    }
+  },
+  {
+    id: 'goal-child-health',
+    label: 'I want child health & wellness guidance',
+    sublabel: 'Family-focused nutrition and healthy habit building',
+    icon: 'user',
+    matchedProgram: {
+      title: 'Child Health & Wellness Guidance',
+      anchorId: 'service-child-health',
+      tagline: 'Family-focused guidance on balanced nutrition and active lifestyle habits for children.',
+      whyItFits: 'Designed to help parents build healthy, sustainable nutrition and wellness routines for their kids.',
+      deliverables: ['Family-friendly nutrition guidance', 'Healthy daily habit building', 'Active lifestyle support for kids']
+    }
   }
 ];
 

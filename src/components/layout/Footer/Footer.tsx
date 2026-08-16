@@ -29,6 +29,8 @@ export const Footer: React.FC = () => {
     { label: 'Weight Gain Support', href: '/programs' },
     { label: 'Weight Management', href: '/programs' },
     { label: 'Personalized Nutrition', href: '/programs' },
+    { label: 'Skin & Wellness Guidance', href: '/programs' },
+    { label: 'Child Health & Wellness', href: '/programs' },
     { label: '21 Days Transformation Challenge', href: '/programs' },
     { label: 'Daily Live Zoom Batches (6 Days/Wk)', href: '/programs' }
   ];

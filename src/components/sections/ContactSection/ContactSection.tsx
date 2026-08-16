@@ -31,6 +31,8 @@ const GOAL_OPTIONS = [
   'Nutrition',
   'Fitness',
   'Lifestyle & Wellness',
+  'Skin & Wellness Guidance',
+  'Child Health & Wellness Guidance',
   'Online Classes',
   'Other'
 ];
