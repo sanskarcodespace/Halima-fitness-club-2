@@ -21,7 +21,7 @@ export const SITE_CONFIG = {
     'Health and Wellness Coach'
   ],
   author: BUSINESS_CONFIG.coach.name,
-  url: 'https://halimafitnessclub.com',
+  url: 'https://halimafitness.in',
   ogImage: '/og-image.png',
   locale: 'en_IN',
   themeColor: '#061A14',

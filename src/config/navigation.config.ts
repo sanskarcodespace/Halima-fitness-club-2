@@ -72,10 +72,16 @@ export const FOOTER_NAV_GROUPS: FooterLinkGroup[] = [
   {
     title: 'Coaching Focus',
     links: [
-      { label: 'Personalized Nutrition Guidance', href: '/programs' },
-      { label: 'Online Workout Support', href: '/programs' },
-      { label: 'Lifestyle & Habit Coaching', href: '/programs' },
-      { label: 'Regular Accountability & Follow-up', href: '/programs' }
+      { label: 'Weight Loss Coaching', href: '/weight-loss-coaching' },
+      { label: 'Weight Gain Coaching', href: '/weight-gain-coaching' },
+      { label: 'Online Nutrition Coaching', href: '/online-nutrition-coaching' },
+      { label: 'Personalized Diet Guidance', href: '/personalized-diet-guidance' },
+      { label: 'Online Fitness Coaching', href: '/online-fitness-coaching' },
+      { label: '21 Days Weight Loss Challenge', href: '/21-days-weight-loss-challenge' },
+      { label: 'Lifestyle & Wellness Coaching', href: '/lifestyle-wellness-coaching' },
+      { label: 'Online Diet & Fitness Classes', href: '/online-diet-fitness-classes' },
+      { label: 'Weight Management Program', href: '/weight-management-program' },
+      { label: 'Personal Health Coaching', href: '/personal-health-coaching' }
     ]
   },
   {
